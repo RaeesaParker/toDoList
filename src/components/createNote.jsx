@@ -8,6 +8,10 @@ function CreateNote(props){
       <p> {props.body}  </p>
 
       <button
+        className='archive-button'
+        > Archive
+      </button>
+      <button
         className='delete-button'
         onClick={() => props.onDelete(props.id)}
         > <DeleteIcon />

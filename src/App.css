@@ -97,7 +97,7 @@ box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2);
 height: 60px;
 margin: 30px auto 30px auto;
 padding: 10px;
-width: 40%;
+width: 60%;
 }
 
 .insert-note-expanded{
@@ -163,15 +163,24 @@ float: left;
   overflow: hidden;
   outline: none;
   position: relative;
-  right:-80%;
+  /* right:-80%; */
   margin-top: 20px;
-
 }
 
 
 
 /* ----------------- ARCHIVE ------------------ */
 
+.archive-button{
+  background-color: transparent;
+  border: none;
+  color: var(--blue);
+  cursor: pointer;
+  font-size: 0.75rem;
+  font-weight: 500;
+  margin-top: 20px;
+  outline: none;
+}
 
 
 
