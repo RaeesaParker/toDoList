@@ -11,48 +11,49 @@ import Zoom from '@mui/material/Zoom';
 
 
 // ----------------------------------------------------------------- //
-// Create a function to inser a new note
+// Create a function to insert a new note
 // ----------------------------------------------------------------- //
 
 function InsertNote(props){
 
 
+  // Create a state to hold the note
   const [note, setNote] = React.useState({
     noteTitle: '',
     noteContent: ''
   });
 
+  // Set state to expand input on click
   const [expanded, setExpanded] = React.useState(false);
 
 
-// Create function to add a new note to the array
+  // Create function to add a new note to the array
+  function addNewNote(event){
+    const {name, value} = event.target;
 
-function addNewNote(event){
-  const {name, value} = event.target;
+    setNote(prevNote => {
+      return {
+        ...prevNote,
+      [name]: value
+      };
+    });
+  }
 
-  setNote(prevNote => {
-    return {
-      ...prevNote,
-    [name]: value
-    };
-  });
-}
-
-// Submit the note to the functionality element
-function submitNote(event){
-  props.onAdd(note);
-  setNote({
-    noteTitle: '',
-    noteContent: ''
-  });
-  event.preventDefault();
-}
+  // Submit the note to the functionality element
+  function submitNote(event){
+    props.onAdd(note);
+    setNote({
+      noteTitle: '',
+      noteContent: ''
+    });
+    event.preventDefault();
+  }
 
 
-// Function to expand the text expand Area
-function expandArea(event){
-  setExpanded(true);
-}
+  // Function to expand the text expand Area
+  function expandArea(event){
+    setExpanded(true);
+  }
 
 
 
@@ -63,24 +64,27 @@ function expandArea(event){
     <div className={expanded ? 'insert-note-expanded' : 'insert-note'}>
 
       <form>
+        {/* Note title => only shows when expanded */}
         {expanded === true && (<NewNoteInput
           type='text'
           name='noteTitle'
-          placeholder='Title'
+          placeholder='Task Name'
           value = {note.noteTitle}
           onChange = {addNewNote}
 
         />)}
 
+        {/* Content section of note => Shows up before expanding  */}
         <NewNoteInput
           type='text'
           name='noteContent'
-          placeholder='Take a note...'
+          placeholder='Add a task'
           value = {note.noteContent}
           onChange = {addNewNote}
           onClick={expandArea}
         />
 
+      {/* Add button when expanded*/}
       {expanded === true &&(  <Zoom in={true}>
           <Fab
             className='submit-note-button'

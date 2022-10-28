@@ -34,6 +34,8 @@ function Functionality(){
       <InsertNote
         onAdd={addNote}
       />
+
+      {/* Map over list items to create them */}
       {noteList.map((noteItem, noteItemIndex) => {
         return <CreateNote
           key={noteItemIndex}
