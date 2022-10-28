@@ -29,7 +29,7 @@ function Archive(){
   
   
     return(
-      <div>
+      <div className='section-archive'>
         <InsertNote
           onAdd={addArchiveNote}
         />

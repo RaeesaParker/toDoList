@@ -8,8 +8,11 @@ function App() {
   return (
     <div>
         <Heading></Heading>
-        <CurrentInserts></CurrentInserts>
-        <Archive></Archive>
+        
+        <div className='section-main-container'> 
+          <CurrentInserts></CurrentInserts>
+          <Archive></Archive>
+        </div>
         <Footer></Footer>
     </div>
   );

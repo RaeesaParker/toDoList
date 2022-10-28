@@ -29,7 +29,7 @@ function CurrentInserts(){
 
 
   return(
-    <div>
+    <div className='section-insert'>
       <InsertNote
         onAdd={addNote}
       />

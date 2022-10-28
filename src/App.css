@@ -64,9 +64,25 @@ body {
 }
 
 
+/* ----------------- SECTIONS ------------------ */
+
+.section-main-container{
+  background-color: green;
+  display: flex;
+}
+
+.section-insert{
+  background-color: var(--blue);
+  width: 50%;
+}
+
+.section-archive{
+  background-color: var(--red);
+  width: 50%;
+}
+
 
 /* ----------------- Insert Note ------------------ */
-
 
 .insert-note {
 background-color: white;
@@ -147,6 +163,13 @@ float: left;
   margin-top: 20px;
 
 }
+
+
+
+/* ----------------- ARCHIVE ------------------ */
+
+
+
 
 
 /* ----------------- FOOTER ------------------ */
