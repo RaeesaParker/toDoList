@@ -1,13 +1,13 @@
 import './App.css';
 import Heading from './components/heading';
-import Functionality from './components/functionality';
+import CurrentInserts from './components/currentInserts';
 import Footer from './components/footer';
 
 function App() {
   return (
     <div>
         <Heading></Heading>
-        <Functionality></Functionality>
+        <CurrentInserts></CurrentInserts>
         <Footer></Footer>
     </div>
   );

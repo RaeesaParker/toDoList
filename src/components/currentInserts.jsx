@@ -3,7 +3,7 @@ import InsertNote from './insertNote.jsx';
 import CreateNote from './createNote.jsx';
 
 
-function Functionality(){
+function CurrentInserts(){
 
   //  Create an array to store the noteList
   const [noteList, setNoteList] = React.useState([]);
@@ -52,4 +52,4 @@ function Functionality(){
 
 
 
-export default Functionality;
+export default CurrentInserts;
