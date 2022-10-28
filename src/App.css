@@ -1,38 +1,168 @@
-.App {
+
+
+
+/* --------------------------------------------------------- */
+/* VARIABLES                                                 */
+/* --------------------------------------------------------- */
+:root{
+  --yellow : #ffd700;
+  --black :  #000000; 
+  --blue : #2E86AB; 
+  --red : #F24236; 
+}
+
+
+
+
+/* --------------------------------------------------------- */
+/* DOCUMENT CLASSES AND ELEMENTS                             */
+/* --------------------------------------------------------- */
+
+html {
+  position: relative;
+  min-height: 100%;
+  font-family: 'Montserrat', sans-serif;
+}
+
+body {
+  background: #eee;
+  padding: 0 16px;
+  background-image: url("https://www.transparenttextures.com/patterns/cubes.png");
+}
+
+
+.container{
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+
+
+
+/* --------------------------------------------------------- */
+/* COMPONENT CLASSES                                         */
+/* --------------------------------------------------------- */
+
+
+/* ----------------- HEADER ------------------ */
+.navbar-customise{
+  background-color: var(--yellow);
+  border-radius: 1px;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
+  height: 15vh;
+  margin: auto -16px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.navbar-brand{
+  font-family: 'Hubballi', cursive;
+  font-size: 3.0rem;
+  color: var(--black);
+  margin-left:2rem;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+.navbar-brand:hover{
+  color: var(--blue);
+}
+
+
+
+/* ----------------- Insert Note ------------------ */
+
+.insert-note {
+background-color: white;
+border-radius: 7px;
+box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2);
+height: 75px;
+margin: 30px auto 30px auto;
+padding: 10px;
+width: 40%;
+}
+
+.insert-note-expanded{
+  background-color: white;
+  border-radius: 7px;
+  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2);
+  height: 100px;
+  margin: 30px auto 30px auto;
+  padding: 10px;
+  width: 40%;
+}
+
+
+input[type=text] {
+  display: block;
+  margin-top: 7px;
+  border-style: none;
+  font-size: 1.0rem;
+  width: 100%;
+}
+
+.submit-note-button{
   align-items: center;
+  background-color: var(--yellow);
+  border-radius: 50%;
+  border-style: none;
+  color: var(--black);
+  display: flex;
+  font-size: 1.5rem;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  padding: 0 1px 2px 2px ;
+  position: relative;
+  right:-90%;
+  width: 2.5rem;
+ }
+
+
+
+/* ----------------- Note ------------------ */
+
+.note {
+background-color: white;
+border-radius: 7px;
+box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2);
+margin: 2rem;
+width: 350px;
+padding: 10px;
+float: left;
 }
 
-.App-link {
-  color: #61dafb;
+.note h1{
+  font-size: 1.0rem;
+  margin-bottom: 1.0rem;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+
+
+.note p{
+    font-size: 0.8rem;
+    margin-bottom: 5px;
+    white-space: normal;
+    word-wrap: break-word;
+}
+
+.delete-button{
+  color: var(--yellow);
+  background-color: transparent;
+  background-repeat: no-repeat;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+  outline: none;
+  position: relative;
+  right:-80%;
+  margin-top: 20px;
+
+}
+
+
+/* ----------------- FOOTER ------------------ */
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 50px;
+  background-color: var(--yellow);
+  color:black;
+  margin: auto -16px;
+  font-size: 0.75rem;
+
 }
