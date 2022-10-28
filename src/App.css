@@ -27,9 +27,14 @@ html {
 body {
   background: #eee;
   padding: 0 16px;
+  margin: 0;
   background-image: url("https://www.transparenttextures.com/patterns/cubes.png");
+  min-height: 100vh;
 }
 
+div{
+  margin:0;
+}
 
 .container{
   text-align: center;
@@ -69,6 +74,7 @@ body {
 .section-main-container{
   background-color: green;
   display: flex;
+  min-height: 80vh;
 }
 
 .section-insert{
@@ -130,18 +136,16 @@ input[type=text] {
 background-color: white;
 border-radius: 7px;
 box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2);
-margin: 2rem;
-width: 350px;
+margin: 0.5rem;
+width: 200px;
 padding: 10px;
 float: left;
 }
 
 .note h1{
   font-size: 1.0rem;
-  margin-bottom: 1.0rem;
+  margin-bottom: 0.5rem;
 }
-
-
 
 .note p{
     font-size: 0.8rem;
@@ -174,13 +178,17 @@ float: left;
 
 /* ----------------- FOOTER ------------------ */
 .footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  height: 50px;
+  align-items: center;
   background-color: var(--yellow);
   color:black;
-  margin: auto -16px;
+  display: flex;
   font-size: 0.75rem;
+  height: 5vh;
+  justify-content: center;
+  width: 100vw;
+}
 
+
+.footer p {
+  margin: 0;
 }
