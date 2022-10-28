@@ -1,8 +1,6 @@
 import React from 'react';
 import NewNoteInput from './insertNoteInputs.jsx';
 import CreateNote from './createNote.jsx';
-import AddIcon from '@mui/icons-material/Add';
-import Fab from '@mui/material/Fab';
 import Zoom from '@mui/material/Zoom';
 
 
@@ -85,13 +83,13 @@ function InsertNote(props){
 
       {/* Add button when expanded*/}
       {expanded === true &&(  <Zoom in={true}>
-          <Fab
+          <button
             className='submit-note-button'
             type='submit'
             onClick={submitNote}
             >
-            <AddIcon/>
-          </Fab>
+            +
+          </button>
         </Zoom> )}
         
       </form>
