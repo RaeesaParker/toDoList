@@ -9,9 +9,8 @@ function Functionality(){
   const [noteList, setNoteList] = React.useState([]);
 
 
-  //  Function to add a new note => pushes to the notelist
+  //  Function to add a new note => takes created note and pushes to the notelist
   function addNote(newNote){
-    console.log(noteList);
     setNoteList(prevNoteList => {
       return [...prevNoteList, newNote];
     });
@@ -35,7 +34,7 @@ function Functionality(){
         onAdd={addNote}
       />
 
-      {/* Map over list items to create them */}
+      {/* Map over list items to create them => attaches note underneath */}
       {noteList.map((noteItem, noteItemIndex) => {
         return <CreateNote
           key={noteItemIndex}
