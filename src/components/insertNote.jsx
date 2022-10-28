@@ -7,7 +7,7 @@ import Zoom from '@mui/material/Zoom';
 
 
 // This deals with inputing a new note
-// Need to take the noteList from here and export it to the creating a note page
+// Need to take the note from here and export it to the creating a note page
 
 
 // ----------------------------------------------------------------- //
@@ -27,7 +27,7 @@ function InsertNote(props){
   const [expanded, setExpanded] = React.useState(false);
 
 
-  // Create function to add a new note to the array
+  // Create function to add a new note to the array => Takes the input title / content and sets them
   function addNewNote(event){
     const {name, value} = event.target;
 
@@ -39,7 +39,7 @@ function InsertNote(props){
     });
   }
 
-  // Submit the note to the functionality element
+  // Submit the note to the functionality element when add button is clicked
   function submitNote(event){
     props.onAdd(note);
     setNote({
@@ -71,7 +71,6 @@ function InsertNote(props){
           placeholder='Task Name'
           value = {note.noteTitle}
           onChange = {addNewNote}
-
         />)}
 
         {/* Content section of note => Shows up before expanding  */}
