@@ -3,17 +3,13 @@ import InsertNote from './insertNote.jsx';
 import CreateNote from './createNote.jsx';
 
 
-
-
-
 function Functionality(){
 
   //  Create an array to store the noteList
-
   const [noteList, setNoteList] = React.useState([]);
 
 
-
+  //  Function to add a new note => pushes to the notelist
   function addNote(newNote){
     console.log(noteList);
     setNoteList(prevNoteList => {
@@ -21,6 +17,7 @@ function Functionality(){
     });
   };
 
+  // Function to delete note => Returns all the notes WITHOUT supplied ID
   function deleteNote(id){
     setNoteList(prevNoteList => {
       return prevNoteList.filter((oldNote, oldNoteIndex) => {
