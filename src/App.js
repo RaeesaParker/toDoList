@@ -20,7 +20,7 @@ function App() {
         
         <div className='section-main-container'> 
           <CurrentInserts archiveNoteList={archiveNoteList} setArchiveNoteList={setArchiveNoteList} ></CurrentInserts>
-          <Archive archiveNoteList={archiveNoteList} ></Archive>
+          <Archive archiveNoteList={archiveNoteList} setArchiveNoteList={setArchiveNoteList} ></Archive>
         </div>
         <Footer></Footer>
     </div>

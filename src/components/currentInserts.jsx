@@ -42,7 +42,6 @@ function CurrentInserts({archiveNoteList, setArchiveNoteList}){
           id={noteItemIndex}
           title={noteItem.noteTitle}
           body={noteItem.noteContent}
-          // onArchive={addToArchive}
           onDelete={deleteNote}
           archiveNoteList={archiveNoteList}
           setArchiveNoteList={setArchiveNoteList}
