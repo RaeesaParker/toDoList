@@ -19,7 +19,7 @@ function Archive(props){
   
     return(
       <div className='section-archive'>
-  
+        <h3>Archive</h3>
         {/* Map over list items to create them => attaches note underneath */}
         {props.archiveNoteList.map((noteItem, noteItemIndex) => {
           return <CreateNote
