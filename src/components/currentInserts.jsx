@@ -1,9 +1,10 @@
 import React from 'react';
 import InsertNote from './insertNote.jsx';
 import CreateNote from './createNote.jsx';
+import Archive from './archive.jsx';
 
 
-function CurrentInserts(){
+function CurrentInserts({archiveNoteList, setArchiveNoteList}){
 
   //  Create an array to store the noteList
   const [noteList, setNoteList] = React.useState([]);
@@ -23,9 +24,9 @@ function CurrentInserts(){
         return oldNoteIndex !== id
       })
     })
-
-
   }
+
+ 
 
 
   return(
@@ -41,7 +42,10 @@ function CurrentInserts(){
           id={noteItemIndex}
           title={noteItem.noteTitle}
           body={noteItem.noteContent}
+          // onArchive={addToArchive}
           onDelete={deleteNote}
+          archiveNoteList={archiveNoteList}
+          setArchiveNoteList={setArchiveNoteList}
         />
       })}
     </div>

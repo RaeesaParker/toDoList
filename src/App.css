@@ -72,18 +72,18 @@ div{
 /* ----------------- SECTIONS ------------------ */
 
 .section-main-container{
-  background-color: green;
+  /* background-color: green; */
   display: flex;
   min-height: 80vh;
 }
 
 .section-insert{
-  background-color: var(--blue);
+  /* background-color: var(--blue); */
   width: 50%;
 }
 
 .section-archive{
-  background-color: var(--red);
+  /* background-color: var(--red); */
   width: 50%;
 }
 
