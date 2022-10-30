@@ -32,6 +32,15 @@ body {
   min-height: 100vh;
 }
 
+h3{
+  font-size: 1.5rem;
+  margin-top: 0;
+  padding-top: 2%;
+  text-align: center;
+}
+
+
+
 div{
   margin:0;
 }
@@ -82,10 +91,21 @@ div{
   width: 50%;
 }
 
+.section-storage-container{
+  min-height: 85vh;
+  min-width: 50vw;
+}
+
 .section-archive{
   border-left: 2px solid var(--black);
-  /* background-color: var(--red); */
-  width: 50%;
+  min-height: 42.5vh;
+}
+
+.section-doing{
+  border-left: 2px solid var(--black);
+  border-bottom: 2px solid var(--black);
+  min-height: 42.5vh;
+  margin: 0;
 }
 
 
@@ -155,27 +175,18 @@ float: left;
     word-wrap: break-word;
 }
 
-.delete-button{
-  color: var(--yellow);
-  background-color: transparent;
-  background-repeat: no-repeat;
-  border: none;
-  cursor: pointer;
-  overflow: hidden;
-  outline: none;
-  position: relative;
-  /* right:-80%; */
-  margin-top: 20px;
+
+
+/* ----------------- BUTTONS ------------------ */
+
+.div-buttons{
+  display: flex;
+  justify-content: space-between;
 }
 
-
-
-/* ----------------- ARCHIVE ------------------ */
-
-.archive-button{
+.button{
   background-color: transparent;
   border: none;
-  color: var(--blue);
   cursor: pointer;
   font-size: 0.75rem;
   font-weight: 500;
@@ -183,12 +194,21 @@ float: left;
   outline: none;
 }
 
-
-h3{
-  font-size: 1.5rem;
-  margin-top: 2%;
-  text-align: center;
+.doing-button{
+  color: var(--blue);
 }
+
+.archive-button{
+  color: var(--black);
+}
+
+.delete-button{
+  color: var(--yellow);
+}
+
+
+
+
 
 
 

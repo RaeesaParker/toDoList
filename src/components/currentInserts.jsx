@@ -4,7 +4,7 @@ import CreateNote from './createNote.jsx';
 import Archive from './archive.jsx';
 
 
-function CurrentInserts({archiveNoteList, setArchiveNoteList}){
+function CurrentInserts({archiveNoteList, setArchiveNoteList, doingNoteList, setDoingNoteList}){
 
   //  Create an array to store the noteList
   const [noteList, setNoteList] = React.useState([]);
@@ -45,6 +45,8 @@ function CurrentInserts({archiveNoteList, setArchiveNoteList}){
           onDelete={deleteNote}
           archiveNoteList={archiveNoteList}
           setArchiveNoteList={setArchiveNoteList}
+          doingNoteList={doingNoteList}
+          setDoingNoteList={setDoingNoteList}
         />
       })}
     </div>
