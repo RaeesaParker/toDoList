@@ -59,7 +59,7 @@ function InsertNote(props){
   /////////////////// RETURN /////////////////
 
   return (
-    <div className={expanded ? 'insert-note-expanded' : 'insert-note'}>
+    <div className={expanded ? 'insert-note-expanded insert-note' : 'insert-note '}>
 
       <form>
         {/* Note title => only shows when expanded */}

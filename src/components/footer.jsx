@@ -23,7 +23,7 @@ function Footer(){
     <div>
     <footer className="footer mt-auto py-3 ">
       <div className="container">
-        <span>&copy; {authorName} {currentYear}</span>
+        <p>&copy; {authorName} {currentYear}</p>
       </div>
     </footer>
       </div>
