@@ -3,6 +3,7 @@ import {useState} from 'react';
 import Heading from './components/heading';
 import CurrentInserts from './components/currentInserts';
 import Archive from './components/archive';
+import Doing from './components/doing'
 import Footer from './components/footer';
 
 
@@ -11,6 +12,10 @@ function App() {
 
     //  Create an array to store the archiveNoteList
     const [archiveNoteList, setArchiveNoteList] = useState([]);
+   
+    //  Create an array to store the doingNoteList
+    const [doingNoteList, setDoingNoteList] = useState([]);
+
 
 
 
@@ -19,8 +24,11 @@ function App() {
         <Heading></Heading>
         
         <div className='section-main-container'> 
-          <CurrentInserts archiveNoteList={archiveNoteList} setArchiveNoteList={setArchiveNoteList} ></CurrentInserts>
-          <Archive archiveNoteList={archiveNoteList} setArchiveNoteList={setArchiveNoteList} ></Archive>
+          <CurrentInserts archiveNoteList={archiveNoteList} setArchiveNoteList={setArchiveNoteList} doingNoteList={doingNoteList} setDoingNoteList={setDoingNoteList} ></CurrentInserts>
+          <div className='section-storage-container'>
+            <Doing doingNoteList={doingNoteList} setDoingNoteList={setDoingNoteList} archiveNoteList={archiveNoteList} setArchiveNoteList={setArchiveNoteList}></Doing>
+            <Archive archiveNoteList={archiveNoteList} setArchiveNoteList={setArchiveNoteList} ></Archive>
+          </div>
         </div>
         <Footer></Footer>
     </div>

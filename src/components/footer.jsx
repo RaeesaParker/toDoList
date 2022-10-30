@@ -13,6 +13,8 @@ function Footer(){
 
   const currentYear = newDate.getFullYear();
 
+  const hrefAddress="https://raeesaparker.github.io/portfolio/"
+
 
 
   // ----------------------------------------------------------------- //
@@ -23,7 +25,7 @@ function Footer(){
     <div>
     <footer className="footer mt-auto py-3 ">
       <div className="container">
-        <p>&copy; {authorName} {currentYear}</p>
+        <a href={hrefAddress} target="__blank">&copy; {authorName} {currentYear}</a>
       </div>
     </footer>
       </div>

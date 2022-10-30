@@ -59,40 +59,42 @@ function InsertNote(props){
   /////////////////// RETURN /////////////////
 
   return (
-    <div className={expanded ? 'insert-note-expanded insert-note' : 'insert-note '}>
+    <div>
+      <h3>Create Task</h3>
+      <div className={expanded ? 'insert-note-expanded insert-note' : 'insert-note '}>
+        <form>
+          {/* Note title => only shows when expanded */}
+          {expanded === true && (<NewNoteInput
+            type='text'
+            name='noteTitle'
+            placeholder='Task Name'
+            value = {note.noteTitle}
+            onChange = {addNewNote}
+          />)}
 
-      <form>
-        {/* Note title => only shows when expanded */}
-        {expanded === true && (<NewNoteInput
-          type='text'
-          name='noteTitle'
-          placeholder='Task Name'
-          value = {note.noteTitle}
-          onChange = {addNewNote}
-        />)}
+          {/* Content section of note => Shows up before expanding  */}
+          <NewNoteInput
+            type='text'
+            name='noteContent'
+            placeholder='Task Details'
+            value = {note.noteContent}
+            onChange = {addNewNote}
+            onClick={expandArea}
+          />
 
-        {/* Content section of note => Shows up before expanding  */}
-        <NewNoteInput
-          type='text'
-          name='noteContent'
-          placeholder='Add a task'
-          value = {note.noteContent}
-          onChange = {addNewNote}
-          onClick={expandArea}
-        />
-
-      {/* Add button when expanded*/}
-      {expanded === true &&(  <Zoom in={true}>
-          <button
-            className='submit-note-button'
-            type='submit'
-            onClick={submitNote}
-            >
-            +
-          </button>
-        </Zoom> )}
-        
-      </form>
+        {/* Add button when expanded*/}
+        {expanded === true &&(  <Zoom in={true}>
+            <button
+              className='submit-note-button'
+              type='submit'
+              onClick={submitNote}
+              >
+              +
+            </button>
+          </Zoom> )}
+          
+        </form>
+      </div>
     </div>
     )
   };
