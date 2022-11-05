@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.css": "/raeesaparker.github.io/toDoList/static/css/main.54cac911.css",
-    "main.js": "/raeesaparker.github.io/toDoList/static/js/main.16434ae7.js",
-    "index.html": "/raeesaparker.github.io/toDoList/index.html",
-    "main.54cac911.css.map": "/raeesaparker.github.io/toDoList/static/css/main.54cac911.css.map",
-    "main.16434ae7.js.map": "/raeesaparker.github.io/toDoList/static/js/main.16434ae7.js.map"
+    "main.css": "/toDoList/static/css/main.54cac911.css",
+    "main.js": "/toDoList/static/js/main.16434ae7.js",
+    "index.html": "/toDoList/index.html",
+    "main.54cac911.css.map": "/toDoList/static/css/main.54cac911.css.map",
+    "main.16434ae7.js.map": "/toDoList/static/js/main.16434ae7.js.map"
   },
   "entrypoints": [
     "static/css/main.54cac911.css",
