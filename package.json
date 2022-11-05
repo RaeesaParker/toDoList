@@ -1,6 +1,6 @@
 {
   "name": "to-do-list",
-  "homepage": "raeesaparker.github.io/toDoList/",
+  "homepage": "https://raeesaparker.github.io/toDoList/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
