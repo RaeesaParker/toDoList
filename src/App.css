@@ -167,13 +167,15 @@ float: left;
 
 .note h1{
   color: var(--blue);
-  font-size: 0.8rem;
-  margin-bottom: 0.5rem;
+  font-size: 1.0rem;
+  font-weight: 600;
+  margin-bottom: 5%;
+  text-align: center;
 }
 
 .note p{
-    font-size: 0.7rem;
-    margin-bottom: 5px;
+    font-size: 0.8rem;
+    margin-bottom: 10%;
     white-space: normal;
     word-wrap: break-word;
 }
@@ -191,9 +193,8 @@ float: left;
   background-color: transparent;
   border: none;
   cursor: pointer;
-  font-size: 0.75rem;
   font-weight: 600;
-  margin-top: 20px;
+  margin-top: 1%;
   outline: none;
 }
 
