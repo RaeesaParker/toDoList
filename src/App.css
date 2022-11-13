@@ -5,11 +5,16 @@
 /* VARIABLES                                                 */
 /* --------------------------------------------------------- */
 :root{
-  --yellow : #ffd700;
-  --black :  #000000; 
-  --blue : #2E86AB; 
+
+  /* Colour palettes */
+  --primary: #2E86AB; 
+  --secondary:#f4f4f4;
+  --tertiary:#fcfcfc;
+  --black :  #222222; 
+  --white: #F5f5f5;
   --red : #F24236; 
 
+  /* Font Families */
   --fontSerif: 'Crimson Text', serif;
   --fontSans: 'Roboto', sans-serif; 
 }
@@ -27,7 +32,7 @@ html {
 }
 
 body {
-  background: #eee;
+  background: var(--secondary);
   background-image: url("https://www.transparenttextures.com/patterns/cubes.png");
   font-family: var(--fontSans);
   padding: 0 16px;
@@ -60,7 +65,7 @@ div{
 
 /* ----------------- HEADER ------------------ */
 .navbar-customise{
-  background-color: var(--yellow);
+  background-color: var(--primary);
   border-radius: 1px;
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
   height: 10vh;
@@ -68,16 +73,18 @@ div{
 }
 
 .navbar-brand{
+  color: var(--black);
   font-family: var(--fontSerif);
   font-size: 2.5rem;
-  color: var(--black);
   margin-left:2rem;
 }
 
-.navbar-brand:hover{
-  color: var(--blue);
+.navbar-brand{
+  color: var(--black);
+  font-family: var(--fontSerif);
+  font-size: 2.5rem;
+  margin-left:2rem;
 }
-
 
 /* ----------------- SECTIONS ------------------ */
 
@@ -113,7 +120,7 @@ div{
 /* ----------------- Insert Note ------------------ */
 
 .insert-note {
-background-color: white;
+background-color: var(--tertiary);
 border-radius: 7px;
 box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2);
 height: 50px;
@@ -137,10 +144,10 @@ input[type=text] {
 
 .submit-note-button{
   align-items: center;
-  background-color: var(--yellow);
+  background-color: var(--primary);
   border-radius: 50%;
   border-style: none;
-  color: var(--black);
+  color: var(--secondary);
   display: flex;
   font-size: 1.0rem;
   font-weight: 600;
@@ -156,7 +163,7 @@ input[type=text] {
 /* ----------------- Note ------------------ */
 
 .note {
-background-color: white;
+background-color: var(--tertiary);
 border-radius: 7px;
 box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2);
 margin: 0.5rem;
@@ -166,7 +173,7 @@ float: left;
 }
 
 .note h1{
-  color: var(--blue);
+  color: var(--primary);
   font-size: 1.0rem;
   font-weight: 600;
   margin-bottom: 5%;
@@ -199,7 +206,7 @@ float: left;
 }
 
 .doing-button{
-  color: var(--red);
+  color: var(--primary);
 }
 
 .archive-button{
@@ -207,7 +214,7 @@ float: left;
 }
 
 .delete-button{
-  color: var(--yellow);
+  color: var(--red);
 }
 
 .hovertext {
@@ -218,7 +225,7 @@ float: left;
   .hovertext:before {
     background-color: var(--black);
     border-radius: 5px;
-    color: var(--yellow);
+    color: var(--white);
     content: attr(data-hover);
     left: -100%;
     opacity: 0.5;
@@ -244,7 +251,7 @@ float: left;
 /* ----------------- FOOTER ------------------ */
 .footer {
   align-items: center;
-  background-color: var(--yellow);
+  background-color: var(--primary);
   color:black;
   display: flex;
   font-size: 0.75rem;
@@ -255,11 +262,11 @@ float: left;
 }
 
 .footer a {
-  color: var(--black);
+  color: var(--secondary);
   margin: 0;
   text-decoration: none;
 }
 
 .footer a:hover{
-  color: var(--blue);
+  color: var(--black);
 }
