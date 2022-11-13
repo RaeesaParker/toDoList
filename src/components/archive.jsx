@@ -7,8 +7,8 @@ function Archive(props){
     // Function to delete note => Returns all the notes WITHOUT supplied ID
     function deleteArchiveNote(id){
       props.setArchiveNoteList(prevArchiveNoteList => {
-        return prevArchiveNoteList.filter((oldNote, oldNoteIndex) => {
-          return oldNoteIndex !== id
+        return prevArchiveNoteList.filter((oldNote) => {
+          return oldNote.noteId !== id
         })
       })
     }
@@ -20,7 +20,7 @@ function Archive(props){
         {props.archiveNoteList.map((noteItem, noteItemIndex) => {
           return <CreateNote
             key={noteItemIndex}
-            id={noteItemIndex}
+            id={noteItem.noteId}
             archived={true}
             start={false}
             title={noteItem.title}

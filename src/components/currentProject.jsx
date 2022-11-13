@@ -9,21 +9,27 @@ import Footer from './footer';
 
 function CurrentProject(props){
 
+  //  Create an array to store the noteList
+  const [noteList, setNoteList] = useState([]);
+
   //  Create an array to store the archiveNoteList
   const [archiveNoteList, setArchiveNoteList] = useState([]);
   
   //  Create an array to store the doingNoteList
   const [doingNoteList, setDoingNoteList] = useState([]);
 
+
+
+
   return(
     <div>
       <Heading userName={props.userName} projectName={props.projectName}  ></Heading>
        
        <div className='section-main-container'> 
-         <CurrentInserts archiveNoteList={archiveNoteList} setArchiveNoteList={setArchiveNoteList} doingNoteList={doingNoteList} setDoingNoteList={setDoingNoteList} ></CurrentInserts>
+         <CurrentInserts noteList={noteList} setNoteList={setNoteList} archiveNoteList={archiveNoteList} setArchiveNoteList={setArchiveNoteList} doingNoteList={doingNoteList} setDoingNoteList={setDoingNoteList} ></CurrentInserts>
          <div className='section-storage-container'>
-           <Doing doingNoteList={doingNoteList} setDoingNoteList={setDoingNoteList} archiveNoteList={archiveNoteList} setArchiveNoteList={setArchiveNoteList}></Doing>
-           <Archive archiveNoteList={archiveNoteList} setArchiveNoteList={setArchiveNoteList} ></Archive>
+           <Doing noteList={noteList} setNoteList={setNoteList} doingNoteList={doingNoteList} setDoingNoteList={setDoingNoteList} archiveNoteList={archiveNoteList} setArchiveNoteList={setArchiveNoteList}></Doing>
+           <Archive noteList={noteList} setNoteList={setNoteList} doingNoteList={doingNoteList} setDoingNoteList={setDoingNoteList} archiveNoteList={archiveNoteList} setArchiveNoteList={setArchiveNoteList} ></Archive>
          </div>
        </div>
        <Footer></Footer>

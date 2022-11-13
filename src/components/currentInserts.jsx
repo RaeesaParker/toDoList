@@ -4,10 +4,8 @@ import CreateNote from './createNote.jsx';
 import Archive from './archive.jsx';
 
 
-function CurrentInserts({archiveNoteList, setArchiveNoteList, doingNoteList, setDoingNoteList}){
+function CurrentInserts({noteList, setNoteList, archiveNoteList, setArchiveNoteList, doingNoteList, setDoingNoteList}){
 
-  //  Create an array to store the noteList
-  const [noteList, setNoteList] = React.useState([]);
 
 
   //  Function to add a new note => takes created note and pushes to the notelist
@@ -20,8 +18,8 @@ function CurrentInserts({archiveNoteList, setArchiveNoteList, doingNoteList, set
   // Function to delete note => Returns all the notes WITHOUT supplied ID
   function deleteNote(id){
     setNoteList(prevNoteList => {
-      return prevNoteList.filter((oldNote, oldNoteIndex) => {
-        return oldNoteIndex !== id
+      return prevNoteList.filter((oldNote) => {
+        return oldNote.noteId !== id
       })
     })
   }
@@ -39,7 +37,7 @@ function CurrentInserts({archiveNoteList, setArchiveNoteList, doingNoteList, set
       {noteList.map((noteItem, noteItemIndex) => {
         return <CreateNote
           key={noteItemIndex}
-          id={noteItemIndex}
+          id={noteItem.noteId}
           title={noteItem.noteTitle}
           body={noteItem.noteContent}
           onDelete={deleteNote}

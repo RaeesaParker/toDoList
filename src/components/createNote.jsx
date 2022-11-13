@@ -40,19 +40,30 @@ function CreateNote(props){
     addToDoing(id, title, body, setter, state)
     props.onDelete(id)
   }
+  
+
+     // Drag and drop functionality
+
+    function drag(event) {
+      console.log("Here at Drag")
+      console.log(props.id, props.title, props.body)
+      event.dataTransfer.setData("text", props.id);
+    }
+    
 
 
   return(
-    <div className='note'>
+    <div className='note'  draggable="true" onDragStart={drag}>
       <h1> {props.title} </h1>
       <p> {props.body}  </p>
+      <p>{props.id}</p>
 
       <div className='div-buttons'>
         {props.start != false &&
         <button
           className='button doing-button'
           onClick={() => processDoingAdd(props.id, props.title, props.body, props.setDoingNoteList, props.doingNoteList)}
-          > <span class="hovertext" data-hover="Start Task"> <PlayArrowIcon /> </span> 
+          > <span className="hovertext" data-hover="Start Task"> <PlayArrowIcon /> </span> 
         </button>
         }
 
@@ -60,14 +71,14 @@ function CreateNote(props){
         <button
           className='button archive-button'
           onClick={() => processArchiveAdd(props.id, props.title, props.body, props.setArchiveNoteList, props.archiveNoteList)}
-          > <span class="hovertext" data-hover="Done"> <CheckCircleOutlineIcon/>  </span>  
+          > <span className="hovertext" data-hover="Done"> <CheckCircleOutlineIcon/>  </span>  
         </button>
         }
 
         <button
           className='button delete-button'
           onClick={() => props.onDelete(props.id)}
-          > <span class="hovertext" data-hover="Delete"> <DeleteIcon />  </span>   
+          > <span className="hovertext" data-hover="Delete"> <DeleteIcon />  </span>   
         </button>
       </div>
     </div>
