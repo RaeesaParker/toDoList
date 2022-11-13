@@ -16,6 +16,8 @@ function Doing(props){
   
 
 
+  //  ------------- FUNCTIONS FOR DRAGGING -> ADD TO DOING  --------------------//
+
   // Add note to archive => then delete note 
   function processDoingAdd(id, title, body, setter, state){
     addToDoing(id, title, body, setter, state)
@@ -42,6 +44,7 @@ function Doing(props){
       })
     }
 
+  //  -------------------- FUNCTIONS FOR DRAGABILITY  ------------------------//
 
     // Functionality for drag and drop 
     function allowDrop(event) {
@@ -49,7 +52,6 @@ function Doing(props){
     }
 
     function drop(event) {
-      console.log("On Drop")
       event.preventDefault();
       let data = event.dataTransfer.getData("text");
 
@@ -63,13 +65,14 @@ function Doing(props){
           return object.noteId == data
         })
         // Note is part of the todolist => Add to doing list => Delete from note list
-        console.log(draggedObject)
         processDoingAdd(draggedObject[0].noteId, draggedObject[0].noteTitle, draggedObject[0].noteContent, props.setDoingNoteList, props.doingNoteList)
       }else{
         // Note is part of the archive => Add to doing list => Delete from archive
       }
     }
   
+
+    
 
     return(
       <div className='section-doing' onDrop={drop} onDragOver={allowDrop}>
