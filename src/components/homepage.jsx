@@ -64,6 +64,7 @@ function Homepage(props){
     }
 
     // Send the userdetails back to parent (app.js)
+    props.onSubmitUser(userDetails);
 
     // Clear the form fields => reset the user details
     setUserDetails({

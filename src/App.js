@@ -21,11 +21,16 @@ function App() {
     const [users, setUsers] = useState([])
 
 
+    // Function to take in the user details submited on homepage
+    function onSubmitUser(userDetails){
+      console.log(userDetails)
+    }
+
 
   return (
     <div>
         {/* <Heading></Heading> */}
-        <Homepage user={users} setUser={setUsers} ></Homepage>
+        <Homepage user={users} setUser={setUsers} onSubmitUser={onSubmitUser} ></Homepage>
         {/* <div className='section-main-container'> 
           <CurrentInserts archiveNoteList={archiveNoteList} setArchiveNoteList={setArchiveNoteList} doingNoteList={doingNoteList} setDoingNoteList={setDoingNoteList} ></CurrentInserts>
           <div className='section-storage-container'>
