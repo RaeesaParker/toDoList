@@ -56,7 +56,6 @@ function CreateNote(props){
     <div className='note'  draggable="true" onDragStart={drag}>
       <h1> {props.title} </h1>
       <p> {props.body}  </p>
-      <p>{props.id}</p>
 
       <div className='div-buttons'>
         {props.start != false &&
