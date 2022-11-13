@@ -35,7 +35,7 @@ function App() {
     <div>
         <Routes>
           <Route
-            path="/"
+            path="toDoList/"
             element={<Homepage user={users} setUser={setUsers} onSubmitUser={onSubmitUser} ></Homepage>}
           />
           <Route
