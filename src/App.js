@@ -9,12 +9,6 @@ import CurrentProject from './components/currentProject';
 function App() {
 
 
-  //  Create an array to store the archiveNoteList
-  const [archiveNoteList, setArchiveNoteList] = useState([]);
-  
-  //  Create an array to store the doingNoteList
-  const [doingNoteList, setDoingNoteList] = useState([]);
-
   // Create an array to store the userDetails
   const [users, setUsers] = useState({
     userName:" ",
@@ -30,6 +24,7 @@ function App() {
     })
   }
 
+
   
   return (
     <div>
@@ -44,10 +39,6 @@ function App() {
               <CurrentProject   
                 userName={users.userName} 
                 projectName={users.projectName}
-                archiveNoteList={archiveNoteList} 
-                setArchiveNoteList={setArchiveNoteList} 
-                doingNoteList={doingNoteList} 
-                setDoingNoteList={setDoingNoteList}
               />
             }
           />

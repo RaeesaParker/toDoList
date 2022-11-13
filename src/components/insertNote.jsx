@@ -17,6 +17,7 @@ function InsertNote(props){
 
   // Create a state to hold the note
   const [note, setNote] = React.useState({
+    noteId: Math.random(),
     noteTitle: '',
     noteContent: ''
   });
@@ -41,6 +42,7 @@ function InsertNote(props){
   function submitNote(event){
     props.onAdd(note);
     setNote({
+      noteId: Math.random(),
       noteTitle: '',
       noteContent: ''
     });
