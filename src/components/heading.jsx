@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-function Heading(){
+function Heading(props){
 
 
   // ----------------------------------------------------------------- //
@@ -14,7 +14,9 @@ function Heading(){
     <div>
       <nav className="navbar navbar-expand-lg  navbar-customise">
         <div className="container-fluid">
-          <a className="navbar-brand" href="#">To Do List</a>
+          <a className="navbar-brand" >{props.userName}'s Workspace</a>
+          <a className="navbar-brand" id="project-name">{props.projectName}</a>
+          <a className="navbar-brand" id="new-project">New Project</a>
         </div>
       </nav>
     </div>

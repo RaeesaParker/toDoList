@@ -11,25 +11,32 @@ import Footer from './components/footer';
 function App() {
 
 
-    //  Create an array to store the archiveNoteList
-    const [archiveNoteList, setArchiveNoteList] = useState([]);
-   
-    //  Create an array to store the doingNoteList
-    const [doingNoteList, setDoingNoteList] = useState([]);
+  //  Create an array to store the archiveNoteList
+  const [archiveNoteList, setArchiveNoteList] = useState([]);
+  
+  //  Create an array to store the doingNoteList
+  const [doingNoteList, setDoingNoteList] = useState([]);
 
-    // Create an array to store the userDetails
-    const [users, setUsers] = useState([])
+  // Create an array to store the userDetails
+  const [users, setUsers] = useState({
+    userName:" ",
+    projectName:" "
+  })
 
 
-    // Function to take in the user details submited on homepage
-    function onSubmitUser(userDetails){
-      console.log(userDetails)
-    }
+  // Function to take in the user details submited on homepage
+  function onSubmitUser(userDetails){
+    setUsers({
+      userName: userDetails.userName, 
+      projectName: userDetails.projectName
+    })
+  }
+
 
 
   return (
     <div>
-        {/* <Heading></Heading> */}
+        <Heading userName={users.userName} projectName={users.projectName}  ></Heading>
         <Homepage user={users} setUser={setUsers} onSubmitUser={onSubmitUser} ></Homepage>
         {/* <div className='section-main-container'> 
           <CurrentInserts archiveNoteList={archiveNoteList} setArchiveNoteList={setArchiveNoteList} doingNoteList={doingNoteList} setDoingNoteList={setDoingNoteList} ></CurrentInserts>
