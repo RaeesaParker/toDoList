@@ -1,11 +1,9 @@
 import './App.css';
 import {useState} from 'react';
-import Heading from './components/heading';
+import { BrowserRouter , Routes , Route , Link   } from 'react-router-dom';
 import Homepage from './components/homepage';
-import CurrentInserts from './components/currentInserts';
-import Archive from './components/archive';
-import Doing from './components/doing'
-import Footer from './components/footer';
+import CurrentProject from './components/currentProject';
+
 
 
 function App() {
@@ -32,20 +30,36 @@ function App() {
     })
   }
 
+       
 
+  //   <CurrentInserts archiveNoteList={archiveNoteList} setArchiveNoteList={setArchiveNoteList} doingNoteList={doingNoteList} setDoingNoteList={setDoingNoteList} ></CurrentInserts>
+  //   <div className='section-storage-container'>
+  //     <Doing doingNoteList={doingNoteList} setDoingNoteList={setDoingNoteList} archiveNoteList={archiveNoteList} setArchiveNoteList={setArchiveNoteList}></Doing>
+  //     <Archive archiveNoteList={archiveNoteList} setArchiveNoteList={setArchiveNoteList} ></Archive>
 
   return (
     <div>
-        <Heading userName={users.userName} projectName={users.projectName}  ></Heading>
-        <Homepage user={users} setUser={setUsers} onSubmitUser={onSubmitUser} ></Homepage>
-        {/* <div className='section-main-container'> 
-          <CurrentInserts archiveNoteList={archiveNoteList} setArchiveNoteList={setArchiveNoteList} doingNoteList={doingNoteList} setDoingNoteList={setDoingNoteList} ></CurrentInserts>
-          <div className='section-storage-container'>
-            <Doing doingNoteList={doingNoteList} setDoingNoteList={setDoingNoteList} archiveNoteList={archiveNoteList} setArchiveNoteList={setArchiveNoteList}></Doing>
-            <Archive archiveNoteList={archiveNoteList} setArchiveNoteList={setArchiveNoteList} ></Archive>
-          </div>
-        </div> */}
-        {/* <Footer></Footer> */}
+      <BrowserRouter>
+        <Routes>
+          <Route
+            path="/"
+            element={<Homepage user={users} setUser={setUsers} onSubmitUser={onSubmitUser} ></Homepage>}
+          />
+          <Route
+            path="/currentproject"
+            element={
+              <CurrentProject   
+                userName={users.userName} 
+                projectName={users.projectName}
+                archiveNoteList={archiveNoteList} 
+                setArchiveNoteList={setArchiveNoteList} 
+                doingNoteList={doingNoteList} 
+                setDoingNoteList={setDoingNoteList}
+              />
+            }
+          />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
