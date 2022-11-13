@@ -83,10 +83,27 @@ div{
 .navbar-brand{
   color: var(--black);
   font-family: var(--fontSerif);
-  font-size: 2.5rem;
-  margin: 2% 0 0 0;
+  font-size: 2.0rem;
+  margin: 1% 0 1% 0;
 }
 
+.navbar-brand:hover{
+  color: var(--black);
+  cursor: default;
+}
+
+#project-name{
+  color: var(--secondary);
+}
+
+#new-project{
+  font-size: 1.25rem;
+}
+
+#new-project:hover{
+  color: var(--secondary);
+  cursor: pointer;
+}
 
 
 /* ----------------- HOMEPAGE ------------------ */
