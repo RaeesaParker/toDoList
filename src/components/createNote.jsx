@@ -1,5 +1,7 @@
 import React from 'react';
 import DeleteIcon from '@mui/icons-material/Delete';
+import PlayArrowIcon from '@mui/icons-material/PlayArrow';
+import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
 
 function CreateNote(props){
 
@@ -50,7 +52,7 @@ function CreateNote(props){
         <button
           className='button doing-button'
           onClick={() => processDoingAdd(props.id, props.title, props.body, props.setDoingNoteList, props.doingNoteList)}
-          > Start
+          > <span class="hovertext" data-hover="Start Task"> <PlayArrowIcon /> </span> 
         </button>
         }
 
@@ -58,14 +60,14 @@ function CreateNote(props){
         <button
           className='button archive-button'
           onClick={() => processArchiveAdd(props.id, props.title, props.body, props.setArchiveNoteList, props.archiveNoteList)}
-          > Done
+          > <span class="hovertext" data-hover="Done"> <CheckCircleOutlineIcon/>  </span>  
         </button>
         }
 
         <button
           className='button delete-button'
           onClick={() => props.onDelete(props.id)}
-          > <DeleteIcon />
+          > <span class="hovertext" data-hover="Delete"> <DeleteIcon />  </span>   
         </button>
       </div>
     </div>
