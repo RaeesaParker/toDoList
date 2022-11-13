@@ -211,25 +211,25 @@ form{
 }
 
 .section-insert{
-  /* background-color: var(--blue); */
-  width: 50%;
+  border-right: 1px solid var(--primary);
+  width: 60%;
 }
 
 .section-storage-container{
   min-height: 85vh;
-  min-width: 50vw;
+  width: 40%;
 }
 
 .section-archive{
-  border-left: 1px solid var(--black);
   min-height: 42.5vh;
+  overflow: auto;
 }
 
 .section-doing{
-  border-left: 1px solid var(--black);
-  border-bottom: 1px solid var(--black);
+  border-bottom: 1px solid var(--primary);
   min-height: 42.5vh;
   margin: 0;
+  overflow: auto;
 }
 
 
