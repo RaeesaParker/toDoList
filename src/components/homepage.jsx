@@ -1,9 +1,13 @@
 import React from 'react';
 import {useState} from 'react';
+import { useNavigate } from 'react-router-dom';
 
 
 
 function Homepage(props){
+
+  // Navigation for redirect 
+  const navigate = useNavigate();
 
   // Create state to store current user and project
   const [userDetails, setUserDetails ] = useState({
@@ -27,12 +31,9 @@ function Homepage(props){
 
   // Function to run on form submit 
   function onSubmitFormFunc(event){
-    console.log("At submit func")
 
     // Check what colour has been submitted 
     const colourChosen =  document.querySelector('input[name="colour_chosen"]:checked').value;
-
-    console.log(colourChosen)
 
     // Set the colour palette depending on which palette was chosen 
     switch (colourChosen){
@@ -72,7 +73,11 @@ function Homepage(props){
       projectName:''
     })
 
+    // Prevent refresh on re-rendering
     event.preventDefault();
+
+    // Navigate the the current project page
+    navigate('/currentproject');
 
   }
 
@@ -129,11 +134,12 @@ function Homepage(props){
               </div>
             </fieldset>      
             
-            <button type="submit"> Submit </button>
+           
+              <button type="submit"> Submit </button>
+            
           </form>
         </div>
       </div>
-
     </div>
   )
 }

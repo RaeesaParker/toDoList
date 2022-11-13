@@ -1,6 +1,6 @@
 import './App.css';
 import {useState} from 'react';
-import { BrowserRouter , Routes , Route , Link   } from 'react-router-dom';
+import { BrowserRouter , Routes , Route , Link, Navigate } from 'react-router-dom';
 import Homepage from './components/homepage';
 import CurrentProject from './components/currentProject';
 
@@ -30,16 +30,9 @@ function App() {
     })
   }
 
-       
-
-  //   <CurrentInserts archiveNoteList={archiveNoteList} setArchiveNoteList={setArchiveNoteList} doingNoteList={doingNoteList} setDoingNoteList={setDoingNoteList} ></CurrentInserts>
-  //   <div className='section-storage-container'>
-  //     <Doing doingNoteList={doingNoteList} setDoingNoteList={setDoingNoteList} archiveNoteList={archiveNoteList} setArchiveNoteList={setArchiveNoteList}></Doing>
-  //     <Archive archiveNoteList={archiveNoteList} setArchiveNoteList={setArchiveNoteList} ></Archive>
-
+  
   return (
     <div>
-      <BrowserRouter>
         <Routes>
           <Route
             path="/"
@@ -59,7 +52,6 @@ function App() {
             }
           />
         </Routes>
-      </BrowserRouter>
     </div>
   );
 }
