@@ -1,5 +1,7 @@
 import React from 'react';
 import DeleteIcon from '@mui/icons-material/Delete';
+import PlayArrowIcon from '@mui/icons-material/PlayArrow';
+import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
 
 function CreateNote(props){
 
@@ -50,7 +52,7 @@ function CreateNote(props){
         <button
           className='button doing-button'
           onClick={() => processDoingAdd(props.id, props.title, props.body, props.setDoingNoteList, props.doingNoteList)}
-          > Start
+          > <PlayArrowIcon />
         </button>
         }
 
@@ -58,7 +60,7 @@ function CreateNote(props){
         <button
           className='button archive-button'
           onClick={() => processArchiveAdd(props.id, props.title, props.body, props.setArchiveNoteList, props.archiveNoteList)}
-          > Done
+          > <CheckCircleOutlineIcon/>
         </button>
         }
 
