@@ -1,7 +1,80 @@
 import React from 'react';
+import {useState} from 'react';
 
 
-function Homepage(){
+
+function Homepage(props){
+
+  // Create state to store current user and project
+  const [userDetails, setUserDetails ] = useState({
+    userName: '',
+    projectName:''
+  })
+
+
+  // Update the username and projectname
+  function changeDetails(event){
+    const {name, value} = event.target;
+
+    setUserDetails(prevUserDetails => {
+      return {
+        ...prevUserDetails,
+      [name]: value
+      };
+    });
+  }
+
+
+  // Function to run on form submit 
+  function onSubmitFormFunc(event){
+    console.log("At submit func")
+
+    // Check what colour has been submitted 
+    const colourChosen =  document.querySelector('input[name="colour_chosen"]:checked').value;
+
+    console.log(colourChosen)
+
+    // Set the colour palette depending on which palette was chosen 
+    switch (colourChosen){
+      case 'green':
+        document.documentElement.style.setProperty('--primary', '#4e705d');
+        document.documentElement.style.setProperty('--secondary', '#e9e9e9');
+        document.documentElement.style.setProperty('--tertiary', '#fcfcfc');
+        break;
+      case 'red':
+        document.documentElement.style.setProperty('--primary', '#b01307');
+        document.documentElement.style.setProperty('--secondary', '#f3f1ef');
+        document.documentElement.style.setProperty('--tertiary', '#fffbfb');
+        break;
+      case 'blue':
+        document.documentElement.style.setProperty('--primary', '#2E86AB');
+        document.documentElement.style.setProperty('--secondary', '#e7ecef');
+        document.documentElement.style.setProperty('--tertiary', '#f8f9fb');
+        break;
+      case 'yellow':
+        document.documentElement.style.setProperty('--primary', '#eec302');
+        document.documentElement.style.setProperty('--secondary', '#f4f4f4');
+        document.documentElement.style.setProperty('--tertiary', '#ffffff');
+        break;
+      default:
+        document.documentElement.style.setProperty('--primary', '#eec302');
+        document.documentElement.style.setProperty('--secondary', '#f4f4f4');
+        document.documentElement.style.setProperty('--tertiary', '#ffffff');
+        break;
+    }
+
+    // Send the userdetails back to parent (app.js)
+
+    // Clear the form fields => reset the user details
+    setUserDetails({
+      userName: '',
+      projectName:''
+    })
+
+    event.preventDefault();
+
+  }
+
 
 
 
@@ -16,13 +89,13 @@ function Homepage(){
       
       <div className="home-subsection">
         <div id="user-form">
-          <form  id="user-form-input">
+          <form  id="user-form-input" onSubmit={onSubmitFormFunc}>
             <fieldset className="field-flex"> 
-              <input  required autoComplete="off" type="text" placeholder="Name" name="name"/> 
+              <input  required autoComplete="off" type="text" placeholder="Name" name="userName" value={userDetails.userName} onChange={changeDetails}/> 
             </fieldset>
 
             <fieldset className="field-flex">
-              <input required autoComplete="off" type="text" placeholder="Project Name" name="project-name" /> 
+              <input required autoComplete="off" type="text" placeholder="Project Name" name="projectName" value={userDetails.projectName}  onChange={changeDetails}/> 
             </fieldset>
 
             <fieldset  className="field-flex">
@@ -59,7 +132,7 @@ function Homepage(){
           </form>
         </div>
       </div>
-      
+
     </div>
   )
 }

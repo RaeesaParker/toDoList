@@ -17,13 +17,15 @@ function App() {
     //  Create an array to store the doingNoteList
     const [doingNoteList, setDoingNoteList] = useState([]);
 
+    // Create an array to store the userDetails
+    const [users, setUsers] = useState([])
 
 
 
   return (
     <div>
         {/* <Heading></Heading> */}
-        <Homepage></Homepage>
+        <Homepage user={users} setUser={setUsers} ></Homepage>
         {/* <div className='section-main-container'> 
           <CurrentInserts archiveNoteList={archiveNoteList} setArchiveNoteList={setArchiveNoteList} doingNoteList={doingNoteList} setDoingNoteList={setDoingNoteList} ></CurrentInserts>
           <div className='section-storage-container'>
