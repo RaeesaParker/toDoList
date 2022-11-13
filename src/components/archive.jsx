@@ -27,9 +27,9 @@ function Archive(props){
   //  setter = setDoingNoteList      state = doingNoteList
   function addToArchive(id, title, body, setter, state){
     const tempObject = {
-      id: id,
-      title: title,
-      body:body
+      noteId: id,
+      noteTitle: title,
+      noteContent:body
     }
     setter([...state, tempObject])
   }
@@ -66,11 +66,12 @@ function Archive(props){
         draggedObject = props.noteList.filter(object => {
           return object.noteId == data
         })
-        // Note is part of the todolist => Add to doing list => Delete from note list
+        // Note is part of the todolist => Add to archive list => Delete from note list
         processArchiveAdd(draggedObject[0].noteId, draggedObject[0].noteTitle, draggedObject[0].noteContent, props.setArchiveNoteList, props.archiveNoteList)
       }else{
-        // Note is part of the archive => Add to doing list => Delete from archive
+        // Note is part of the doing => Add to archive list => Delete from doing
       }
+
     }
 
 
@@ -86,8 +87,8 @@ function Archive(props){
             id={noteItem.noteId}
             archived={true}
             start={false}
-            title={noteItem.title}
-            body={noteItem.body}
+            title={noteItem.noteTitle}
+            body={noteItem.noteContent}
             onDelete={deleteArchiveNote}
           />
         })}

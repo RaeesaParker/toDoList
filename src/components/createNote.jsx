@@ -9,9 +9,9 @@ function CreateNote(props){
   //  setter = setArchiveNoteList      state = archiveNoteList
    function addToArchive(id, title, body, setter, state){
     const tempObject = {
-      id: id,
-      title: title,
-      body:body
+      noteId: id,
+      noteTitle: title,
+      noteContent:body
     }
     setter([...state, tempObject])
   }
@@ -27,9 +27,9 @@ function CreateNote(props){
   //  setter = setDoingNoteList      state = doingNoteList
   function addToDoing(id, title, body, setter, state){
     const tempObject = {
-      id: id,
-      title: title,
-      body:body
+      noteId: id,
+      noteTitle: title,
+      noteContent:body
     }
     setter([...state, tempObject])
   }

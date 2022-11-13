@@ -21,28 +21,18 @@ function Doing(props){
   // Add note to archive => then delete note 
   function processDoingAdd(id, title, body, setter, state){
     addToDoing(id, title, body, setter, state)
-    deleteNote(id)
   }
  
   // Add a note to the doing section
   //  setter = setDoingNoteList      state = doingNoteList
   function addToDoing(id, title, body, setter, state){
     const tempObject = {
-      id: id,
-      title: title,
-      body:body
+      noteId: id,
+      noteTitle: title,
+      noteContent:body
     }
     setter([...state, tempObject])
   }
-
-    // Function to delete note => Returns all the notes WITHOUT supplied ID
-    function deleteNote(id){
-      props.setNoteList(prevNoteList => {
-        return prevNoteList.filter((oldNote) => {
-          return oldNote.noteId !== id
-        })
-      })
-    }
 
   //  -------------------- FUNCTIONS FOR DRAGABILITY  ------------------------//
 
@@ -55,20 +45,30 @@ function Doing(props){
       event.preventDefault();
       let data = event.dataTransfer.getData("text");
 
-      // Get the note with the ID of the supplied ID from either the archive or the note list
+
+      // Check if the item is from the archive
       let draggedObject = props.archiveNoteList.filter(object => {
         return object.noteId == data
       })
 
+      // If the item is from the notelist -> get the object -> else -> get from archive
       if (draggedObject.length == 0){
         draggedObject = props.noteList.filter(object => {
           return object.noteId == data
         })
-        // Note is part of the todolist => Add to doing list => Delete from note list
-        processDoingAdd(draggedObject[0].noteId, draggedObject[0].noteTitle, draggedObject[0].noteContent, props.setDoingNoteList, props.doingNoteList)
-      }else{
-        // Note is part of the archive => Add to doing list => Delete from archive
+        // Delete from noteList
+        props.setNoteList(prevNoteList => { return prevNoteList.filter((oldNote) => {return oldNote.noteId !== draggedObject[0].noteId})})
       }
+      else{
+        draggedObject = props.archiveNoteList.filter(object => {
+          return object.noteId == data
+        })
+        // Delete from archive list
+        props.setArchiveNoteList(prevArchiveNoteList => { return prevArchiveNoteList.filter((oldNote) => {return oldNote.noteId !== draggedObject[0].noteId})})
+      }
+
+      // Add to the doing list
+      processDoingAdd(draggedObject[0].noteId, draggedObject[0].noteTitle, draggedObject[0].noteContent, props.setDoingNoteList, props.doingNoteList)
     }
   
 
@@ -84,8 +84,8 @@ function Doing(props){
             id={noteItem.noteId}
             archived={false}
             start={false}
-            title={noteItem.title}
-            body={noteItem.body}
+            title={noteItem.noteTitle}
+            body={noteItem.noteContent}
             archiveNoteList={props.archiveNoteList}
             setArchiveNoteList={props.setArchiveNoteList}
             onDelete={deleteDoingNote}
