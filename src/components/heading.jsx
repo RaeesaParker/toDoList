@@ -16,7 +16,7 @@ function Heading(props){
         <div className="container-fluid">
           <p className="navbar-brand" >{props.userName}'s Workspace</p>
           <p className="navbar-brand" id="project-name">{props.projectName}</p>
-          <Link to="toDoList/">
+          <Link to="/toDoList/">
             <p className="navbar-brand" id="new-project">New Project</p>
           </Link>
         </div>
