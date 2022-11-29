@@ -13,7 +13,30 @@ function Login(){
     // navigate('/projects');
 
 
+    // Function to run on form submit 
+  function onSubmitRegisterFunc(event){
+
+    // Prevent refresh on re-rendering
+    event.preventDefault();
+
+    // Navigate the the current project page
+    navigate('/projects');
+
+  }
+
+  // Function to run on form submit 
+  function onSubmitSignUpFunc(event){
+
+    // Prevent refresh on re-rendering
+    event.preventDefault();
     
+    // Navigate the the current project page
+    navigate('/projects');
+    
+  }
+    
+
+
   return(
     <div className='section-login'>
 
@@ -28,21 +51,21 @@ function Login(){
         <div className='login-subsection-forms'>
           <h1>Register</h1>
 
-          <form className="login-form-input" >
+          <form className="login-form-input" onSubmit={onSubmitRegisterFunc} >
             <input  required autoComplete="off" type="text" placeholder="Username" name="userName" /> 
             <input  required autoComplete="off" type="text" placeholder="E-mail" name="email" /> 
             <input  required autoComplete="off" type="text" placeholder="Password" name="password" /> 
-            <button type="submit"> Register </button>
+            <button className='submit-button' type="submit"> Register </button>
           </form>
         </div>
 
         <div className='login-subsection-forms'> 
           <h1>Sign In</h1>
 
-          <form  className="login-form-input" >
+          <form  className="login-form-input"  onSubmit={onSubmitSignUpFunc}>
             <input  required autoComplete="off" type="text" placeholder="UserName" name="userName" /> 
             <input required autoComplete="off" type="text" placeholder="Password" name="password"  /> 
-            <button type="submit"> Sign In </button>
+            <button className='submit-button' type="submit"> Sign In </button>
           </form>
         </div>
 

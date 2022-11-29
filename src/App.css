@@ -159,14 +159,14 @@ form{
   width:50%
 }
 
-.login-subsection-forms button{
+.submit-button{
   background: transparent;
   border: none;
   display: flex;
   margin: 5% auto 0 auto;
 }
 
-.login-subsection-forms button:hover{
+.submit-button:hover{
   color: var(--primary);
   cursor: pointer;
 }
