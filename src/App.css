@@ -47,12 +47,11 @@ h1{
   text-align: center;
 }
 
-
 h3{
-  font-size: 1.25rem;
-  margin-top: 0;
-  padding-top: 3%;
-  text-align: center;
+  font-size: 1.1rem;
+  font-weight: 500;
+  line-height: 2rem;
+  word-spacing: 0.25rem;
 }
 
 div{
@@ -67,12 +66,16 @@ a{
   text-align: center;
 }
 
+form{
+  width: 100%;
+}
 
 
 
 /* --------------------------------------------------------- */
 /* COMPONENT CLASSES                                         */
 /* --------------------------------------------------------- */
+
 
 
 /* ----------------- HEADER ------------------ */
@@ -110,6 +113,65 @@ a{
   cursor: pointer;
 }
 
+/* ----------------- LOGIN PAGE ------------------ */
+
+.section-login{
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: center;
+}
+
+.login-subsection-welcome{
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-bottom: 5%;
+  text-align: center;
+  width: 75vw;
+}
+
+.login-subsection-login{
+  align-items: flex-start;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 90vw;
+}
+
+.login-subsection-forms{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 40vw;
+}
+
+
+.login-subsection-forms input[type=text]{
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--black);
+  margin: 0 auto 2% auto;
+  padding: 1%;
+  text-align: center;
+  width:50%
+}
+
+.submit-button{
+  background: transparent;
+  border: none;
+  display: flex;
+  margin: 5% auto 0 auto;
+}
+
+.submit-button:hover{
+  color: var(--primary);
+  cursor: pointer;
+}
+
+
 
 /* ----------------- HOMEPAGE ------------------ */
 
@@ -119,14 +181,10 @@ a{
   flex-direction: column;
   height: 100vh;
   justify-content: center;
+  text-align: center;
 }
 
-h3{
-  font-size: 1.1rem;
-  font-weight: 500;
-  line-height: 2rem;
-  word-spacing: 0.25rem;
-}
+
 .home-subsection{
   width: 75vw;
   display: flex;
@@ -134,28 +192,13 @@ h3{
   justify-content: center;
 }
 
-#user-form{
-  display: flex;
-  justify-content: center;
-  margin: 4% 0 0 0 ;
-  width:100%;
-}
 .field-flex{
   display: flex;
   justify-content: center;
 }
 
-form{
-  width: 100%;
-}
-
-#user-form input[type=text]{
-  background: transparent;
-  border: none;
-  border-bottom: 1px solid var(--black);
-  margin: 0 0 2% 0;
-  padding: 1%;
-  width: 50%
+.section-homescreen .login-form input[type=text]{
+  width:50%
 }
 
 .colour-card{
@@ -186,26 +229,12 @@ form{
   background: linear-gradient(to right, #ffffff 33%, #f4f4f4 33%, #f4f4f4 66%, #eec302 66% );
 }
 
-#user-form button{
-  background: transparent;
-  border: none;
-  display: flex;
-  margin: 2% auto 0 auto;
-}
-
-#user-form button:hover{
-  color: var(--primary);
-  cursor: pointer;
-}
-
-
 
 
 
 /* ----------------- SECTIONS ------------------ */
 
 .section-main-container{
-  /* background-color: green; */
   display: flex;
   min-height: 85vh;
 }
