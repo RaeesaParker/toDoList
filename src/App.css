@@ -45,7 +45,6 @@ h1{
   font-size: 3rem;
   font-family: var(--fontSerif);
   text-align: center;
-  margin: 0;
 }
 
 h3{
@@ -126,22 +125,52 @@ form{
 
 .login-subsection-welcome{
   align-items: center;
-  background-color: red;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  margin-bottom: 5%;
   text-align: center;
-  width: 80vw;
+  width: 75vw;
+}
+
+.login-subsection-login{
+  align-items: flex-start;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 90vw;
 }
 
 .login-subsection-forms{
-  align-items: center;
-  background-color: green;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
-  width: 80vw;
+  width: 40vw;
 }
+
+
+.login-subsection-forms input[type=text]{
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--black);
+  margin: 0 auto 2% auto;
+  padding: 1%;
+  text-align: center;
+  width:50%
+}
+
+.login-subsection-forms button{
+  background: transparent;
+  border: none;
+  display: flex;
+  margin: 5% auto 0 auto;
+}
+
+.login-subsection-forms button:hover{
+  color: var(--primary);
+  cursor: pointer;
+}
+
 
 
 /* ----------------- HOMEPAGE ------------------ */
@@ -152,6 +181,7 @@ form{
   flex-direction: column;
   height: 100vh;
   justify-content: center;
+  text-align: center;
 }
 
 
@@ -162,26 +192,13 @@ form{
   justify-content: center;
 }
 
-#user-form{
-  display: flex;
-  justify-content: center;
-  margin: 4% 0 0 0 ;
-  width:100%;
-}
 .field-flex{
   display: flex;
   justify-content: center;
 }
 
-
-
-#user-form input[type=text]{
-  background: transparent;
-  border: none;
-  border-bottom: 1px solid var(--black);
-  margin: 0 0 2% 0;
-  padding: 1%;
-  width: 50%
+.section-homescreen .login-form input[type=text]{
+  width:50%
 }
 
 .colour-card{
@@ -211,19 +228,6 @@ form{
 #palette-yellow{
   background: linear-gradient(to right, #ffffff 33%, #f4f4f4 33%, #f4f4f4 66%, #eec302 66% );
 }
-
-#user-form button{
-  background: transparent;
-  border: none;
-  display: flex;
-  margin: 2% auto 0 auto;
-}
-
-#user-form button:hover{
-  color: var(--primary);
-  cursor: pointer;
-}
-
 
 
 

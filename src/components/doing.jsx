@@ -65,8 +65,6 @@ function Doing(props){
   }
   
 
-    
-
   return(
     <div className='section-doing' onDrop={drop} onDragOver={allowDrop}>
       <h3>Doing</h3>

@@ -94,8 +94,8 @@ function Homepage(props){
       </div>
       
       <div className="home-subsection">
-        <div id="user-form">
-          <form  id="user-form-input" onSubmit={onSubmitFormFunc}>
+        <div className="login-form">
+          <form  className="login-form-input" onSubmit={onSubmitFormFunc}>
             <fieldset className="field-flex"> 
               <input  required autoComplete="off" type="text" placeholder="Name" name="userName" value={userDetails.userName} onChange={changeDetails}/> 
             </fieldset>
