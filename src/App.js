@@ -10,7 +10,11 @@ import CurrentProject from './components/currentProject';
 function App() {
 
 
-  // Create an array to store the userDetails
+  // Crate a state to store the username
+  const [user, setUser] = useState("")
+
+
+  // Create an array to store the details of a project
   const [users, setUsers] = useState({
     userName:" ",
     projectName:" "
@@ -32,7 +36,7 @@ function App() {
         <Routes>
           <Route
             path="toDoList/"
-            element={<Login></Login>}
+            element={<Login setUser={setUser} ></Login>}
           />
           <Route
             path="/projects"

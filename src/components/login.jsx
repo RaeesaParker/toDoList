@@ -1,38 +1,35 @@
 import React from 'react';
 import {useState} from 'react';
 import { useNavigate } from 'react-router-dom';
+import {registerUser} from '../utils/users'
 
 
 
-function Login(){
+function Login({setUser}){
 
     // Navigation for redirect 
     const navigate = useNavigate();
 
-    // // Navigate the the project page
-    // navigate('/projects');
+    // Create states to store details of user provided information
+    const [username, setUsername] = useState();
+    const [email, setEmail] = useState();
+    const [password, setPassword] = useState();
 
 
-    // Function to run on form submit 
-  function onSubmitRegisterFunc(event){
-
-    // Prevent refresh on re-rendering
+    // Function to run on register submit
+  async function onSubmitRegisterFunc(event){
+    // Prevent refresh on re-rendering => Navigate the the current project page
     event.preventDefault();
-
-    // Navigate the the current project page
+    await registerUser(username, email, password, setUser);
     navigate('/projects');
 
   }
 
-  // Function to run on form submit 
-  function onSubmitSignUpFunc(event){
-
-    // Prevent refresh on re-rendering
+  // Function to run on sign in submit
+  async function onSubmitSignUpFunc(event){
+    // Prevent refresh on re-rendering => Navigate the the current project page
     event.preventDefault();
-    
-    // Navigate the the current project page
     navigate('/projects');
-    
   }
     
 
@@ -52,9 +49,9 @@ function Login(){
           <h1>Register</h1>
 
           <form className="login-form-input" onSubmit={onSubmitRegisterFunc} >
-            <input  required autoComplete="off" type="text" placeholder="Username" name="userName" /> 
-            <input  required autoComplete="off" type="text" placeholder="E-mail" name="email" /> 
-            <input  required autoComplete="off" type="text" placeholder="Password" name="password" /> 
+            <input  required autoComplete="off" type="text" placeholder="Username" name="userName" onChange={(event) => setUsername(event.target.value)}/> 
+            <input  required autoComplete="off" type="text" placeholder="E-mail" name="email"  onChange={(event) => setEmail(event.target.value)} /> 
+            <input  required autoComplete="off" type="text" placeholder="Password" name="password" onChange={(event) => setPassword(event.target.value)} /> 
             <button className='submit-button' type="submit"> Register </button>
           </form>
         </div>
