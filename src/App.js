@@ -46,18 +46,6 @@ function App() {
           }
         />
       </Routes>
-      {/* <Login setUser={setUser}></Login> */}
-
-      {/* {user ? (
-        <Homepage
-          username={user}
-          user={users}
-          setUser={setUsers}
-          onSubmitUser={onSubmitUser}
-        ></Homepage>
-      ) : (
-        <Login setUser={setUser}></Login>
-      )} */}
     </div>
   );
 }

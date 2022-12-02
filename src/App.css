@@ -81,6 +81,22 @@ form{
 }
 
 
+input[type=text] {
+  background: none;
+  border: none;
+  border-bottom: 1px solid var(--primary);
+  display: block;
+  font-size: 1.0rem;
+  margin: 2% 0 5% 0;
+  width: 100%;
+}
+
+hr{
+  border: 2px solid var(--primary);
+  opacity: 1;
+  margin: 2rem 0 0 0 ;
+  width: 100%;
+}
 
 /* --------------------------------------------------------- */
 /* COMPONENT CLASSES                                         */
@@ -194,6 +210,19 @@ form{
   text-align: center;
 }
 
+.section-homescreen select{
+  background: none;
+  border: none;
+  border-bottom: 1px solid var(--primary);
+  margin: 5% 0 2% 5%;
+  width: 20%;
+}
+
+.section-homescreen input[type=text]{
+  display: inline-block;
+  margin: 5% 0 2% 5%;
+  width: 30%;
+}
 
 .home-subsection{
   width: 75vw;
@@ -207,9 +236,6 @@ form{
   justify-content: center;
 }
 
-.section-homescreen .login-form input[type=text]{
-  width:50%
-}
 
 .colour-card{
   display: flex;
@@ -240,7 +266,10 @@ form{
 }
 
 
-
+#submit-button-update{
+  display: inline;
+  margin: 0 0 0 2%;
+}
 
 /* ----------------- SECTIONS ------------------ */
 
@@ -288,16 +317,6 @@ width: 60%;
   height: 100px;
 }
 
-
-input[type=text] {
-  background: none;
-  border: none;
-  border-bottom: 1px solid var(--primary);
-  display: block;
-  font-size: 1.0rem;
-  margin: 2% 0 5% 0;
-  width: 100%;
-}
 
 .submit-note-button{
   align-items: center;

@@ -82,12 +82,12 @@ function Homepage(props) {
     <div className="section-homescreen">
       <div className="home-subsection">
         <h1>Welcome {props.username}</h1>
-        <h3>Create a new project or continue working on an existing one...</h3>
       </div>
 
       <div className="home-subsection">
-        <div className="login-form">
-          <form className="login-form-input" onSubmit={onSubmitFormFunc}>
+        <h3>Create a new project or continue working on an existing one...</h3>
+        <div>
+          <form onSubmit={onSubmitFormFunc}>
 
             <fieldset className="field-flex">
               <input
@@ -164,12 +164,24 @@ function Homepage(props) {
               </div>
             </fieldset>
 
-            <button className="submit-button" type="submit">
-              Submit
-            </button>
-            
+            <button className="submit-button" type="submit">Submit</button>
+
           </form>
         </div>
+      </div>
+      <hr />
+
+      <div className="home-subsection">
+        <form>
+          <label htmlFor="updateField">Update your details:</label>
+          <select id="update-field" name="updateField">
+            <option value="updateUsername">Username</option>
+            <option value="updateEmail">Email</option>
+          </select> 
+          <input type="text" placeholder="New Details"></input>
+          <button className="submit-button" id="submit-button-update" type="submit">Update</button>
+
+        </form>
       </div>
     </div>
   );
