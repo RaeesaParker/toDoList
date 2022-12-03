@@ -71,7 +71,6 @@ export const deleteUser = async(user_id) => {
             headers: {"Content-type": "application/json"},
         })
         const data = await response.json()
-        console.log(data)
     } catch (error) {
         console.log(error)
     }
