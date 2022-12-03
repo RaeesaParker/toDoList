@@ -47,10 +47,29 @@ h1{
   text-align: center;
 }
 
-h3{
-  font-size: 1.1rem;
+h2{
+  color: var(--primary);
+  font-family: var(--fontSerif);
+  font-size: 2.5rem;
   font-weight: 500;
   line-height: 2rem;
+  text-align: center;
+  word-spacing: 0.25rem;
+  }
+
+h3{
+  font-size: 1.5rem;
+  font-weight: 500;
+  line-height: 2rem;
+  text-align: center;
+  word-spacing: 0.25rem;
+}
+
+h4{
+  font-size: 1.2rem;
+  font-weight: 500;
+  line-height: 2rem;
+  text-align: center;
   word-spacing: 0.25rem;
 }
 
@@ -71,10 +90,38 @@ form{
 }
 
 
+input[type=text] {
+  background: none;
+  border: none;
+  border-bottom: 1px solid var(--primary);
+  display: block;
+  font-size: 1.0rem;
+  margin: 2% 0 5% 0;
+  width: 100%;
+}
+
+hr{
+  border: 1px solid var(--primary);
+  opacity: 1;
+  margin: 2% 0 0 0;
+  width: 100%;
+}
 
 /* --------------------------------------------------------- */
 /* COMPONENT CLASSES                                         */
 /* --------------------------------------------------------- */
+
+.submit-button{
+  background: transparent;
+  border: none;
+  display: flex;
+  margin: 1% auto 1% auto;
+}
+
+.submit-button:hover{
+  color: var(--primary);
+  cursor: pointer;
+}
 
 
 
@@ -159,77 +206,6 @@ form{
   width:50%
 }
 
-.submit-button{
-  background: transparent;
-  border: none;
-  display: flex;
-  margin: 5% auto 0 auto;
-}
-
-.submit-button:hover{
-  color: var(--primary);
-  cursor: pointer;
-}
-
-
-
-/* ----------------- HOMEPAGE ------------------ */
-
-.section-homescreen{
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
-  justify-content: center;
-  text-align: center;
-}
-
-
-.home-subsection{
-  width: 75vw;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.field-flex{
-  display: flex;
-  justify-content: center;
-}
-
-.section-homescreen .login-form input[type=text]{
-  width:50%
-}
-
-.colour-card{
-  display: flex;
-  flex-direction: column;
-  padding: 5% 5% 2% 5%;
-}
-
-.colour-card-div{
-  display: inline-block;
-  border: 1px solid var(--black);
-  border-radius: 15px;
-  margin-bottom: 10%;
-  min-width: 10vw;
-  min-height: 5vh;
-}
-
-#palette-green{
-  background: linear-gradient(to right, #fcfcfc 33%, #e9e9e9 33%, #e9e9e9 66%, #4e705d 66% );
-}
-#palette-red{
-  background: linear-gradient(to right, #fffbfb 33%, #f3f1ef 33%, #f3f1ef 66%, #b01307 66% );
-}
-#palette-blue{
-  background: linear-gradient(to right, #f8f9fb 33%, #e7ecef 33%, #e7ecef 66%, #2E86AB 66% );
-}
-#palette-yellow{
-  background: linear-gradient(to right, #ffffff 33%, #f4f4f4 33%, #f4f4f4 66%, #eec302 66% );
-}
-
-
 
 
 /* ----------------- SECTIONS ------------------ */
@@ -278,16 +254,6 @@ width: 60%;
   height: 100px;
 }
 
-
-input[type=text] {
-  background: none;
-  border: none;
-  border-bottom: 1px solid var(--primary);
-  display: block;
-  font-size: 1.0rem;
-  margin: 2% 0 5% 0;
-  width: 100%;
-}
 
 .submit-note-button{
   align-items: center;
