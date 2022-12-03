@@ -33,16 +33,16 @@ function Login(props) {
     <div className="section-login">
       <div className="login-subsection-welcome">
         <h1>Welcome to PinBoard!</h1>
-        <h3>
+        <h4>
           This is a flexible work management tool where you can ideate plans and
           track your progress in a visual, productive, and rewarding way.{" "}
-        </h3>
-        <h3>Register now, or sign in, to begin...</h3>
+        </h4>
+        <h4>Register now, or sign in, to begin...</h4>
       </div>
 
       <div className="login-subsection-login">
         <div className="login-subsection-forms">
-          <h2>Register</h2>
+          <h3>Register</h3>
 
           <form className="login-form-input" onSubmit={onSubmitRegisterFunc}>
             <input
@@ -77,7 +77,7 @@ function Login(props) {
         </div>
 
         <div className="login-subsection-forms">
-          <h2>Sign In</h2>
+          <h3>Sign In</h3>
 
           <form className="login-form-input" onSubmit={onSubmitSignUpFunc}>
             <input

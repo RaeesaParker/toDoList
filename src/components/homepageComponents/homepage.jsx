@@ -1,6 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import ProjectsForm from "./projectsForm";
 
 function Homepage(props) {
 
@@ -80,98 +81,20 @@ function Homepage(props) {
 
   return (
     <div className="section-homescreen">
-      <div className="home-subsection">
-        <h1>Welcome {props.username}</h1>
+
+      <div style={{backgroundColor: "blue"}} className="home-subsection">
+        <h2>Welcome {props.username}</h2>
+        <h4>Create a new project or continue working on an existing one...</h4>
       </div>
 
-      <div className="home-subsection">
-        <h3>Create a new project or continue working on an existing one...</h3>
-        <div>
-          <form onSubmit={onSubmitFormFunc}>
-
-            <fieldset className="field-flex">
-              <input
-                required
-                autoComplete="off"
-                type="text"
-                placeholder="Project Name"
-                name="projectName"
-                value={projectDetails.projectName}
-                onChange={changeDetails}
-              />
-            </fieldset>
-
-            <fieldset className="field-flex">
-              <div className="colour-card">
-                <label htmlFor="green">
-                  <div id="palette-green" className="colour-card-div"></div>
-                </label>
-                <br />
-                <input
-                  defaultChecked
-                  type="radio"
-                  id="green"
-                  name="themeName"
-                  value="green"
-                  onChange={changeDetails}
-                />
-                <br />
-              </div>
-
-              <div className="colour-card">
-                <label htmlFor="red">
-                  <div id="palette-red" className="colour-card-div"></div>
-                </label>
-                <br />
-                <input
-                  type="radio"
-                  id="red"
-                  name="themeName"
-                  value="red"
-                  onChange={changeDetails}
-                />
-                <br />
-              </div>
-
-              <div className="colour-card">
-                <label htmlFor="blue">
-                  <div id="palette-blue" className="colour-card-div"></div>
-                </label>
-                <br />
-                <input
-                  type="radio"
-                  id="blue"
-                  name="themeName"
-                  value="blue"
-                  onChange={changeDetails}
-                />
-                <br />
-              </div>
-
-              <div className="colour-card">
-                <label htmlFor="yellow">
-                  <div id="palette-yellow" className="colour-card-div"></div>
-                </label>
-                <br />
-                <input
-                  type="radio"
-                  id="yellow"
-                  name="themeName"
-                  value="yellow"
-                  onChange={changeDetails}
-                />
-                <br />
-              </div>
-            </fieldset>
-
-            <button className="submit-button" type="submit">Submit</button>
-
-          </form>
-        </div>
-      </div>
+      <ProjectsForm 
+        changeDetails={changeDetails}
+        onSubmitFormFunc={onSubmitFormFunc}
+        projectDetails={projectDetails}
+      />
       <hr />
 
-      <div className="home-subsection">
+      <div className="home-subsection" style={{backgroundColor: "purple"}}>
         <form>
           <label htmlFor="updateField">Update your details:</label>
           <select id="update-field" name="updateField">

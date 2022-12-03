@@ -2,7 +2,7 @@ import "./App.css";
 import { useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import Login from "./components/login";
-import Homepage from "./components/homepage";
+import Homepage from "./components/homepageComponents/homepage";
 import CurrentProject from "./components/currentProject";
 
 function App() {

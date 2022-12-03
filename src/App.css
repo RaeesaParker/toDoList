@@ -50,7 +50,7 @@ h1{
 h2{
   color: var(--primary);
   font-family: var(--fontSerif);
-  font-size: 2.0rem;
+  font-size: 2.5rem;
   font-weight: 500;
   line-height: 2rem;
   text-align: center;
@@ -58,9 +58,18 @@ h2{
   }
 
 h3{
-  font-size: 1.1rem;
+  font-size: 1.5rem;
   font-weight: 500;
   line-height: 2rem;
+  text-align: center;
+  word-spacing: 0.25rem;
+}
+
+h4{
+  font-size: 1.2rem;
+  font-weight: 500;
+  line-height: 2rem;
+  text-align: center;
   word-spacing: 0.25rem;
 }
 
@@ -101,6 +110,18 @@ hr{
 /* --------------------------------------------------------- */
 /* COMPONENT CLASSES                                         */
 /* --------------------------------------------------------- */
+
+.submit-button{
+  background: transparent;
+  border: none;
+  display: flex;
+  margin: 5% auto 0 auto;
+}
+
+.submit-button:hover{
+  color: var(--primary);
+  cursor: pointer;
+}
 
 
 
@@ -185,18 +206,6 @@ hr{
   width:50%
 }
 
-.submit-button{
-  background: transparent;
-  border: none;
-  display: flex;
-  margin: 5% auto 0 auto;
-}
-
-.submit-button:hover{
-  color: var(--primary);
-  cursor: pointer;
-}
-
 
 
 /* ----------------- HOMEPAGE ------------------ */
@@ -225,10 +234,22 @@ hr{
 }
 
 .home-subsection{
-  width: 75vw;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  width: 100%;
+}
+
+#home-subsection-projects{
+  background-color: red;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.home-subsection-projects-select{
+  width: 50%;
 }
 
 .field-flex{
@@ -238,6 +259,7 @@ hr{
 
 
 .colour-card{
+  background-color: green;
   display: flex;
   flex-direction: column;
   padding: 5% 5% 2% 5%;
@@ -248,7 +270,7 @@ hr{
   border: 1px solid var(--black);
   border-radius: 15px;
   margin-bottom: 10%;
-  min-width: 10vw;
+  min-width: 7vw;
   min-height: 5vh;
 }
 
@@ -264,7 +286,6 @@ hr{
 #palette-yellow{
   background: linear-gradient(to right, #ffffff 33%, #f4f4f4 33%, #f4f4f4 66%, #eec302 66% );
 }
-
 
 #submit-button-update{
   display: inline;
