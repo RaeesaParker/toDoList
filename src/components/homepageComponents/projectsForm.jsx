@@ -5,15 +5,17 @@ function ProjectsForm({changeDetails, onSubmitFormFunc, projectDetails}){
 
   return (
     <div id="home-subsection-projects">
-      <div  style={{backgroundColor: "orange"}} className="home-subsection-projects-select">
-        <h3> New Project </h3> 
+
+      <div className="home-subsection-projects-select">
+
         <form onSubmit={onSubmitFormFunc}>
-          <fieldset className="field-flex">
+          
+          <fieldset>
             <input
               required
               autoComplete="off"
               type="text"
-              placeholder="Project Name"
+              placeholder="New Project Name"
               name="projectName"
               value={projectDetails.projectName}
               onChange={changeDetails}
@@ -21,7 +23,7 @@ function ProjectsForm({changeDetails, onSubmitFormFunc, projectDetails}){
           </fieldset>
 
           <fieldset className="field-flex">
-            <div className="colour-card">
+            <div  className="colour-card">
               <label htmlFor="green">
                 <div id="palette-green" className="colour-card-div"></div>
               </label>
@@ -35,7 +37,7 @@ function ProjectsForm({changeDetails, onSubmitFormFunc, projectDetails}){
               />
             </div>
 
-            <div className="colour-card">
+            <div  className="colour-card">
               <label htmlFor="red">
                 <div id="palette-red" className="colour-card-div"></div>
               </label>
@@ -47,8 +49,8 @@ function ProjectsForm({changeDetails, onSubmitFormFunc, projectDetails}){
                 onChange={changeDetails}
               />
             </div>
-            <br />
-            <div className="colour-card">
+
+            <div  className="colour-card">
               <label htmlFor="blue">
                 <div id="palette-blue" className="colour-card-div"></div>
               </label>
@@ -61,7 +63,7 @@ function ProjectsForm({changeDetails, onSubmitFormFunc, projectDetails}){
               />
             </div>
 
-            <div className="colour-card">
+            <div   className="colour-card">
               <label htmlFor="yellow">
                 <div id="palette-yellow" className="colour-card-div"></div>
               </label>
@@ -79,9 +81,11 @@ function ProjectsForm({changeDetails, onSubmitFormFunc, projectDetails}){
 
         </form>
       </div>
-      <div  style={{backgroundColor: "yellow"}} className="home-subsection-projects-select">
-        <h4>Project Library</h4>
+
+      <div className="home-subsection-projects-select">
+        <h3>Your Projects...</h3>
       </div>
+      
     </div>
   )
 };

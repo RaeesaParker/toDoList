@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import ProjectsForm from "./projectsForm";
+import "./homepageStyles.css"
 
 function Homepage(props) {
 
@@ -82,19 +83,21 @@ function Homepage(props) {
   return (
     <div className="section-homescreen">
 
-      <div style={{backgroundColor: "blue"}} className="home-subsection">
+      <div className="home-subsection">
         <h2>Welcome {props.username}</h2>
-        <h4>Create a new project or continue working on an existing one...</h4>
       </div>
+
+      <hr />
 
       <ProjectsForm 
         changeDetails={changeDetails}
         onSubmitFormFunc={onSubmitFormFunc}
         projectDetails={projectDetails}
       />
+
       <hr />
 
-      <div className="home-subsection" style={{backgroundColor: "purple"}}>
+      <div className="home-subsection" >
         <form>
           <label htmlFor="updateField">Update your details:</label>
           <select id="update-field" name="updateField">
