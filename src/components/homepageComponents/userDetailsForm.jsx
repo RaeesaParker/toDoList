@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { deleteUser } from "../../utils/users";
 
 
-function UserDetailsForm({userName}){
+function UserDetailsForm({user_id}){
   
   // Navigation for redirect
   const navigate = useNavigate();
@@ -13,8 +13,8 @@ function UserDetailsForm({userName}){
   // Function to delete a user 
   async function onDeleteAccountFunc(event){
     event.preventDefault();
-    await deleteUser(userName)
-    navigate("toDoList/"); 
+    await deleteUser(user_id)
+    navigate("../toDoList/"); 
   }
 
 

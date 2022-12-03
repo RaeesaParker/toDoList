@@ -7,14 +7,26 @@ import CurrentProject from "./components/currentProject";
 
 function App() {
 
-  // Crate a state to store the username
-  const [user, setUser] = useState();
+  // Create an array to store the details of a project
+  const [userDetails, setUserDetails] = useState({
+    userName:"",
+    user_id: "",
+  });
+
+  // Function to take in the user details submited on homepage
+  function onSetUserDetails(userDetails) {
+    setUserDetails({
+      userName: userDetails.userName,
+      user_id: userDetails.user_id,
+    });
+  }
 
   // Create an array to store the details of a project
   const [project, setProject] = useState({
     projectName: " ",
     themeName: " ",
   });
+
 
   // Function to take in the user details submited on homepage
   function onSubmitProject(projectDetails) {
@@ -27,14 +39,13 @@ function App() {
   return (
     <div>
       <Routes>
-        <Route path="toDoList/" element={<Login user={user} setUser={setUser}></Login>} />
+        <Route path="toDoList/" element={<Login  setUserDetails={onSetUserDetails}></Login>} />
         <Route
           path="/projects"
           element={
             <Homepage
-              username={user}
-              project={project}
-              setProject={setProject}
+              username={userDetails.userName}
+              user_id={userDetails.user_id}
               onSubmitProject={onSubmitProject}
             ></Homepage>
           }
@@ -42,7 +53,7 @@ function App() {
         <Route
           path="/currentproject"
           element={
-            <CurrentProject userName={user} projectName={project.projectName} />
+            <CurrentProject userName={userDetails.userName} projectName={project.projectName} />
           }
         />
       </Routes>

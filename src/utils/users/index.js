@@ -1,5 +1,5 @@
 // Register a user => Used to create user
-export const registerUser = async (username, email, password, setUser) => {
+export const registerUser = async (username, email, password, setUserDetails) => {
   try {
     const response = await fetch(`http://localhost:5001/addUser`, {
       method: "POST",
@@ -11,7 +11,8 @@ export const registerUser = async (username, email, password, setUser) => {
       }),
     });
     const data = await response.json();
-    setUser(data.userName);
+    // setUser(data.userName);
+    setUserDetails({userName:data.userName, user_id:data.id})
   } catch (error) {
     console.log(error);
   }
@@ -19,7 +20,7 @@ export const registerUser = async (username, email, password, setUser) => {
 
 
 // Login a user
-export const loginUser = async (username, password, setUser) => {
+export const loginUser = async (username, password, setUserDetails) => {
     try {
         const response = await fetch("http://localhost:5001/auth", {
             method: "POST",
@@ -31,7 +32,7 @@ export const loginUser = async (username, password, setUser) => {
         })
         const data = await response.json();
         if (data.userName){
-          setUser(data.userName)
+          setUserDetails({userName:data.userName, user_id:data.id})
           return true
         }
         // writeCookie("jwt_token", data.token, 7)
@@ -45,14 +46,11 @@ export const loginUser = async (username, password, setUser) => {
 // Update a user's details
 
 // Delete a user
-export const deleteUser = async(username) => {
+export const deleteUser = async(user_id) => {
     try {
-        const response = await fetch(`http://localhost:5001/deleteUser`, {
+        const response = await fetch(`http://localhost:5001/users/${user_id}`, {
             method: "DELETE",
             headers: {"Content-type": "application/json"},
-            body: JSON.stringify({
-                "username": username,
-            })
         })
         const data = await response.json()
         console.log(data)

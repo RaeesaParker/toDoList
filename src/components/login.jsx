@@ -16,14 +16,14 @@ function Login(props) {
   // Function to run on register submit
   async function onSubmitRegisterFunc(event) {
     event.preventDefault();
-    await registerUser(username, email, password, props.setUser);
+    await registerUser(username, email, password, props.setUserDetails);
     navigate("/projects");   
   }
 
   // Function to run on sign in submit
   async function onSubmitSignInFunc(event) {
     event.preventDefault();
-    let registeredUser = await loginUser(username, password, props.setUser);
+    let registeredUser = await loginUser(username, password, props.setUserDetails)
     if (registeredUser){
       navigate("/projects");   
     }
