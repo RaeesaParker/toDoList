@@ -27,7 +27,7 @@ function App() {
   return (
     <div>
       <Routes>
-        <Route path="toDoList/" element={<Login setUser={setUser}></Login>} />
+        <Route path="toDoList/" element={<Login user={user} setUser={setUser}></Login>} />
         <Route
           path="/projects"
           element={

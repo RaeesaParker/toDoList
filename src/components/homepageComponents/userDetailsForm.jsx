@@ -1,6 +1,22 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
+import { deleteUser } from "../../utils/users";
 
-function UserDetailsForm(){
+
+function UserDetailsForm({userName}){
+  
+  // Navigation for redirect
+  const navigate = useNavigate();
+
+  // Function to update user details
+
+  // Function to delete a user 
+  async function onDeleteAccountFunc(event){
+    event.preventDefault();
+    await deleteUser(userName)
+    navigate("toDoList/"); 
+  }
+
 
   return(
     <div className="home-subsection" >
@@ -12,7 +28,7 @@ function UserDetailsForm(){
         </select> 
         <input type="text" placeholder="New Details"></input>
         <button className="submit-button" id="submit-button-update" type="submit">Update</button>
-        <button className="submit-button" id="submit-button-delete" type="submit" >Delete Account</button>
+        <button className="submit-button" id="submit-button-delete" type="submit" onClick={onDeleteAccountFunc} >Delete Account</button>
       </form>
     </div>
   )

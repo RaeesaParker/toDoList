@@ -1,5 +1,3 @@
-//  Functions that will connect to the backend with relation to the user functionality
-
 // Register a user => Used to create user
 export const registerUser = async (username, email, password, setUser) => {
   try {
@@ -19,7 +17,6 @@ export const registerUser = async (username, email, password, setUser) => {
   }
 };
 
-// Read a users details => Used for sign in 
 
 // Login a user
 export const loginUser = async (username, password, setUser) => {
@@ -33,8 +30,10 @@ export const loginUser = async (username, password, setUser) => {
             })
         })
         const data = await response.json();
-        setUser(data.userName)
-        
+        if (data.userName){
+          setUser(data.userName)
+          return true
+        }
         // writeCookie("jwt_token", data.token, 7)
 
     } catch (error) {
@@ -46,3 +45,18 @@ export const loginUser = async (username, password, setUser) => {
 // Update a user's details
 
 // Delete a user
+export const deleteUser = async(username) => {
+    try {
+        const response = await fetch(`http://localhost:5001/deleteUser`, {
+            method: "DELETE",
+            headers: {"Content-type": "application/json"},
+            body: JSON.stringify({
+                "username": username,
+            })
+        })
+        const data = await response.json()
+        console.log(data)
+    } catch (error) {
+        console.log(error)
+    }
+}

@@ -15,19 +15,21 @@ function Login(props) {
 
   // Function to run on register submit
   async function onSubmitRegisterFunc(event) {
-    // Prevent refresh on re-rendering => Navigate the the current project page
     event.preventDefault();
     await registerUser(username, email, password, props.setUser);
-    navigate("/projects");
+    navigate("/projects");   
   }
 
   // Function to run on sign in submit
-  async function onSubmitSignUpFunc(event) {
-    // Prevent refresh on re-rendering => Navigate the the current project page
+  async function onSubmitSignInFunc(event) {
     event.preventDefault();
-    await loginUser(username, password, props.setUser);
-    navigate("/projects");
+    let registeredUser = await loginUser(username, password, props.setUser);
+    if (registeredUser){
+      navigate("/projects");   
+    }
   }
+
+
 
   return (
     <div className="section-login">
@@ -79,7 +81,7 @@ function Login(props) {
         <div className="login-subsection-forms">
           <h3>Sign In</h3>
 
-          <form className="login-form-input" onSubmit={onSubmitSignUpFunc}>
+          <form className="login-form-input" onSubmit={onSubmitSignInFunc}>
             <input
               required
               autoComplete="off"
