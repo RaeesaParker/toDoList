@@ -44,6 +44,24 @@ export const loginUser = async (username, password, setUserDetails) => {
 
 
 // Update a user's details
+export const updateUser = async(user_id, keyField, value) => {
+    try {
+      console.log("The parameters being passed are, ", user_id, keyField, value)
+        const response = await fetch(`http://localhost:5001/users/${user_id}`, {
+            method: "PUT",
+            headers: {"Content-type": "application/json"},
+            body: JSON.stringify({
+                [keyField]: value
+            })
+        })
+        const data = await response.json()
+    } catch (error) {
+        console.log(error)
+    }
+} 
+
+
+
 
 // Delete a user
 export const deleteUser = async(user_id) => {

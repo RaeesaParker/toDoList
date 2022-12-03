@@ -25,7 +25,7 @@
 
 .home-subsection{
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
   margin: 2% 0 0 0;
   width: 100%;
@@ -94,7 +94,7 @@
 #submit-button-delete{
   color: var(--red);
   display: inline;
-  margin: 0 0 0 10%;
+  width: 20%;
 }
 
 #update-field{

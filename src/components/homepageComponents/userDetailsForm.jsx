@@ -1,6 +1,7 @@
 import React from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { deleteUser } from "../../utils/users";
+import { updateUser, deleteUser } from "../../utils/users";
 
 
 function UserDetailsForm({user_id}){
@@ -8,8 +9,15 @@ function UserDetailsForm({user_id}){
   // Navigation for redirect
   const navigate = useNavigate();
 
-  // Function to update user details
+  // Update the updated detail field
+  async function onUpdateDetail(event) {
+    event.preventDefault();
+    let updateKey = event.target.updateKey.value;
+    let updateValue = event.target.updateValue.value
+    await updateUser(user_id, updateKey, updateValue)
+  }
 
+  
   // Function to delete a user 
   async function onDeleteAccountFunc(event){
     event.preventDefault();
@@ -20,16 +28,17 @@ function UserDetailsForm({user_id}){
 
   return(
     <div className="home-subsection" >
-      <form>
-        <label htmlFor="updateField">Update your details:</label>
-        <select id="update-field" name="updateField">
-          <option value="updateUsername">Username</option>
-          <option value="updateEmail">Email</option>
+      <form  onSubmit={onUpdateDetail}>
+        <label htmlFor="updateKey">Update your details:</label>
+        <select id="update-field" name="updateKey">
+          <option value="username">Username</option>
+          <option value="email">Email</option>
         </select> 
-        <input type="text" placeholder="New Details"></input>
+        <input type="text" placeholder="New Details" name="updateValue"></input>
         <button className="submit-button" id="submit-button-update" type="submit">Update</button>
-        <button className="submit-button" id="submit-button-delete" type="submit" onClick={onDeleteAccountFunc} >Delete Account</button>
       </form>
+      <button className="submit-button" id="submit-button-delete" type="submit" onClick={onDeleteAccountFunc} >Delete Account</button>
+
     </div>
   )
 }
