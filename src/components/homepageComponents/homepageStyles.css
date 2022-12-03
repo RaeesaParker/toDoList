@@ -15,13 +15,12 @@
   border: none;
   border-bottom: 1px solid var(--primary);
   margin: 5% 0 2% 5%;
-  width: 20%;
 }
 
-.section-homescreen input[type=text]{
+.home-subsection-projects-select input[type=text]{
   display: inline-block;
   margin: 2% 0 2% 5%;
-  width: 40%;
+  width: 60%;
 }
 
 .home-subsection{
@@ -41,7 +40,6 @@
 }
 
 .home-subsection-projects-select{
-  
   padding: 2% 0;
   width: 50%;
 }
@@ -82,9 +80,21 @@
   background: linear-gradient(to right, #ffffff 33%, #f4f4f4 33%, #f4f4f4 66%, #eec302 66% );
 }
 
+.home-subsection input[type=text]{
+  display: inline-block;
+  margin: 2% 0 2% 5%;
+  width: 20%;
+}
+
 #submit-button-update{
   display: inline;
   margin: 0 0 0 2%;
+}
+
+#submit-button-delete{
+  color: var(--red);
+  display: inline;
+  margin: 0 0 0 10%;
 }
 
 #update-field{
