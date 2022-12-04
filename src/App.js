@@ -31,18 +31,20 @@ function App() {
 
   // Create an array to store the details of a project
   const [project, setProject] = useState({
-    projectName: " ",
-    themeName: " ",
+    project_id:"",
+    projectName: "",
+    themeName: "",
   });
-
 
   // Function to take in the user details submited on homepage
   function onSubmitProject(projectDetails) {
     setProject({
+      project_id: projectDetails.project_id,
       projectName: projectDetails.projectName,
       themeName: projectDetails.themeName,
     });
   }
+
 
   // Functions to be used for cookie search => Check for cookie when the page loads => Find user if the token is found
   useEffect (() => {
@@ -69,7 +71,7 @@ function App() {
             <Homepage
               username={userDetails.userName}
               user_id={userDetails.user_id}
-              onSubmitProject={onSubmitProject}
+              setProject={onSubmitProject}
             ></Homepage>
           }
         />

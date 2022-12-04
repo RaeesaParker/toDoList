@@ -17,15 +17,21 @@ function Homepage(props) {
     }
   }, [])
 
+
+  function onLogOut(){
+    navigate("../toDoList/"); 
+  }
+
   return (
     <div className="section-homescreen">
 
       <div className="home-subsection">
-        <h2>Welcome {props.username}</h2>
+        <div id="home-welome-title"> <h2>Welcome {props.username}</h2> </div>
+        <div> <button className="submit-button" onClick={onLogOut}>Logout</button> </div>
       </div>
 
       <hr />
-      <ProjectsForm onSubmitProject={props.onSubmitProject}/>
+      <ProjectsForm setProject={props.setProject}  user_id={props.user_id}/>
 
       <hr />
       <UserDetailsForm user_id={props.user_id}/>

@@ -17,6 +17,12 @@
   margin: 5% 0 2% 5%;
 }
 
+.home-subsection input[type=text]{
+  display: inline-block;
+  margin: 2% 0 2% 5%;
+  width: 20%;
+}
+
 .home-subsection-projects-select input[type=text]{
   display: inline-block;
   margin: 2% 0 2% 5%;
@@ -31,6 +37,10 @@
   width: 100%;
 }
 
+#home-welome-title{
+  flex-grow: 4;
+}
+
 #home-subsection-projects{
   display: flex;
   flex-direction: row;
@@ -38,6 +48,9 @@
   margin: 2% 0 0 0;
   width: 100%;
 }
+
+
+/* PROJECTS SECTION */
 
 .home-subsection-projects-select{
   padding: 2% 0;
@@ -48,7 +61,6 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-
 }
 
 .colour-card{
@@ -80,18 +92,36 @@
   background: linear-gradient(to right, #ffffff 33%, #f4f4f4 33%, #f4f4f4 66%, #eec302 66% );
 }
 
-.home-subsection input[type=text]{
+
+.home-project-name{
   display: inline-block;
-  margin: 2% 0 2% 5%;
-  width: 20%;
+  margin: 2% 5% 2% 0;
 }
+
+.home-project-name:hover{
+  color: var(--primary);
+  cursor: pointer;
+}
+
+
+.button-delete-project{
+  color: var(--primary);
+  padding: 0;
+}
+
+.button-delete-project:hover{
+  color: var(--red);
+  cursor: pointer;
+}
+
+/*  USER UPDATE SECTION */
 
 #submit-button-update{
   display: inline;
   margin: 0 0 0 2%;
 }
 
-#submit-button-delete{
+.submit-button-delete{
   color: var(--red);
   display: inline;
   width: 20%;
