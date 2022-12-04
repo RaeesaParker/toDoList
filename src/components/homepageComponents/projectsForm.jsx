@@ -14,7 +14,7 @@ function ProjectsForm({setProject, user_id}){
   return (
     <div id="home-subsection-projects">
 
-      <NewProjectForm setProject={setProject} />
+      <NewProjectForm user_id={user_id} setProject={setProject} />
 
       <ProjectsLibrary user_id={user_id} setProject={setProject}/>
 

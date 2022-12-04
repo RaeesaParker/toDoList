@@ -1,8 +1,9 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { createProject } from "../../utils/projects/index"
 
-function NewProjectForm({ setProject } ){
+function NewProjectForm({ user_id, setProject } ){
 
   // Navigation for redirect
   const navigate = useNavigate();
@@ -28,7 +29,8 @@ function NewProjectForm({ setProject } ){
 
 
   // Function to run on form submit
-  function onSubmitFormFunc(event) {
+  async function onSubmitFormFunc(event) {
+    event.preventDefault();
 
     const colourChosen = document.querySelector('input[name="themeName"]:checked').value;
 
@@ -61,17 +63,17 @@ function NewProjectForm({ setProject } ){
         break;
     }
 
+    // Create a new project on the DB
+    await createProject(user_id, projectDetails.projectName, projectDetails.themeName, setProject)
+
     // Send the userdetails back to parent (app.js) => comes from props
-    setProject(projectDetails);
+    // setProject(projectDetails);
 
     // Clear the form fields => reset the user details
     setProjectDetails({
       projectName: "",
       themeName: "",
     });
-
-    // Prevent refresh on re-rendering
-    event.preventDefault();
 
     // Navigate the the current project page
     navigate("/currentproject");
