@@ -37,6 +37,10 @@
   width: 100%;
 }
 
+#home-welome-title{
+  flex-grow: 4;
+}
+
 #home-subsection-projects{
   display: flex;
   flex-direction: row;
@@ -102,6 +106,7 @@
 
 .button-delete-project{
   color: var(--primary);
+  padding: 0;
 }
 
 .button-delete-project:hover{

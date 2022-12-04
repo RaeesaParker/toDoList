@@ -66,9 +66,6 @@ function NewProjectForm({ user_id, setProject } ){
     // Create a new project on the DB
     await createProject(user_id, projectDetails.projectName, projectDetails.themeName, setProject)
 
-    // Send the userdetails back to parent (app.js) => comes from props
-    // setProject(projectDetails);
-
     // Clear the form fields => reset the user details
     setProjectDetails({
       projectName: "",
