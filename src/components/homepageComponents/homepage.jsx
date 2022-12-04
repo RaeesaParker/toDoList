@@ -25,7 +25,7 @@ function Homepage(props) {
       </div>
 
       <hr />
-      <ProjectsForm onSubmitProject={props.onSubmitProject}/>
+      <ProjectsForm onSubmitProject={props.onSubmitProject} user_id={props.user_id}/>
 
       <hr />
       <UserDetailsForm user_id={props.user_id}/>

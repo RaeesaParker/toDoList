@@ -17,6 +17,12 @@
   margin: 5% 0 2% 5%;
 }
 
+.home-subsection input[type=text]{
+  display: inline-block;
+  margin: 2% 0 2% 5%;
+  width: 20%;
+}
+
 .home-subsection-projects-select input[type=text]{
   display: inline-block;
   margin: 2% 0 2% 5%;
@@ -39,6 +45,9 @@
   width: 100%;
 }
 
+
+/* PROJECTS SECTION */
+
 .home-subsection-projects-select{
   padding: 2% 0;
   width: 50%;
@@ -48,7 +57,6 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-
 }
 
 .colour-card{
@@ -80,11 +88,13 @@
   background: linear-gradient(to right, #ffffff 33%, #f4f4f4 33%, #f4f4f4 66%, #eec302 66% );
 }
 
-.home-subsection input[type=text]{
-  display: inline-block;
-  margin: 2% 0 2% 5%;
-  width: 20%;
+
+.home-project-name{
+  margin: 5% 0 0 0;
 }
+
+
+/*  USER UPDATE SECTION */
 
 #submit-button-update{
   display: inline;
