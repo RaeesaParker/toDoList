@@ -1,11 +1,19 @@
 import "./App.css";
-import { useState } from "react";
-import { Routes, Route } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { Routes, Route, useNavigate} from "react-router-dom";
+// Cookie
+import { getCookie } from "./common/index";
+import { findUser } from "./utils/users";
+// Components
 import Login from "./components/login";
 import Homepage from "./components/homepageComponents/homepage";
 import CurrentProject from "./components/currentProject";
 
+
 function App() {
+
+  // Navigation for redirect
+  const navigate = useNavigate();
 
   // Create an array to store the details of a project
   const [userDetails, setUserDetails] = useState({
@@ -34,6 +42,22 @@ function App() {
       projectName: projectDetails.projectName,
       themeName: projectDetails.themeName,
     });
+  }
+
+  // Functions to be used for cookie search => Check for cookie when the page loads => Find user if the token is found
+  useEffect (() => {
+    let cookie = getCookie('jwt_token')
+    if (cookie !== false){
+      loginWithToken(cookie, setUserDetails)
+    }
+  }, [])
+
+  const loginWithToken = async(cookie) => {
+    const userDetails = await findUser(cookie, setUserDetails)
+    console.log(userDetails)
+    if (userDetails){
+      navigate("/projects");   
+    }
   }
 
   return (

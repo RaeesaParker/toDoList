@@ -1,3 +1,5 @@
+import { writeCookie } from "../../common/index"
+
 // Register a user => Used to create user
 export const registerUser = async (username, email, password, setUserDetails) => {
   try {
@@ -11,8 +13,8 @@ export const registerUser = async (username, email, password, setUserDetails) =>
       }),
     });
     const data = await response.json();
-    // setUser(data.userName);
     setUserDetails({userName:data.userName, user_id:data.id})
+    writeCookie("jwt_token", data.token, 7)
   } catch (error) {
     console.log(error);
   }
@@ -33,14 +35,33 @@ export const loginUser = async (username, password, setUserDetails) => {
         const data = await response.json();
         if (data.userName){
           setUserDetails({userName:data.userName, user_id:data.id})
+          writeCookie("jwt_token", data.token, 7)
           return true
         }
-        // writeCookie("jwt_token", data.token, 7)
-
     } catch (error) {
         console.log(error)
     }
 } 
+
+
+export const findUser = async (cookieValue, setUserDetails) => {
+    try {
+        const response = await fetch(`http://localhost:5001/auth`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${cookieValue}`
+            },
+        })
+        const data = await response.json()
+        console.log("The data being fetched back is ", data)
+        setUserDetails({userName:data.userName, user_id:data.id})
+        return true;
+    } catch (error) {
+        console.log(error)
+    }
+} 
+
 
 
 // Update a user's details
