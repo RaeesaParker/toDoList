@@ -15,9 +15,11 @@ function CurrentProject(props){
   // Check if there is a user logged in => if not => route to the login page 
   useEffect (() => {
     if (!props.username){
-     navigate("../toDoList/"); 
+      console.log("Rerouting back to homepage as there is no user")
+      navigate("../../toDoList/"); 
     }
   }, [])
+
 
   //  Create an array to store the noteList
   const [noteList, setNoteList] = useState([]);

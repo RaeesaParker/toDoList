@@ -54,7 +54,6 @@ function App() {
 
   const loginWithToken = async(cookie) => {
     const userDetails = await findUser(cookie, setUserDetails)
-    console.log(userDetails)
     if (userDetails){
       navigate("/projects");   
     }
