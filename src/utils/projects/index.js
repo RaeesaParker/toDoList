@@ -6,9 +6,7 @@ export const readProjects = async (user_id) =>{
             headers: {"Content-type": "application/json"}
         })
         const data = await response.json()
-        const projects = data;
-        // console.log(projects)
-        return projects
+        return data;
     } catch (error) {
         console.log(error)
     }
@@ -24,5 +22,16 @@ export const readProjects = async (user_id) =>{
 // Update the project 
 
 // Delete the project 
+export const deleteProject = async(project_id) => {
+    try {
+        const response = await fetch(`http://localhost:5001/projects/${project_id}`, {
+            method: "DELETE",
+            headers: {"Content-type": "application/json"},
+        })
+        const data = await response.json()
+    } catch (error) {
+        console.log(error)
+    }
+}
 
 
