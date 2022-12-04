@@ -77,7 +77,7 @@ function App() {
         <Route
           path="/currentproject"
           element={
-            <CurrentProject userName={userDetails.userName} projectName={project.projectName} />
+            <CurrentProject username={userDetails.userName} projectName={project.projectName} />
           }
         />
       </Routes>
