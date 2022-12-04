@@ -37,7 +37,7 @@ function UserDetailsForm({user_id}){
         <input type="text" placeholder="New Details" name="updateValue"></input>
         <button className="submit-button" id="submit-button-update" type="submit">Update</button>
       </form>
-      <button className="submit-button" id="submit-button-delete" type="submit" onClick={onDeleteAccountFunc} >Delete Account</button>
+      <button className="submit-button submit-button-delete"  type="submit" onClick={onDeleteAccountFunc} >Delete Account</button>
 
     </div>
   )

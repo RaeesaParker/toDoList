@@ -90,9 +90,18 @@
 
 
 .home-project-name{
-  margin: 5% 0 0 0;
+  display: inline-block;
+  margin: 2% 5% 2% 0;
 }
 
+.button-delete-project{
+  color: var(--primary);
+}
+
+.button-delete-project:hover{
+  color: var(--red);
+  cursor: pointer;
+}
 
 /*  USER UPDATE SECTION */
 
@@ -101,7 +110,7 @@
   margin: 0 0 0 2%;
 }
 
-#submit-button-delete{
+.submit-button-delete{
   color: var(--red);
   display: inline;
   width: 20%;
