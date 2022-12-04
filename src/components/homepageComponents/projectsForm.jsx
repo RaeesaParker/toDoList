@@ -6,7 +6,7 @@ import NewProjectForm from "./newProjectForm";
 import ProjectsLibrary from "./projectsLibrary";
 
 
-function ProjectsForm({onSubmitProject, user_id}){
+function ProjectsForm({setProject, user_id}){
 
   // Navigation for redirect
   const navigate = useNavigate();
@@ -14,9 +14,9 @@ function ProjectsForm({onSubmitProject, user_id}){
   return (
     <div id="home-subsection-projects">
 
-      <NewProjectForm onSubmitProject={onSubmitProject} />
+      <NewProjectForm setProject={setProject} />
 
-      <ProjectsLibrary user_id={user_id}/>
+      <ProjectsLibrary user_id={user_id} setProject={setProject}/>
 
 
     </div>

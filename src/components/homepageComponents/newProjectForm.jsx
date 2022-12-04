@@ -2,7 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
-function NewProjectForm({onSubmitProject}){
+function NewProjectForm({ setProject } ){
 
   // Navigation for redirect
   const navigate = useNavigate();
@@ -62,7 +62,7 @@ function NewProjectForm({onSubmitProject}){
     }
 
     // Send the userdetails back to parent (app.js) => comes from props
-    onSubmitProject(projectDetails);
+    setProject(projectDetails);
 
     // Clear the form fields => reset the user details
     setProjectDetails({

@@ -94,6 +94,12 @@
   margin: 2% 5% 2% 0;
 }
 
+.home-project-name:hover{
+  color: var(--primary);
+  cursor: pointer;
+}
+
+
 .button-delete-project{
   color: var(--primary);
 }

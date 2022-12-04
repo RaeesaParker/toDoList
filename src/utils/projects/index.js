@@ -12,11 +12,24 @@ export const readProjects = async (user_id) =>{
     }
 } 
 
+// Create a new project
 
-// Create a new project 
+// Find the selected project
+export const selectProject = async (project_id, setProject) =>{
+    try {
+        const response = await fetch(`http://localhost:5001/projects/${project_id}`, {
+            method: 'GET',
+            headers: {"Content-type": "application/json"}
+        })
+        const data = await response.json()
+        setProject({project_id:data.id, projectName:data.projectName, themeName:data.themeName})
+        return data
+    } catch (error) {
+        console.log(error)
+    }
+} 
 
 
-// Find the seletced project 
 
 
 // Update the project 
