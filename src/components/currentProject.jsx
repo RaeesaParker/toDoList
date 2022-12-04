@@ -1,5 +1,5 @@
-import {useState} from 'react';
-import { BrowserRouter , Routes , Route , Link   } from 'react-router-dom';
+import {useState, useEffect} from 'react';
+import { useNavigate  } from 'react-router-dom';
 import Heading from './heading';
 import CurrentInserts from './currentInserts';
 import Archive from './archive';
@@ -8,6 +8,18 @@ import Footer from './footer';
 
 
 function CurrentProject(props){
+
+  // Navigation for redirect
+  const navigate = useNavigate();
+
+  // Check if there is a user logged in => if not => route to the login page 
+  useEffect (() => {
+    if (!props.username){
+      console.log("Rerouting back to homepage as there is no user")
+      navigate("../../toDoList/"); 
+    }
+  }, [])
+
 
   //  Create an array to store the noteList
   const [noteList, setNoteList] = useState([]);
@@ -23,7 +35,7 @@ function CurrentProject(props){
 
   return(
     <div>
-      <Heading userName={props.userName} projectName={props.projectName}  ></Heading>
+      <Heading userName={props.username} projectName={props.projectName}  ></Heading>
        
        <div className='section-main-container'> 
          <CurrentInserts noteList={noteList} setNoteList={setNoteList} archiveNoteList={archiveNoteList} setArchiveNoteList={setArchiveNoteList} doingNoteList={doingNoteList} setDoingNoteList={setDoingNoteList} ></CurrentInserts>
