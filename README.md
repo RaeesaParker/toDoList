@@ -1,7 +1,9 @@
 # ToDoList
 
 ## General Information
-This repository ([RaeesaParker/toDoList](https://github.com/RaeesaParker/toDoList)) holds the front-end code, whilst the back-end repository can be found at [RaeesaParker/toDoList-API](https://github.com/RaeesaParker/toDoList-API) . 
+This repository ([RaeesaParker/toDoList](https://github.com/RaeesaParker/toDoList)) holds the front-end code for a trello-like todo board. 
+
+The current deployment only holds the front-end. The back-end is currently in development and the repository can be found at [RaeesaParker/toDoList-API](https://github.com/RaeesaParker/toDoList-API) . 
 
 ## Technologies
 
