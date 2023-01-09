@@ -1,6 +1,5 @@
 import React from 'react';
 import NewNoteInput from './insertNoteInputs.jsx';
-import CreateNote from './createNote.jsx';
 import Zoom from '@mui/material/Zoom';
 
 

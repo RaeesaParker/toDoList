@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { registerUser, loginUser } from "../utils/users";
+import { registerUser, loginUser } from "../../utils/users";
 
 function Login(props) {
   
@@ -37,7 +37,7 @@ function Login(props) {
         <h1>Welcome to PinBoard!</h1>
         <h4>
           This is a flexible work management tool where you can ideate plans and
-          track your progress in a visual, productive, and rewarding way.{" "}
+          track your progress in a visual, productive, and rewarding way.
         </h4>
         <h4>Register now, or sign in, to begin...</h4>
       </div>
@@ -72,8 +72,7 @@ function Login(props) {
               onChange={(event) => setPassword(event.target.value)}
             />
             <button className="submit-button" type="submit">
-              {" "}
-              Register{" "}
+              Register
             </button>
           </form>
         </div>
@@ -99,8 +98,7 @@ function Login(props) {
               onChange={(event) => setPassword(event.target.value)}
             />
             <button className="submit-button" type="submit">
-              {" "}
-              Sign In{" "}
+              Sign In
             </button>
           </form>
         </div>
