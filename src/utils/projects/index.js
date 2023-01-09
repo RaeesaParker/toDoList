@@ -1,3 +1,6 @@
+import { getCookie } from "../../common";
+
+
 // Read / Get all the projects of a user 
 export const readProjects = async (user_id) =>{
     try {
@@ -17,7 +20,10 @@ export const createProject = async (user_id, projectName, themeName, setProject)
   try {
     const response = await fetch(`http://localhost:5001/newProject`, {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers: { 
+        "Content-Type": "application/json" , 
+        Authorization: "Bearer " + getCookie("jwt_token"),
+    },
       body: JSON.stringify({
         user_id:user_id,
         projectName: projectName,

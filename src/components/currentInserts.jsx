@@ -1,17 +1,18 @@
 import React from 'react';
 import InsertNote from './insertNote.jsx';
 import CreateNote from './createNote.jsx';
+import {createNote} from '../utils/notes/index'
+
+function CurrentInserts({noteList, setNoteList, archiveNoteList, setArchiveNoteList, doingNoteList, setDoingNoteList, userId, projectId}){
 
 
-function CurrentInserts({noteList, setNoteList, archiveNoteList, setArchiveNoteList, doingNoteList, setDoingNoteList}){
 
-
-
-  //  Function to add a new note => takes created note and pushes to the notelist
-  function addNote(newNote){
-    setNoteList(prevNoteList => {
-      return [...prevNoteList, newNote];
-    });
+  //  Function to add a new note => 
+  async function addNote(newNote){
+    // setNoteList(prevNoteList => {
+    //   return [...prevNoteList, newNote];
+    // });
+    let createdNote = await createNote(userId, projectId, newNote)
   };
 
   // Function to delete note => Returns all the notes WITHOUT supplied ID

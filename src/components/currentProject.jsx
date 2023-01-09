@@ -54,6 +54,8 @@ function CurrentProject(props) {
 
       <div className="section-main-container">
         <CurrentInserts
+          userId={props.userDetails.user_id}
+          projectId={props.projectDetails.project_id}
           noteList={noteList}
           setNoteList={setNoteList}
           archiveNoteList={archiveNoteList}
