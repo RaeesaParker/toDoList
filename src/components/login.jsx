@@ -72,8 +72,7 @@ function Login(props) {
               onChange={(event) => setPassword(event.target.value)}
             />
             <button className="submit-button" type="submit">
-              {" "}
-              Register{" "}
+              Register
             </button>
           </form>
         </div>
@@ -99,8 +98,7 @@ function Login(props) {
               onChange={(event) => setPassword(event.target.value)}
             />
             <button className="submit-button" type="submit">
-              {" "}
-              Sign In{" "}
+              Sign In
             </button>
           </form>
         </div>
