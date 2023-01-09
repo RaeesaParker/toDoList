@@ -18,6 +18,12 @@ function CurrentProject(props) {
     }
   }, []);
 
+
+  // Function to get all the notes already associated with a user 
+
+
+  // Set the notelists using noteBin => 1 = toDo    2 = doing     3 = done
+
   //  Create an array to store the noteList
   const [noteList, setNoteList] = useState([]);
 

@@ -1,16 +1,16 @@
-// Read / Get all the notes of a user 
-// export const readProjects = async (user_id) =>{
-//     try {
-//         const response = await fetch(`http://localhost:5001/user/${user_id}/projects`, {
-//             method: 'GET',
-//             headers: {"Content-type": "application/json"}
-//         })
-//         const data = await response.json()
-//         return data;
-//     } catch (error) {
-//         console.log(error)
-//     }
-// } 
+// Read / Get all the notes of a user from one project
+export const readNotes = async (project_id) =>{
+    try {
+        const response = await fetch(`http://localhost:5001/projects/${project_id}/notes`, {
+            method: 'GET',
+            headers: {"Content-type": "application/json"}
+        })
+        const data = await response.json()
+        return data;
+    } catch (error) {
+        console.log(error)
+    }
+} 
 
 // Create a new note
 // export const createProject = async (user_id, projectName, themeName, setProject) => {

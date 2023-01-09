@@ -5,7 +5,7 @@ import { Routes, Route, useNavigate} from "react-router-dom";
 import { getCookie } from "./common/index";
 import { findUser } from "./utils/users";
 // Components
-import Login from "./components/login";
+import Login from "./components/loginComponents/login";
 import Homepage from "./components/homepageComponents/homepage";
 import CurrentProject from "./components/currentProject";
 
