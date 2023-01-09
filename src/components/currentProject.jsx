@@ -23,11 +23,18 @@ function CurrentProject(props) {
 
   // Function to get all the notes already associated with a user 
   const readNotesFunc = async () => {
-    let notesList = await readNotes(props.projectDetails.project_id);
-    console.log("The current notes are ", notesList)
+    let allNotes = await readNotes(props.projectDetails.project_id);
+    console.log(allNotes)
+    filterNotesFunc(allNotes)
   }
 
   // Set the notelists using noteBin => 1 = toDo    2 = doing     3 = done
+  const filterNotesFunc = async (allNotes) => {
+    setNoteList(allNotes.filter( note =>  note.noteBin === 1))
+    setDoingNoteList(allNotes.filter( note =>  note.noteBin === 2))
+    setArchiveNoteList(allNotes.filter( note =>  note.noteBin === 3))
+  }
+
 
   //  Create an array to store the noteList
   const [noteList, setNoteList] = useState([]);
