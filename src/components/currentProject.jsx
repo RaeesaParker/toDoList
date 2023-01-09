@@ -5,6 +5,7 @@ import CurrentInserts from "./currentInserts";
 import Archive from "./archive";
 import Doing from "./doing";
 import Footer from "./footer";
+import { readNotes } from "../utils/notes";
 
 function CurrentProject(props) {
   // Navigation for redirect
@@ -12,15 +13,19 @@ function CurrentProject(props) {
 
   // Check if there is a user logged in => if not => route to the login page
   useEffect(() => {
-    if (!props.username) {
+    if (!props.userDetails.userName) {
       console.log("Rerouting back to homepage as there is no user");
       navigate("../../toDoList/");
     }
+    readNotesFunc()
   }, []);
 
 
   // Function to get all the notes already associated with a user 
-
+  const readNotesFunc = async () => {
+    let notesList = await readNotes(props.projectDetails.project_id);
+    console.log("The current notes are ", notesList)
+  }
 
   // Set the notelists using noteBin => 1 = toDo    2 = doing     3 = done
 
@@ -36,8 +41,8 @@ function CurrentProject(props) {
   return (
     <div>
       <Heading
-        userName={props.username}
-        projectName={props.projectName}
+        userName={props.userDetails.userName}
+        projectName={props.projectDetails.projectName}
       ></Heading>
 
       <div className="section-main-container">
