@@ -1,6 +1,6 @@
 import React from "react";
 import CreateNote from "./createNote.jsx";
-import {deleteNote} from '../utils/notes/index'
+import {deleteNote, updateNote} from '../utils/notes/index'
 
 
 function Doing(props) {
@@ -36,47 +36,25 @@ function Doing(props) {
     event.preventDefault();
   }
 
-  function drop(event) {
+  async function drop(event) {
     event.preventDefault();
     let data = event.dataTransfer.getData("text");
 
     // Check if the item is from the archive
-    let draggedObject = props.archiveNoteList.filter((object) => {
-      return object.noteId == data;
-    });
+    let draggedObject = props.archiveNoteList.filter(object => {return object.id == data})
 
-    // If the item is from the notelist -> get the object -> else -> get from archive
+
+    // If the item is not from the archive -> get it from the notelist
     if (draggedObject.length == 0) {
-      draggedObject = props.noteList.filter((object) => {
-        return object.noteId == data;
-      });
-      // Delete from noteList
-      props.setNoteList((prevNoteList) => {
-        return prevNoteList.filter((oldNote) => {
-          return oldNote.noteId !== draggedObject[0].noteId;
-        });
-      });
-    } else {
-      draggedObject = props.archiveNoteList.filter((object) => {
-        return object.noteId == data;
-      });
-      // Delete from archive list
-      props.setArchiveNoteList((prevArchiveNoteList) => {
-        return prevArchiveNoteList.filter((oldNote) => {
-          return oldNote.noteId !== draggedObject[0].noteId;
-        });
-      });
-    }
-
-    // Add to the doing list
-    processDoingAdd(
-      draggedObject[0].noteId,
-      draggedObject[0].noteTitle,
-      draggedObject[0].noteContent,
-      props.setDoingNoteList,
-      props.doingNoteList
-    );
+      draggedObject = props.noteList.filter(object => { return object.id == data})
+    } 
+        
+    // Update the note to change it's bin to the doing (2)
+    let updatedNote = await updateNote(props.projectId, draggedObject[0].id, 2 )
+    props.readNotesFunc()
   }
+
+  
 
   return (
     <div className="section-doing" onDrop={drop} onDragOver={allowDrop}>
@@ -86,13 +64,9 @@ function Doing(props) {
         return (
           <CreateNote
             key={noteItemIndex}
-            id={noteItem.id}
+            note={noteItem}
             archived={false}
             start={false}
-            title={noteItem.noteTitle}
-            body={noteItem.noteContent}
-            archiveNoteList={props.archiveNoteList}
-            setArchiveNoteList={props.setArchiveNoteList}
             onDelete={deleteDoingNoteFunc}
           />
         );

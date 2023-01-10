@@ -2,66 +2,42 @@ import React from 'react';
 import DeleteIcon from '@mui/icons-material/Delete';
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
+import {updateNote} from '../utils/notes/index'
+
 
 function CreateNote(props){
 
   // Add a note to the archive 
-  //  setter = setArchiveNoteList      state = archiveNoteList
-   function addToArchive(id, title, body, setter, state){
-    const tempObject = {
-      noteId: id,
-      noteTitle: title,
-      noteContent:body
-    }
-    setter([...state, tempObject])
-  }
-
-  // Add note to archive => then delete note 
-  function processArchiveAdd(id, title, body, setter, state){
-    addToArchive(id, title, body, setter, state)
-    props.onDelete(id)
+  async function addToArchive(){
+    let updatedNote = await updateNote(props.projectId, props.note.id, 3 )
+    props.readNotesFunc()
   }
 
 
   // Add a note to the doing section
-  //  setter = setDoingNoteList      state = doingNoteList
-  function addToDoing(id, title, body, setter, state){
-    const tempObject = {
-      noteId: id,
-      noteTitle: title,
-      noteContent:body
-    }
-    setter([...state, tempObject])
+  async function addToDoing(){
+    let updatedNote = await updateNote(props.projectId, props.note.id, 2 )
+    props.readNotesFunc()
   }
 
 
-  // Add note to archive => then delete note 
-  function processDoingAdd(id, title, body, setter, state){
-    addToDoing(id, title, body, setter, state)
-    props.onDelete(id)
+    // Drag and drop functionality
+  function drag(event) {
+    event.dataTransfer.setData("text", props.note.id);
   }
-  
-
-     // Drag and drop functionality
-
-    function drag(event) {
-      console.log("Here at Drag")
-      console.log(props.id, props.title, props.body)
-      event.dataTransfer.setData("text", props.id);
-    }
     
 
 
   return(
     <div className='note'  draggable="true" onDragStart={drag}>
-      <h1> {props.title} </h1>
-      <p> {props.body}  </p>
+      <h1> {props.note.noteTitle} </h1>
+      <p> {props.note.noteContent}  </p>
 
       <div className='div-buttons'>
         {props.start != false &&
         <button
           className='button doing-button'
-          onClick={() => processDoingAdd(props.id, props.title, props.body, props.setDoingNoteList, props.doingNoteList)}
+          onClick={() => addToDoing()}
           > <span className="hovertext" data-hover="Start Task"> <PlayArrowIcon /> </span> 
         </button>
         }
@@ -69,14 +45,14 @@ function CreateNote(props){
         {props.archived != true &&
         <button
           className='button archive-button'
-          onClick={() => processArchiveAdd(props.id, props.title, props.body, props.setArchiveNoteList, props.archiveNoteList)}
+          onClick={() => addToArchive()}
           > <span className="hovertext" data-hover="Done"> <CheckCircleOutlineIcon/>  </span>  
         </button>
         }
 
         <button
           className='button delete-button'
-          onClick={() => props.onDelete(props.id)}
+          onClick={() => props.onDelete(props.note.id)}
           > <span className="hovertext" data-hover="Delete"> <DeleteIcon />  </span>   
         </button>
       </div>

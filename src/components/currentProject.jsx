@@ -8,13 +8,18 @@ import Footer from "./footer";
 import { readNotes } from "../utils/notes";
 
 function CurrentProject(props) {
+
   // Navigation for redirect
   const navigate = useNavigate();
 
-  // Check if there is a user logged in => if not => route to the login page
+    //  Create an array to store the note, doing and archive lists
+  const [noteList, setNoteList] = useState([]);
+  const [doingNoteList, setDoingNoteList] = useState([]);
+  const [archiveNoteList, setArchiveNoteList] = useState([]);
+
+
   useEffect(() => {
     if (!props.userDetails.userName) {
-      console.log("Rerouting back to homepage as there is no user");
       navigate("../../toDoList/");
     }
     readNotesFunc()
@@ -29,7 +34,6 @@ function CurrentProject(props) {
     }else{
       navigate("../../toDoList/");
     }
-    
   }
 
   // Set the notelists using noteBin => 1 = toDo    2 = doing     3 = done
@@ -40,14 +44,7 @@ function CurrentProject(props) {
   }
 
 
-  //  Create an array to store the noteList
-  const [noteList, setNoteList] = useState([]);
 
-  //  Create an array to store the archiveNoteList
-  const [archiveNoteList, setArchiveNoteList] = useState([]);
-
-  //  Create an array to store the doingNoteList
-  const [doingNoteList, setDoingNoteList] = useState([]);
 
   return (
     <div>
@@ -77,6 +74,8 @@ function CurrentProject(props) {
             archiveNoteList={archiveNoteList}
             setArchiveNoteList={setArchiveNoteList}
             readNotesFunc={readNotesFunc}
+            projectId={props.projectDetails.project_id}
+
           ></Doing>
           <Archive
             noteList={noteList}
@@ -86,6 +85,7 @@ function CurrentProject(props) {
             archiveNoteList={archiveNoteList}
             setArchiveNoteList={setArchiveNoteList}
             readNotesFunc={readNotesFunc}
+            projectId={props.projectDetails.project_id}
           ></Archive>
         </div>
       </div>
