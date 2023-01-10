@@ -1,14 +1,14 @@
 import React from "react";
 import CreateNote from "./createNote.jsx";
+import {deleteNote} from '../utils/notes/index'
+
 
 function Doing(props) {
-  // Function to delete note => Returns all the notes WITHOUT supplied ID
-  function deleteDoingNote(id) {
-    props.setDoingNoteList((prevDoingNoteList) => {
-      return prevDoingNoteList.filter((oldNote) => {
-        return oldNote.noteId !== id;
-      });
-    });
+
+  // Function to delete note 
+  async function deleteDoingNoteFunc(note_id){
+    let deletedNote = await deleteNote(note_id)
+    props.readNotesFunc()
   }
 
   //  ------------- FUNCTIONS FOR DRAGGING -> ADD TO DOING  --------------------//
@@ -86,14 +86,14 @@ function Doing(props) {
         return (
           <CreateNote
             key={noteItemIndex}
-            id={noteItem.noteId}
+            id={noteItem.id}
             archived={false}
             start={false}
             title={noteItem.noteTitle}
             body={noteItem.noteContent}
             archiveNoteList={props.archiveNoteList}
             setArchiveNoteList={props.setArchiveNoteList}
-            onDelete={deleteDoingNote}
+            onDelete={deleteDoingNoteFunc}
           />
         );
       })}

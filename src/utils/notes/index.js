@@ -5,7 +5,10 @@ export const readNotes = async (project_id) =>{
     try {
         const response = await fetch(`http://localhost:5001/projects/${project_id}/notes`, {
             method: 'GET',
-            headers: {"Content-type": "application/json"}
+            headers: { 
+            "Content-Type": "application/json" , 
+            Authorization: "Bearer " + getCookie("jwt_token"),
+            },
         })
         const data = await response.json()
         return data;
@@ -30,7 +33,6 @@ export const createNote = async (user_id, project_id, note) => {
         }),
     });
     const data = await response.json();
-    console.log("The created note is ", data)
   } catch (error) {
     console.log(error);
   }
@@ -45,16 +47,20 @@ export const createNote = async (user_id, project_id, note) => {
 
 
 // Delete the note 
-// export const deleteProject = async(project_id) => {
-//     try {
-//         const response = await fetch(`http://localhost:5001/projects/${project_id}`, {
-//             method: "DELETE",
-//             headers: {"Content-type": "application/json"},
-//         })
-//         const data = await response.json()
-//     } catch (error) {
-//         console.log(error)
-//     }
-// }
+export const deleteNote = async(note_id) => {
+    try {
+        const response = await fetch(`http://localhost:5001/notes/${note_id}`, {
+            method: "DELETE",
+            headers: { 
+            "Content-Type": "application/json" , 
+            Authorization: "Bearer " + getCookie("jwt_token"),
+            },
+        })
+        const data = await response.json()
+        return data;
+    } catch (error) {
+        console.log(error)
+    }
+}
 
 

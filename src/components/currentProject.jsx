@@ -21,11 +21,15 @@ function CurrentProject(props) {
   }, []);
 
 
-  // Function to get all the notes already associated with a user 
+  // Function to get all the notes already associated with a  project
   const readNotesFunc = async () => {
     let allNotes = await readNotes(props.projectDetails.project_id);
-    console.log(allNotes)
-    filterNotesFunc(allNotes)
+    if (!allNotes.status){
+      filterNotesFunc(allNotes)
+    }else{
+      navigate("../../toDoList/");
+    }
+    
   }
 
   // Set the notelists using noteBin => 1 = toDo    2 = doing     3 = done
@@ -62,6 +66,7 @@ function CurrentProject(props) {
           setArchiveNoteList={setArchiveNoteList}
           doingNoteList={doingNoteList}
           setDoingNoteList={setDoingNoteList}
+          readNotesFunc={readNotesFunc}
         ></CurrentInserts>
         <div className="section-storage-container">
           <Doing
@@ -71,6 +76,7 @@ function CurrentProject(props) {
             setDoingNoteList={setDoingNoteList}
             archiveNoteList={archiveNoteList}
             setArchiveNoteList={setArchiveNoteList}
+            readNotesFunc={readNotesFunc}
           ></Doing>
           <Archive
             noteList={noteList}
@@ -79,6 +85,7 @@ function CurrentProject(props) {
             setDoingNoteList={setDoingNoteList}
             archiveNoteList={archiveNoteList}
             setArchiveNoteList={setArchiveNoteList}
+            readNotesFunc={readNotesFunc}
           ></Archive>
         </div>
       </div>

@@ -1,27 +1,20 @@
 import React from 'react';
 import InsertNote from './insertNote.jsx';
 import CreateNote from './createNote.jsx';
-import {createNote} from '../utils/notes/index'
+import {createNote, deleteNote} from '../utils/notes/index'
 
-function CurrentInserts({noteList, setNoteList, archiveNoteList, setArchiveNoteList, doingNoteList, setDoingNoteList, userId, projectId}){
+function CurrentInserts({noteList, setNoteList, archiveNoteList, setArchiveNoteList, doingNoteList, setDoingNoteList, userId, projectId, readNotesFunc}){
 
-
-
-  //  Function to add a new note => 
+  //  Function to add a new note
   async function addNote(newNote){
-    // setNoteList(prevNoteList => {
-    //   return [...prevNoteList, newNote];
-    // });
     let createdNote = await createNote(userId, projectId, newNote)
+    readNotesFunc()
   };
 
-  // Function to delete note => Returns all the notes WITHOUT supplied ID
-  function deleteNote(id){
-    setNoteList(prevNoteList => {
-      return prevNoteList.filter((oldNote) => {
-        return oldNote.noteId !== id
-      })
-    })
+  // Function to delete note 
+  async function deleteNoteFunc(note_id){
+    let deletedNote = await deleteNote(note_id)
+    readNotesFunc()
   }
 
    //  ------------- FUNCTIONS FOR DRAGGING -> ADD TO TO DO  --------------------//
@@ -84,10 +77,10 @@ function CurrentInserts({noteList, setNoteList, archiveNoteList, setArchiveNoteL
       {noteList.map((noteItem, noteItemIndex) => {
         return <CreateNote
           key={noteItemIndex}
-          id={noteItem.noteId}
+          id={noteItem.id}
           title={noteItem.noteTitle}
           body={noteItem.noteContent}
-          onDelete={deleteNote}
+          onDelete={deleteNoteFunc}
           archiveNoteList={archiveNoteList}
           setArchiveNoteList={setArchiveNoteList}
           doingNoteList={doingNoteList}
