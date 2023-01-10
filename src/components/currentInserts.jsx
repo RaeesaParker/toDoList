@@ -3,7 +3,7 @@ import InsertNote from './insertNote.jsx';
 import CreateNote from './createNote.jsx';
 import {createNote, deleteNote, updateNote} from '../utils/notes/index'
 
-function CurrentInserts({noteList, setNoteList, archiveNoteList, setArchiveNoteList, doingNoteList, setDoingNoteList, userId, projectId, readNotesFunc}){
+function CurrentInserts({noteList, archiveNoteList, doingNoteList, userId, projectId, readNotesFunc}){
 
   //  Function to add a new note
   async function addNote(newNote){
@@ -17,26 +17,6 @@ function CurrentInserts({noteList, setNoteList, archiveNoteList, setArchiveNoteL
     readNotesFunc()
   }
 
-   //  ------------- FUNCTIONS FOR DRAGGING -> ADD TO TO DO  --------------------//
-
-  // Add note to archive => then delete note 
-  function processToDoAdd(id, title, body, setter, state){
-    addToToDo(id, title, body, setter, state)
-  }
- 
-  // Add a note to the doing section
-  //  setter = setDoingNoteList      state = doingNoteList
-  function addToToDo(id, title, body, setter, state){
-    const tempObject = {
-      noteId: id,
-      noteTitle: title,
-      noteContent:body
-    }
-    setter([...state, tempObject])
-  }
-
-
-  //  -------------------- FUNCTIONS FOR DRAGABILITY  ------------------------//
 
   // Functionality for drag and drop 
   function allowDrop(event) {
@@ -75,6 +55,7 @@ function CurrentInserts({noteList, setNoteList, archiveNoteList, setArchiveNoteL
           note={noteItem}
           onDelete={deleteNoteFunc}
           readNotesFunc={readNotesFunc}
+          toDo={false}
         />
       })}
     </div>
