@@ -3,7 +3,7 @@ import InsertNote from './insertNote.jsx';
 import CreateNote from './createNote.jsx';
 import {createNote} from '../utils/notes/index'
 
-function CurrentInserts({noteList, setNoteList, archiveNoteList, setArchiveNoteList, doingNoteList, setDoingNoteList, userId, projectId}){
+function CurrentInserts({noteList, setNoteList, archiveNoteList, setArchiveNoteList, doingNoteList, setDoingNoteList, userId, projectId, readNotesFunc}){
 
 
 
@@ -13,6 +13,7 @@ function CurrentInserts({noteList, setNoteList, archiveNoteList, setArchiveNoteL
     //   return [...prevNoteList, newNote];
     // });
     let createdNote = await createNote(userId, projectId, newNote)
+    readNotesFunc()
   };
 
   // Function to delete note => Returns all the notes WITHOUT supplied ID
