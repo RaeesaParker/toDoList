@@ -1,7 +1,7 @@
 import React from 'react';
 import InsertNote from './insertNote.jsx';
 import CreateNote from './createNote.jsx';
-import {createNote, deleteNote} from '../utils/notes/index'
+import {createNote, deleteNote, updateNote} from '../utils/notes/index'
 
 function CurrentInserts({noteList, setNoteList, archiveNoteList, setArchiveNoteList, doingNoteList, setDoingNoteList, userId, projectId, readNotesFunc}){
 
@@ -43,27 +43,21 @@ function CurrentInserts({noteList, setNoteList, archiveNoteList, setArchiveNoteL
     event.preventDefault();
   }
 
-  function drop(event) {
+  async function drop(event) {
     event.preventDefault();
     let data = event.dataTransfer.getData("text");
 
     // Check if the item is from the archive
-    let draggedObject = archiveNoteList.filter(object => {return object.noteId == data})
+    let draggedObject = archiveNoteList.filter(object => {return object.id == data})
 
-    // If the item is from the doinglist -> get the object -> else -> get from archive
+    // If the item is not from the archive => get it from the doing 
     if (draggedObject.length == 0){
-      draggedObject = doingNoteList.filter(object => { return object.noteId == data})
-      // Delete from noteList
-      setDoingNoteList(prevDoingNoteList => { return prevDoingNoteList.filter((oldNote) => {return oldNote.noteId !== draggedObject[0].noteId})})
+      draggedObject = doingNoteList.filter(object => { return object.id == data})
     }
-    else{
-      draggedObject = archiveNoteList.filter(object => { return object.noteId == data})
-      // Delete from archive list
-      setArchiveNoteList(prevArchiveNoteList => { return prevArchiveNoteList.filter((oldNote) => {return oldNote.noteId !== draggedObject[0].noteId})})
-    }
-
-    // Add to the doing list
-    processToDoAdd(draggedObject[0].noteId, draggedObject[0].noteTitle, draggedObject[0].noteContent, setNoteList, noteList)
+    
+    // Update the note to change it's bin to the toDo (1)
+    let updatedNote = await updateNote(projectId, draggedObject[0].id, 1 )
+    readNotesFunc()
   }
 
 
@@ -77,17 +71,10 @@ function CurrentInserts({noteList, setNoteList, archiveNoteList, setArchiveNoteL
       {noteList.map((noteItem, noteItemIndex) => {
         return <CreateNote
           key={noteItemIndex}
-          id={noteItem.id}
           projectId={noteItem.ProjectId}
-          title={noteItem.noteTitle}
-          body={noteItem.noteContent}
+          note={noteItem}
           onDelete={deleteNoteFunc}
-          archiveNoteList={archiveNoteList}
-          setArchiveNoteList={setArchiveNoteList}
-          doingNoteList={doingNoteList}
-          setDoingNoteList={setDoingNoteList}
           readNotesFunc={readNotesFunc}
-
         />
       })}
     </div>

@@ -74,6 +74,8 @@ function CurrentProject(props) {
             archiveNoteList={archiveNoteList}
             setArchiveNoteList={setArchiveNoteList}
             readNotesFunc={readNotesFunc}
+            projectId={props.projectDetails.project_id}
+
           ></Doing>
           <Archive
             noteList={noteList}
@@ -83,6 +85,7 @@ function CurrentProject(props) {
             archiveNoteList={archiveNoteList}
             setArchiveNoteList={setArchiveNoteList}
             readNotesFunc={readNotesFunc}
+            projectId={props.projectDetails.project_id}
           ></Archive>
         </div>
       </div>

@@ -1,6 +1,6 @@
 import React from 'react';
 import CreateNote from './createNote.jsx';
-import {deleteNote} from '../utils/notes/index'
+import {deleteNote, updateNote} from '../utils/notes/index'
 
 function Archive(props){
 
@@ -40,26 +40,22 @@ function Archive(props){
     event.preventDefault();
   }
 
-  function drop(event) {
+  async function drop(event) {
     event.preventDefault();
     let data = event.dataTransfer.getData("text");
 
-    // Check if the item is from the doing list
-    let draggedObject = props.doingNoteList.filter(object => {return object.noteId == data})
-    
-    // If the item is from the notelist -> get the object -> else -> get from doing
-    if (draggedObject.length == 0){
-      draggedObject = props.noteList.filter(object => { return object.noteId == data})
-      // Delete from noteList
-      props.setNoteList(prevNoteList => { return prevNoteList.filter((oldNote) => {return oldNote.noteId !== draggedObject[0].noteId})})
-      }
-      else{
-        draggedObject = props.doingNoteList.filter(object => {return object.noteId == data})
-        // Delete from doing list
-        props.setDoingNoteList(prevDoingNoteList => { return prevDoingNoteList.filter((oldNote) => {return oldNote.noteId !== draggedObject[0].noteId})})    
-      }
-    // Note is part of the todolist => Add to archive list => Delete from note list
-    processArchiveAdd(draggedObject[0].noteId, draggedObject[0].noteTitle, draggedObject[0].noteContent, props.setArchiveNoteList, props.archiveNoteList)
+    // Check if the item is from the notelist
+    let draggedObject = props.noteList.filter(object => {return object.id == data})
+
+
+    // If the item is not from the noteList -> get it from the doing note list
+    if (draggedObject.length == 0) {
+      draggedObject = props.doingNoteList.filter(object => { return object.id == data})
+    } 
+        
+    // Update the note to change it's bin to the archive (3)
+    let updatedNote = await updateNote(props.projectId, draggedObject[0].id, 3 )
+    props.readNotesFunc()
   }
 
 
@@ -72,11 +68,9 @@ function Archive(props){
       {props.archiveNoteList.map((noteItem, noteItemIndex) => {
         return <CreateNote
           key={noteItemIndex}
-          id={noteItem.id}
           archived={true}
           start={false}
-          title={noteItem.noteTitle}
-          body={noteItem.noteContent}
+          note={noteItem}
           onDelete={deleteArchiveNoteFunc}
         />
       })}
