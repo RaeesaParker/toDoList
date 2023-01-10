@@ -78,6 +78,7 @@ function CurrentInserts({noteList, setNoteList, archiveNoteList, setArchiveNoteL
         return <CreateNote
           key={noteItemIndex}
           id={noteItem.id}
+          projectId={noteItem.ProjectId}
           title={noteItem.noteTitle}
           body={noteItem.noteContent}
           onDelete={deleteNoteFunc}
@@ -85,6 +86,8 @@ function CurrentInserts({noteList, setNoteList, archiveNoteList, setArchiveNoteL
           setArchiveNoteList={setArchiveNoteList}
           doingNoteList={doingNoteList}
           setDoingNoteList={setDoingNoteList}
+          readNotesFunc={readNotesFunc}
+
         />
       })}
     </div>

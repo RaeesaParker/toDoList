@@ -2,6 +2,8 @@ import React from 'react';
 import DeleteIcon from '@mui/icons-material/Delete';
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
+import {updateNote} from '../utils/notes/index'
+
 
 function CreateNote(props){
 
@@ -24,21 +26,16 @@ function CreateNote(props){
 
 
   // Add a note to the doing section
-  //  setter = setDoingNoteList      state = doingNoteList
-  function addToDoing(id, title, body, setter, state){
-    const tempObject = {
-      noteId: id,
-      noteTitle: title,
-      noteContent:body
-    }
-    setter([...state, tempObject])
+  async function addToDoing(){
+    let updatedNote = await updateNote(props.projectId, props.id, 2 )
+    props.readNotesFunc()
   }
 
 
   // Add note to archive => then delete note 
-  function processDoingAdd(id, title, body, setter, state){
-    addToDoing(id, title, body, setter, state)
-    props.onDelete(id)
+  function processDoingAdd(){
+    addToDoing()
+    // props.onDelete(id)
   }
   
 
@@ -61,7 +58,7 @@ function CreateNote(props){
         {props.start != false &&
         <button
           className='button doing-button'
-          onClick={() => processDoingAdd(props.id, props.title, props.body, props.setDoingNoteList, props.doingNoteList)}
+          onClick={() => processDoingAdd()}
           > <span className="hovertext" data-hover="Start Task"> <PlayArrowIcon /> </span> 
         </button>
         }

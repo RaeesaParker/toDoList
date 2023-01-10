@@ -43,8 +43,24 @@ export const createNote = async (user_id, project_id, note) => {
 
 
 // Update the note (move between bins) 
-
-
+export const updateNote = async(project_id, note_id, newBin) => {
+    try {
+        const response = await fetch(`http://localhost:5001/projects/${project_id}/notes/${note_id}`, {
+            method: "PATCH",
+            headers: { 
+            "Content-Type": "application/json" , 
+            Authorization: "Bearer " + getCookie("jwt_token"),
+            },
+            body: JSON.stringify({
+            "noteBin": newBin
+            }),
+        })
+        const data = await response.json()
+        return data;
+    } catch (error) {
+        console.log(error)
+    }
+}
 
 // Delete the note 
 export const deleteNote = async(note_id) => {
