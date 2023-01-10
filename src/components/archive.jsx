@@ -11,28 +11,6 @@ function Archive(props){
   }
 
 
-
-  //  ------------- FUNCTIONS FOR DRAGGING -> ADD TO DOING  --------------------//
-
-  // Add note to archive => then delete note 
-  function processArchiveAdd(id, title, body, setter, state){
-    addToArchive(id, title, body, setter, state)
-  }
- 
-  // Add a note to the doing section
-  //  setter = setDoingNoteList      state = doingNoteList
-  function addToArchive(id, title, body, setter, state){
-    const tempObject = {
-      noteId: id,
-      noteTitle: title,
-      noteContent:body
-    }
-    setter([...state, tempObject])
-  }
-
-
-
-
   //  -------------------- FUNCTIONS FOR DRAGABILITY  ------------------------//
 
   // Functionality for drag and drop 
@@ -46,7 +24,6 @@ function Archive(props){
 
     // Check if the item is from the notelist
     let draggedObject = props.noteList.filter(object => {return object.id == data})
-
 
     // If the item is not from the noteList -> get it from the doing note list
     if (draggedObject.length == 0) {
@@ -69,9 +46,9 @@ function Archive(props){
         return <CreateNote
           key={noteItemIndex}
           archived={true}
-          start={false}
           note={noteItem}
           onDelete={deleteArchiveNoteFunc}
+          readNotesFunc={props.readNotesFunc}
         />
       })}
     </div>

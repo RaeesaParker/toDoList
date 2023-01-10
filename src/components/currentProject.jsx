@@ -58,32 +58,23 @@ function CurrentProject(props) {
           userId={props.userDetails.user_id}
           projectId={props.projectDetails.project_id}
           noteList={noteList}
-          setNoteList={setNoteList}
           archiveNoteList={archiveNoteList}
-          setArchiveNoteList={setArchiveNoteList}
           doingNoteList={doingNoteList}
-          setDoingNoteList={setDoingNoteList}
           readNotesFunc={readNotesFunc}
         ></CurrentInserts>
         <div className="section-storage-container">
           <Doing
             noteList={noteList}
-            setNoteList={setNoteList}
             doingNoteList={doingNoteList}
-            setDoingNoteList={setDoingNoteList}
             archiveNoteList={archiveNoteList}
-            setArchiveNoteList={setArchiveNoteList}
             readNotesFunc={readNotesFunc}
             projectId={props.projectDetails.project_id}
 
           ></Doing>
           <Archive
             noteList={noteList}
-            setNoteList={setNoteList}
             doingNoteList={doingNoteList}
-            setDoingNoteList={setDoingNoteList}
             archiveNoteList={archiveNoteList}
-            setArchiveNoteList={setArchiveNoteList}
             readNotesFunc={readNotesFunc}
             projectId={props.projectDetails.project_id}
           ></Archive>
