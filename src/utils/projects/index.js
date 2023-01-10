@@ -1,9 +1,15 @@
+import { getCookie } from "../../common";
+
+
 // Read / Get all the projects of a user 
 export const readProjects = async (user_id) =>{
     try {
         const response = await fetch(`http://localhost:5001/user/${user_id}/projects`, {
             method: 'GET',
-            headers: {"Content-type": "application/json"}
+            headers: { 
+            "Content-Type": "application/json" , 
+            Authorization: "Bearer " + getCookie("jwt_token"),
+            },
         })
         const data = await response.json()
         return data;
@@ -17,7 +23,10 @@ export const createProject = async (user_id, projectName, themeName, setProject)
   try {
     const response = await fetch(`http://localhost:5001/newProject`, {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers: { 
+        "Content-Type": "application/json" , 
+        Authorization: "Bearer " + getCookie("jwt_token"),
+        },
       body: JSON.stringify({
         user_id:user_id,
         projectName: projectName,
@@ -37,7 +46,10 @@ export const selectProject = async (project_id, setProject) =>{
     try {
         const response = await fetch(`http://localhost:5001/projects/${project_id}`, {
             method: 'GET',
-            headers: {"Content-type": "application/json"}
+            headers: { 
+            "Content-Type": "application/json" , 
+            Authorization: "Bearer " + getCookie("jwt_token"),
+            },
         })
         const data = await response.json()
         setProject({project_id:data.id, projectName:data.projectName, themeName:data.themeName})
@@ -50,14 +62,16 @@ export const selectProject = async (project_id, setProject) =>{
 
 
 
-// Update the project 
 
 // Delete the project 
 export const deleteProject = async(project_id) => {
     try {
         const response = await fetch(`http://localhost:5001/projects/${project_id}`, {
             method: "DELETE",
-            headers: {"Content-type": "application/json"},
+            headers: { 
+            "Content-Type": "application/json" , 
+            Authorization: "Bearer " + getCookie("jwt_token"),
+            },
         })
         const data = await response.json()
     } catch (error) {

@@ -16,10 +16,9 @@ function InsertNote(props){
 
   // Create a state to hold the note
   const [note, setNote] = React.useState({
-    noteId: Math.random(),
     noteTitle: '',
     noteContent: ''
-  });
+    });
 
   // Set state to expand input on click
   const [expanded, setExpanded] = React.useState(false);
@@ -41,7 +40,6 @@ function InsertNote(props){
   function submitNote(event){
     props.onAdd(note);
     setNote({
-      noteId: Math.random(),
       noteTitle: '',
       noteContent: ''
     });

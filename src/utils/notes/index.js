@@ -1,3 +1,5 @@
+import { getCookie } from "../../common";
+
 // Read / Get all the notes of a user from one project
 export const readNotes = async (project_id) =>{
     try {
@@ -13,23 +15,26 @@ export const readNotes = async (project_id) =>{
 } 
 
 // Create a new note
-// export const createProject = async (user_id, projectName, themeName, setProject) => {
-//   try {
-//     const response = await fetch(`http://localhost:5001/newProject`, {
-//       method: "POST",
-//       headers: { "Content-Type": "application/json" },
-//       body: JSON.stringify({
-//         user_id:user_id,
-//         projectName: projectName,
-//         themeName: themeName,
-//       }),
-//     });
-//     const data = await response.json();
-//     setProject({project_id:data.id, projectName:data.projectName, themeName:data.themeName})
-//   } catch (error) {
-//     console.log(error);
-//   }
-// };
+export const createNote = async (user_id, project_id, note) => {
+  try {
+    const response = await fetch(`http://localhost:5001/projects/${project_id}/newNote`, {
+        method: "POST",
+        headers: { 
+            "Content-Type": "application/json" , 
+            Authorization: "Bearer " + getCookie("jwt_token"),
+            },
+        body: JSON.stringify({
+            user_id : user_id,
+            noteTitle: note.noteTitle,
+            noteContent: note.noteContent,
+        }),
+    });
+    const data = await response.json();
+    console.log("The created note is ", data)
+  } catch (error) {
+    console.log(error);
+  }
+};
 
 
 
