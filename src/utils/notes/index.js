@@ -46,20 +46,21 @@ export const createNote = async (user_id, project_id, note) => {
 
 
 
-// // Delete the note 
-// export const deleteProject = async(project_id) => {
-//     try {
-//         const response = await fetch(`http://localhost:5001/projects/${project_id}`, {
-//             method: "DELETE",
-//             headers: { 
-//             "Content-Type": "application/json" , 
-//             Authorization: "Bearer " + getCookie("jwt_token"),
-//             },
-//         })
-//         const data = await response.json()
-//     } catch (error) {
-//         console.log(error)
-//     }
-// }
+// Delete the note 
+export const deleteNote = async(note_id) => {
+    try {
+        const response = await fetch(`http://localhost:5001/notes/${note_id}`, {
+            method: "DELETE",
+            headers: { 
+            "Content-Type": "application/json" , 
+            Authorization: "Bearer " + getCookie("jwt_token"),
+            },
+        })
+        const data = await response.json()
+        return data;
+    } catch (error) {
+        console.log(error)
+    }
+}
 
 

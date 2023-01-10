@@ -1,16 +1,13 @@
 import React from 'react';
 import CreateNote from './createNote.jsx';
-
+import {deleteNote} from '../utils/notes/index'
 
 function Archive(props){
 
-  // Function to delete note => Returns all the notes WITHOUT supplied ID
-  function deleteArchiveNote(id){
-    props.setArchiveNoteList(prevArchiveNoteList => {
-      return prevArchiveNoteList.filter((oldNote) => {
-        return oldNote.noteId !== id
-      })
-    })
+  // Function to delete note 
+  async function deleteArchiveNoteFunc(note_id){
+    let deletedNote = await deleteNote(note_id)
+    props.readNotesFunc()
   }
 
 
@@ -75,12 +72,12 @@ function Archive(props){
       {props.archiveNoteList.map((noteItem, noteItemIndex) => {
         return <CreateNote
           key={noteItemIndex}
-          id={noteItem.noteId}
+          id={noteItem.id}
           archived={true}
           start={false}
           title={noteItem.noteTitle}
           body={noteItem.noteContent}
-          onDelete={deleteArchiveNote}
+          onDelete={deleteArchiveNoteFunc}
         />
       })}
     </div>
