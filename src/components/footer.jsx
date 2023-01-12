@@ -9,7 +9,7 @@ function Footer(){
 
   const authorName = 'Raeesa Parker';
 
-  const newDate = new Date;
+  const newDate = new Date();
 
   const currentYear = newDate.getFullYear();
 

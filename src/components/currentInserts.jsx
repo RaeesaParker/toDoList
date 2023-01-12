@@ -7,13 +7,13 @@ function CurrentInserts({noteList, archiveNoteList, doingNoteList, userId, proje
 
   //  Function to add a new note
   async function addNote(newNote){
-    let createdNote = await createNote(userId, projectId, newNote)
+    await createNote(userId, projectId, newNote)
     readNotesFunc()
   };
 
   // Function to delete note 
   async function deleteNoteFunc(note_id){
-    let deletedNote = await deleteNote(note_id)
+    await deleteNote(note_id)
     readNotesFunc()
   }
 

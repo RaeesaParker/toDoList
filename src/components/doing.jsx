@@ -7,7 +7,7 @@ function Doing(props) {
 
   // Function to delete note 
   async function deleteDoingNoteFunc(note_id){
-    let deletedNote = await deleteNote(note_id)
+    await deleteNote(note_id)
     props.readNotesFunc()
   }
 

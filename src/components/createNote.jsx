@@ -10,19 +10,19 @@ function CreateNote(props){
 
   // Add a note to toDo 
   async function addToToDo(){
-    let updatedNote = await updateNote(props.projectId, props.note.id, 1 )
+    await updateNote(props.projectId, props.note.id, 1 )
     props.readNotesFunc()
   }
 
   // Add a note to the doing section
   async function addToDoing(){
-    let updatedNote = await updateNote(props.projectId, props.note.id, 2 )
+    await updateNote(props.projectId, props.note.id, 2 )
     props.readNotesFunc()
   }
 
   // Add a note to the archive 
   async function addToArchive(){
-    let updatedNote = await updateNote(props.projectId, props.note.id, 3 )
+    await updateNote(props.projectId, props.note.id, 3 )
     props.readNotesFunc()
   }
 

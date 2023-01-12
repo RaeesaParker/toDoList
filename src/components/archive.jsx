@@ -6,7 +6,7 @@ function Archive(props){
 
   // Function to delete note 
   async function deleteArchiveNoteFunc(note_id){
-    let deletedNote = await deleteNote(note_id)
+    await deleteNote(note_id)
     props.readNotesFunc()
   }
 
