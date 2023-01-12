@@ -7,13 +7,13 @@ function CurrentInserts({noteList, archiveNoteList, doingNoteList, userId, proje
 
   //  Function to add a new note
   async function addNote(newNote){
-    let createdNote = await createNote(userId, projectId, newNote)
+    await createNote(userId, projectId, newNote)
     readNotesFunc()
   };
 
   // Function to delete note 
   async function deleteNoteFunc(note_id){
-    let deletedNote = await deleteNote(note_id)
+    await deleteNote(note_id)
     readNotesFunc()
   }
 
@@ -25,18 +25,18 @@ function CurrentInserts({noteList, archiveNoteList, doingNoteList, userId, proje
 
   async function drop(event) {
     event.preventDefault();
-    let data = event.dataTransfer.getData("text");
+    let data = Number(event.dataTransfer.getData("text"));
 
     // Check if the item is from the archive
-    let draggedObject = archiveNoteList.filter(object => {return object.id == data})
+    let draggedObject = archiveNoteList.filter(object => {return object.id === data})
 
     // If the item is not from the archive => get it from the doing 
-    if (draggedObject.length == 0){
-      draggedObject = doingNoteList.filter(object => { return object.id == data})
+    if (draggedObject.length === 0){
+      draggedObject = doingNoteList.filter(object => { return object.id === data})
     }
     
     // Update the note to change it's bin to the toDo (1)
-    let updatedNote = await updateNote(projectId, draggedObject[0].id, 1 )
+    await updateNote(projectId, draggedObject[0].id, 1 )
     readNotesFunc()
   }
 

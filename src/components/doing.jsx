@@ -7,7 +7,7 @@ function Doing(props) {
 
   // Function to delete note 
   async function deleteDoingNoteFunc(note_id){
-    let deletedNote = await deleteNote(note_id)
+    await deleteNote(note_id)
     props.readNotesFunc()
   }
 
@@ -19,18 +19,18 @@ function Doing(props) {
 
   async function drop(event) {
     event.preventDefault();
-    let data = event.dataTransfer.getData("text");
+    let data = Number(event.dataTransfer.getData("text"));
 
     // Check if the item is from the archive
-    let draggedObject = props.archiveNoteList.filter(object => {return object.id == data})
+    let draggedObject = props.archiveNoteList.filter(object => {return object.id === data})
 
     // If the item is not from the archive -> get it from the notelist
-    if (draggedObject.length == 0) {
-      draggedObject = props.noteList.filter(object => { return object.id == data})
+    if (draggedObject.length === 0) {
+      draggedObject = props.noteList.filter(object => { return object.id === data})
     } 
 
     // Update the note to change it's bin to the doing (2)
-    let updatedNote = await updateNote(props.projectId, draggedObject[0].id, 2 )
+    await updateNote(props.projectId, draggedObject[0].id, 2 )
     props.readNotesFunc()
   }
 

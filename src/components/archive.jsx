@@ -6,7 +6,7 @@ function Archive(props){
 
   // Function to delete note 
   async function deleteArchiveNoteFunc(note_id){
-    let deletedNote = await deleteNote(note_id)
+    await deleteNote(note_id)
     props.readNotesFunc()
   }
 
@@ -20,18 +20,19 @@ function Archive(props){
 
   async function drop(event) {
     event.preventDefault();
-    let data = event.dataTransfer.getData("text");
+    let data = Number(event.dataTransfer.getData("text"));
 
     // Check if the item is from the notelist
-    let draggedObject = props.noteList.filter(object => {return object.id == data})
+    let draggedObject = props.noteList.filter(object => {return object.id === data })
+
 
     // If the item is not from the noteList -> get it from the doing note list
-    if (draggedObject.length == 0) {
-      draggedObject = props.doingNoteList.filter(object => { return object.id == data})
+    if (draggedObject.length === 0) {
+      draggedObject = props.doingNoteList.filter(object => { return object.id === data})
     } 
         
     // Update the note to change it's bin to the archive (3)
-    let updatedNote = await updateNote(props.projectId, draggedObject[0].id, 3 )
+    await updateNote(props.projectId, draggedObject[0].id, 3 )
     props.readNotesFunc()
   }
 

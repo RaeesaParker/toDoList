@@ -20,7 +20,7 @@ function CurrentProject(props) {
 
   useEffect(() => {
     if (!props.userDetails.userName) {
-      navigate("../../toDoList/");
+      navigate("/");
     }
     readNotesFunc()
   }, []);
