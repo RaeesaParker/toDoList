@@ -15,8 +15,13 @@ export const registerUser = async (username, email, password, setUserDetails) =>
       }),
     });
     const data = await response.json();
-    setUserDetails({userName:data.userName, user_id:data.id})
-    writeCookie("jwt_token", data.token, 7)
+    if (data.userName){
+        setUserDetails({userName:data.userName, user_id:data.id})
+        writeCookie("jwt_token", data.token, 7)
+        return true
+    }else{
+        return data.error;
+    }
   } catch (error) {
     console.log(error);
   }
