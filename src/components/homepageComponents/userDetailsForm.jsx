@@ -21,7 +21,7 @@ function UserDetailsForm({user_id}){
   async function onDeleteAccountFunc(event){
     event.preventDefault();
     await deleteUser(user_id)
-    navigate("../toDoList/"); 
+    navigate("/"); 
   }
 
 

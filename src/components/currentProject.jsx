@@ -32,7 +32,7 @@ function CurrentProject(props) {
     if (!allNotes.status){
       filterNotesFunc(allNotes)
     }else{
-      navigate("../../toDoList/");
+      navigate("/");
     }
   }
 
