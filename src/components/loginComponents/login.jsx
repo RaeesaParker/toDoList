@@ -58,7 +58,7 @@ function Login(props) {
             <input
               required
               autoComplete="off"
-              type="text"
+              type="email"
               placeholder="E-mail"
               name="email"
               onChange={(event) => setEmail(event.target.value)}
