@@ -50,7 +50,6 @@ export const loginUser = async (username, password, setUserDetails) => {
 
 export const findUser = async (cookieValue, setUserDetails) => {
     try {
-        console.log("Finding a user")
         const response = await fetch(`${API_URL}/auth`, {
             method: "POST",
             headers: {
@@ -59,7 +58,6 @@ export const findUser = async (cookieValue, setUserDetails) => {
             },
         })
         const data = await response.json()
-        console.log("The data from the back is ", data)
         setUserDetails({userName:data.userName, user_id:data.id})
         return true;
     } catch (error) {
