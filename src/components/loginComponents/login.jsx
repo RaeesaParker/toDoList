@@ -66,7 +66,7 @@ function Login(props) {
             <input
               required
               autoComplete="off"
-              type="text"
+              type="password"
               placeholder="Password"
               name="password"
               onChange={(event) => setPassword(event.target.value)}
@@ -92,7 +92,7 @@ function Login(props) {
             <input
               required
               autoComplete="off"
-              type="text"
+              type="password"
               placeholder="Password"
               name="password"
               onChange={(event) => setPassword(event.target.value)}

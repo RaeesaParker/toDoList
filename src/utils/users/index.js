@@ -58,7 +58,6 @@ export const findUser = async (cookieValue, setUserDetails) => {
         }),
         })
         const data = await response.json()
-        console.log("The data from the back is ", data)
         setUserDetails({userName:data.userName, user_id:data.id})
         return true;
     } catch (error) {
