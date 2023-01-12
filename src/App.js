@@ -64,7 +64,7 @@ function App() {
   return (
     <div>
       <Routes>
-        <Route path="toDoList/" element={<Login  setUserDetails={onSetUserDetails}></Login>} />
+        <Route path="/" element={<Login  setUserDetails={onSetUserDetails}></Login>} />
         <Route
           path="/projects"
           element={

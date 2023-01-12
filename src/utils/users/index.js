@@ -1,9 +1,12 @@
 import { writeCookie } from "../../common/index"
+const API_URL = process.env.REACT_APP_BASE_URL;
+
 
 // Register a user => Used to create user
 export const registerUser = async (username, email, password, setUserDetails) => {
   try {
-    const response = await fetch(`http://localhost:5001/addUser`, {
+    console.log("Creating a user")
+    const response = await fetch(`${API_URL}/addUser`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -24,7 +27,8 @@ export const registerUser = async (username, email, password, setUserDetails) =>
 // Login a user
 export const loginUser = async (username, password, setUserDetails) => {
     try {
-        const response = await fetch("http://localhost:5001/auth", {
+        console.log("Logging in user")
+        const response = await fetch(`${API_URL}/auth`, {
             method: "POST",
             headers: {"Content-Type": "application/json"},
             body: JSON.stringify({
@@ -46,7 +50,8 @@ export const loginUser = async (username, password, setUserDetails) => {
 
 export const findUser = async (cookieValue, setUserDetails) => {
     try {
-        const response = await fetch(`http://localhost:5001/auth`, {
+        console.log("Finding a user")
+        const response = await fetch(`${API_URL}/auth`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -54,10 +59,11 @@ export const findUser = async (cookieValue, setUserDetails) => {
             },
         })
         const data = await response.json()
+        console.log("The data from the back is ", data)
         setUserDetails({userName:data.userName, user_id:data.id})
         return true;
     } catch (error) {
-        console.log(error)
+        console.log(error);
     }
 } 
 
@@ -66,8 +72,7 @@ export const findUser = async (cookieValue, setUserDetails) => {
 // Update a user's details
 export const updateUser = async(user_id, keyField, value) => {
     try {
-      console.log("The parameters being passed are, ", user_id, keyField, value)
-        const response = await fetch(`http://localhost:5001/users/${user_id}`, {
+        const response = await fetch(`${API_URL}/users/${user_id}`, {
             method: "PUT",
             headers: {"Content-type": "application/json"},
             body: JSON.stringify({
@@ -86,7 +91,7 @@ export const updateUser = async(user_id, keyField, value) => {
 // Delete a user
 export const deleteUser = async(user_id) => {
     try {
-        const response = await fetch(`http://localhost:5001/users/${user_id}`, {
+        const response = await fetch(`${API_URL}/users/${user_id}`, {
             method: "DELETE",
             headers: {"Content-type": "application/json"},
         })

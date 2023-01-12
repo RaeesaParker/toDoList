@@ -1,9 +1,10 @@
 import { getCookie } from "../../common";
+const API_URL = process.env.REACT_APP_BASE_URL;
 
 // Read / Get all the notes of a user from one project
 export const readNotes = async (project_id) =>{
     try {
-        const response = await fetch(`http://localhost:5001/projects/${project_id}/notes`, {
+        const response = await fetch(`${API_URL}/projects/${project_id}/notes`, {
             method: 'GET',
             headers: { 
             "Content-Type": "application/json" , 
@@ -20,7 +21,7 @@ export const readNotes = async (project_id) =>{
 // Create a new note
 export const createNote = async (user_id, project_id, note) => {
   try {
-    const response = await fetch(`http://localhost:5001/projects/${project_id}/newNote`, {
+    const response = await fetch(`${API_URL}/projects/${project_id}/newNote`, {
         method: "POST",
         headers: { 
             "Content-Type": "application/json" , 
@@ -45,7 +46,7 @@ export const createNote = async (user_id, project_id, note) => {
 // Update the note (move between bins) 
 export const updateNote = async(project_id, note_id, newBin) => {
     try {
-        const response = await fetch(`http://localhost:5001/projects/${project_id}/notes/${note_id}`, {
+        const response = await fetch(`${API_URL}/projects/${project_id}/notes/${note_id}`, {
             method: "PATCH",
             headers: { 
             "Content-Type": "application/json" , 
@@ -65,7 +66,7 @@ export const updateNote = async(project_id, note_id, newBin) => {
 // Delete the note 
 export const deleteNote = async(note_id) => {
     try {
-        const response = await fetch(`http://localhost:5001/notes/${note_id}`, {
+        const response = await fetch(`${API_URL}/notes/${note_id}`, {
             method: "DELETE",
             headers: { 
             "Content-Type": "application/json" , 

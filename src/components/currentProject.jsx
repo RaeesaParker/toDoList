@@ -69,7 +69,6 @@ function CurrentProject(props) {
             archiveNoteList={archiveNoteList}
             readNotesFunc={readNotesFunc}
             projectId={props.projectDetails.project_id}
-
           ></Doing>
           <Archive
             noteList={noteList}
