@@ -5,7 +5,6 @@ const API_URL = process.env.REACT_APP_BASE_URL;
 // Register a user => Used to create user
 export const registerUser = async (username, email, password, setUserDetails) => {
   try {
-    console.log("Creating a user")
     const response = await fetch(`${API_URL}/addUser`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -49,14 +48,17 @@ export const loginUser = async (username, password, setUserDetails) => {
 
 export const findUser = async (cookieValue, setUserDetails) => {
     try {
-        const response = await fetch(`${API_URL}/auth`, {
+        const response = await fetch(`${API_URL}/auth/checkToken`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
-                "Authorization": `Bearer ${cookieValue}`
             },
+            body: JSON.stringify({
+            token: cookieValue,
+        }),
         })
         const data = await response.json()
+        console.log("The data from the back is ", data)
         setUserDetails({userName:data.userName, user_id:data.id})
         return true;
     } catch (error) {
