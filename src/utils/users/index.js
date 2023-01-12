@@ -78,6 +78,7 @@ export const updateUser = async(user_id, keyField, value) => {
             })
         })
         const data = await response.json()
+        return data
     } catch (error) {
         console.log(error)
     }
@@ -94,6 +95,7 @@ export const deleteUser = async(user_id) => {
             headers: {"Content-type": "application/json"},
         })
         const data = await response.json()
+        return data
     } catch (error) {
         console.log(error)
     }
