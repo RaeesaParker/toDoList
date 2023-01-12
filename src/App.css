@@ -90,7 +90,7 @@ form{
 }
 
 
-input[type=text] {
+input[type=text], input[type=password] ,  input[type=email] {
   background: none;
   border: none;
   border-bottom: 1px solid var(--primary);
@@ -196,7 +196,7 @@ hr{
 }
 
 
-.login-subsection-forms input[type=text]{
+.login-subsection-forms input[type=text], input[type=password], input[type=email] {
   background: transparent;
   border: none;
   border-bottom: 1px solid var(--black);
@@ -205,6 +205,8 @@ hr{
   text-align: center;
   width:50%
 }
+
+
 
 
 

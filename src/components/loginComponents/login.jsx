@@ -13,19 +13,42 @@ function Login(props) {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
 
+  // Set state for login error
+  const [error, setError] = useState("");
+  // temp use of setError
+  if (1 == 2) {setError("")}
+
+
   // Function to run on register submit
   async function onSubmitRegisterFunc(event) {
     event.preventDefault();
-    await registerUser(username, email, password, props.setUserDetails);
-    navigate("/projects");   
+    if (!username) {setError("A username is required"); return; }
+
+    if (!password) { setError("A password is required"); return; }
+
+    if (!email) { setError("An email address is required"); return;}
+
+    let newUser = await registerUser(username, email, password, props.setUserDetails);
+    if (newUser){
+      navigate("/projects");   
+    }else{
+      setError(newUser);
+    }  
   }
 
   // Function to run on sign in submit
   async function onSubmitSignInFunc(event) {
     event.preventDefault();
+
+    if (!username) {setError("Username is required"); return; }
+
+    if (!password) { setError("Password is required"); return;}
+
     let registeredUser = await loginUser(username, password, props.setUserDetails)
     if (registeredUser){
       navigate("/projects");   
+    }else{
+      setError(registeredUser);
     }
   }
 
@@ -58,7 +81,7 @@ function Login(props) {
             <input
               required
               autoComplete="off"
-              type="text"
+              type="email"
               placeholder="E-mail"
               name="email"
               onChange={(event) => setEmail(event.target.value)}
@@ -66,11 +89,14 @@ function Login(props) {
             <input
               required
               autoComplete="off"
-              type="text"
+              type="password"
               placeholder="Password"
               name="password"
               onChange={(event) => setPassword(event.target.value)}
             />
+            <form-message className="error">
+              {error ? error : <></>}
+            </form-message>
             <button className="submit-button" type="submit">
               Register
             </button>
@@ -92,11 +118,14 @@ function Login(props) {
             <input
               required
               autoComplete="off"
-              type="text"
+              type="password"
               placeholder="Password"
               name="password"
               onChange={(event) => setPassword(event.target.value)}
             />
+            <form-message className="error">
+              {error ? error : <></>}
+            </form-message>
             <button className="submit-button" type="submit">
               Sign In
             </button>
