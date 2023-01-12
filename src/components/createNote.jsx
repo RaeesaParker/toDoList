@@ -40,19 +40,19 @@ function CreateNote(props){
 
       <div className='div-buttons'>
 
-        {props.toDo != false &&
+        {props.toDo !== false &&
           <button className='button doing-button'onClick={() => addToToDo()}> 
             <span className="hovertext" data-hover="To Do"> <PushPinOutlinedIcon /> </span> 
           </button>
         }
 
-        {props.start != false &&
+        {props.start !== false &&
           <button className='button doing-button' onClick={() => addToDoing()} > 
             <span className="hovertext" data-hover="Start Task"> <PlayCircleOutlinedIcon /> </span> 
           </button>
         }
 
-        {props.archived != true &&
+        {props.archived !== true &&
           <button className='button archive-button' onClick={() => addToArchive()} > 
             <span className="hovertext" data-hover="Done"> <CheckCircleOutlineIcon/>  </span>  
           </button>
