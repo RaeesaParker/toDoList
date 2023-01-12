@@ -12,12 +12,12 @@ function Homepage(props) {
   // Check if there is a user logged in => if not => route to the login page
   useEffect(() => {
     if (!props.username) {
-      navigate("../toDoList/");
+      navigate("/");
     }
   }, []);
 
   function onLogOut() {
-    navigate("../toDoList/");
+    navigate("/");
   }
 
   return (

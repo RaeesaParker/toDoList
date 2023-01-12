@@ -1,10 +1,11 @@
 import { getCookie } from "../../common";
+const API_URL = process.env.REACT_APP_BASE_URL;
 
 
 // Read / Get all the projects of a user 
 export const readProjects = async (user_id) =>{
     try {
-        const response = await fetch(`http://localhost:5001/user/${user_id}/projects`, {
+        const response = await fetch(`${API_URL}/user/${user_id}/projects`, {
             method: 'GET',
             headers: { 
             "Content-Type": "application/json" , 
@@ -21,7 +22,7 @@ export const readProjects = async (user_id) =>{
 // Create a new project
 export const createProject = async (user_id, projectName, themeName, setProject) => {
   try {
-    const response = await fetch(`http://localhost:5001/newProject`, {
+    const response = await fetch(`${API_URL}/newProject`, {
       method: "POST",
       headers: { 
         "Content-Type": "application/json" , 
@@ -44,7 +45,7 @@ export const createProject = async (user_id, projectName, themeName, setProject)
 // Find the selected project
 export const selectProject = async (project_id, setProject) =>{
     try {
-        const response = await fetch(`http://localhost:5001/projects/${project_id}`, {
+        const response = await fetch(`${API_URL}/projects/${project_id}`, {
             method: 'GET',
             headers: { 
             "Content-Type": "application/json" , 
@@ -66,7 +67,7 @@ export const selectProject = async (project_id, setProject) =>{
 // Delete the project 
 export const deleteProject = async(project_id) => {
     try {
-        const response = await fetch(`http://localhost:5001/projects/${project_id}`, {
+        const response = await fetch(`${API_URL}/projects/${project_id}`, {
             method: "DELETE",
             headers: { 
             "Content-Type": "application/json" , 
