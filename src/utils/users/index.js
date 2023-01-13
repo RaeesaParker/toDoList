@@ -1,5 +1,6 @@
-import { writeCookie } from "../../common/index"
-const API_URL = process.env.REACT_APP_BASE_URL;
+import { writeCookie, getCookie } from "../../common/index"
+// const API_URL = process.env.REACT_APP_BASE_URL;
+const API_URL = "http://localhost:5001"
 
 
 // Register a user => Used to create user
@@ -18,7 +19,7 @@ export const registerUser = async (username, email, password, setUserDetails) =>
     if (data.userName){
         setUserDetails({userName:data.userName, user_id:data.id})
         writeCookie("jwt_token", data.token, 7)
-        return true
+        return data
     }else{
         return data.error;
     }
@@ -43,7 +44,9 @@ export const loginUser = async (username, password, setUserDetails) => {
         if (data.userName){
           setUserDetails({userName:data.userName, user_id:data.id})
           writeCookie("jwt_token", data.token, 7)
-          return true
+          return data
+        }else{
+            return data.error;
         }
     } catch (error) {
         console.log(error)
@@ -63,8 +66,12 @@ export const findUser = async (cookieValue, setUserDetails) => {
         }),
         })
         const data = await response.json()
-        setUserDetails({userName:data.userName, user_id:data.id})
-        return true;
+        if (data.userName){
+          setUserDetails({userName:data.userName, user_id:data.id})
+          return data
+        }else{
+            return data.error;
+        }
     } catch (error) {
         console.log(error);
     }
@@ -77,7 +84,10 @@ export const updateUser = async(user_id, keyField, value) => {
     try {
         const response = await fetch(`${API_URL}/users/${user_id}`, {
             method: "PUT",
-            headers: {"Content-type": "application/json"},
+            headers: {
+                "Content-type": "application/json", 
+                Authorization:"Bearer " + getCookie("jwt_token")
+            },
             body: JSON.stringify({
                 [keyField]: value
             })
@@ -97,7 +107,10 @@ export const deleteUser = async(user_id) => {
     try {
         const response = await fetch(`${API_URL}/users/${user_id}`, {
             method: "DELETE",
-            headers: {"Content-type": "application/json"},
+            headers: {
+                "Content-type": "application/json",
+                Authorization: "Bearer " + getCookie("jwt_token")
+        },
         })
         const data = await response.json()
         return data
