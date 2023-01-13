@@ -1,5 +1,6 @@
 import { writeCookie } from "../../common/index"
-const API_URL = process.env.REACT_APP_BASE_URL;
+// const API_URL = process.env.REACT_APP_BASE_URL;
+const API_URL = "http://localhost:5001"
 
 
 // Register a user => Used to create user
@@ -18,7 +19,7 @@ export const registerUser = async (username, email, password, setUserDetails) =>
     if (data.userName){
         setUserDetails({userName:data.userName, user_id:data.id})
         writeCookie("jwt_token", data.token, 7)
-        return true
+        return data
     }else{
         return data.error;
     }
@@ -31,6 +32,7 @@ export const registerUser = async (username, email, password, setUserDetails) =>
 // Login a user
 export const loginUser = async (username, password, setUserDetails) => {
     try {
+        console.log("Finding a user based on username and password")
         const response = await fetch(`${API_URL}/auth`, {
             method: "POST",
             headers: {"Content-Type": "application/json"},
@@ -40,10 +42,13 @@ export const loginUser = async (username, password, setUserDetails) => {
             })
         })
         const data = await response.json();
+        console.log("The data being returned by logging in a user is ", data)
         if (data.userName){
           setUserDetails({userName:data.userName, user_id:data.id})
           writeCookie("jwt_token", data.token, 7)
-          return true
+          return data
+        }else{
+            return data.error;
         }
     } catch (error) {
         console.log(error)
@@ -53,6 +58,7 @@ export const loginUser = async (username, password, setUserDetails) => {
 
 export const findUser = async (cookieValue, setUserDetails) => {
     try {
+        console.log("Logging in by FINDING  a user using a cookie")
         const response = await fetch(`${API_URL}/auth/checkToken`, {
             method: "POST",
             headers: {
@@ -63,8 +69,12 @@ export const findUser = async (cookieValue, setUserDetails) => {
         }),
         })
         const data = await response.json()
-        setUserDetails({userName:data.userName, user_id:data.id})
-        return true;
+        if (data.userName){
+          setUserDetails({userName:data.userName, user_id:data.id})
+          return data
+        }else{
+            return data.error;
+        }
     } catch (error) {
         console.log(error);
     }
