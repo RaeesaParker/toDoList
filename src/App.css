@@ -4,6 +4,14 @@
 /* --------------------------------------------------------- */
 /* VARIABLES                                                 */
 /* --------------------------------------------------------- */
+
+/* 
+  blue: #275DAD;
+  green: #28965A;
+  red: #C20114;
+  yellow: #EDAE49; 
+*/
+
 :root{
 
   /* Colour palettes */
@@ -14,9 +22,18 @@
   --white: #F5f5f5;
   --red : #F24236; 
 
+  --grey-nav: #111111;
+  --grey-dark: #333333;
+  --grey-medium: #888888;
+  --grey-light: #cccccc;
+  --grey-extra-light: #eeeeee;
+
+  --white: #fff;
+  --white-dark: #f5f5f5;
+
   /* Font Families */
-  --fontSerif: 'Crimson Text', serif;
-  --fontSans: 'Roboto', sans-serif; 
+  --fontSerif: 'Noto Sans', sans-serif;
+  --fontSans: 'Noto Sans', sans-serif; 
 }
 
 
