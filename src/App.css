@@ -20,7 +20,7 @@
   --tertiary:#fcfcfc;
   --black :  #222222; 
   --white: #F5f5f5;
-  --red : #F24236; 
+  --red : #C20114; 
 
   --grey-nav: #111111;
   --grey-dark: #333333;
@@ -60,6 +60,8 @@ h1{
   font-size: 3rem;
   font-family: var(--fontSerif);
   text-align: center;
+  margin: 2% 0 0 0;
+
 }
 
 h2{
@@ -87,6 +89,7 @@ h4{
   line-height: 2rem;
   text-align: center;
   word-spacing: 0.25rem;
+  margin: 2% 0 0 0;
 }
 
 div{

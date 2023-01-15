@@ -12,13 +12,20 @@ function Login(props) {
   // State to store which nav form should open
   const [navForm, setNavForm] = useState('buttons')
 
+  const handleOverlayClick = (event) => {
+  if (event.target.localName == "div") {
+    console.log("Closing form")
+    // closes the form if the user clicks outside of the form
+    setNavForm('buttons');
+  }
+  };
+
 
 
   return (
-    <div className="section-login">
+    <div className="section-login" >
 
       <div className='login-subsection-navbar'> 
-
         {navForm === 'buttons' ? (
           <nav className="navbar navbar-expand-lg  navbar-customise">
             <div className="navbar-item"> 
@@ -39,17 +46,17 @@ function Login(props) {
           ) : '' }
       </div>
 
-      <div className="login-subsection-logo">
-        <img alt="logo" id="logo-homepage" src={Logo}></img>
-      </div>
-
-      <div className="login-subsection-welcome">
-        <h1> PinBoard!</h1>
-        <h4>
-          A flexible work management tool where you can ideate plans and
-          track your progress in a visual, productive, and rewarding way.
-        </h4>
-        <h4>Register now, or sign in, to begin...</h4>
+      <div  onClick={(event) => handleOverlayClick(event)}>
+        <div className="login-subsection-logo">
+          <img alt="logo" id="logo-homepage" src={Logo}></img>
+        </div>
+        <div className="login-subsection-welcome">
+          <h1> PinBoard!</h1>
+          <h4>
+            A flexible work management tool to ideate plans and
+            track your progress in a visual, productive, and rewarding way.
+          </h4>
+        </div>
       </div>
     </div>
   );

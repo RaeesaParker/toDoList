@@ -1,5 +1,6 @@
 /* ----------------- LOGIN PAGE ------------------ */
 
+
 .section-login{
   align-items: center;
   display: flex;
@@ -9,11 +10,10 @@
 }
 
 .login-subsection-navbar{
-  background-color: red;
   display: flex;
-  height: 30vh;
-  justify-content: flex-end;
-  margin: 1% 0 5% 0;
+  height: 25vh;
+  justify-content: center;
+  margin: 1% 0 2% 0;
   text-align: center;
   width: 100%;
 }
@@ -72,10 +72,11 @@
 }
 
 .login-subsection-login{
+  border-radius: 10px;
   display: flex;
   background-color: var(--grey-nav);
   justify-content: space-around;
-  width: 100%;
+  width: 95%;
 
 }
 
@@ -84,7 +85,6 @@
   display: flex;
   flex-direction: row;
   justify-content: center;
-  margin: 1% 0 1% 0;
   width: 100%;
 }
 
@@ -104,12 +104,14 @@
   color: var(--grey-extra-light);
   flex-direction: row;
   justify-content: center;
+  margin: 2% 0 0 0 ;
 }
 
 .submit-button-login{
   background-color: var(--grey-extra-light);
   border: 3px solid var(--grey-nav);
   border-radius: 10px;
+  font-weight: 600;
   margin: 0 5% 0 0;
   padding: 0.5%;
   text-align: center;
@@ -136,17 +138,15 @@
 .login-subsection-forms input[type=text], input[type=password], input[type=email] {
   background-color: var(--grey-extra-light);
   border-radius: 10px;
-  margin: 0 2% 0 2%;
+  margin: 0 2% 0 0;
   padding: 0.5%;
   text-align: center;
-  width:45%
+  width:31%
 }
-
-
 
 .error{
   color: var(--red);
-  margin: 1% 0 ;
+  margin: 2% 0 ;
   text-align: center;
 }
 
