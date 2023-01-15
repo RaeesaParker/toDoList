@@ -40,7 +40,7 @@ function RegisterForm(props) {
 
 
   return (
-    <div className="login-subsection-forms">
+    <div >
       <h3>Register</h3>
 
       <form className="login-form-input" onSubmit={onSubmitRegisterFunc}>
@@ -74,6 +74,7 @@ function RegisterForm(props) {
         <button className="submit-button" type="submit">
           Register
         </button>
+        <p onClick={()=> {props.setNavForm('login')}}>Already have an account?</p>
       </form>
     </div>   
   );

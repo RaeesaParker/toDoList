@@ -37,33 +37,45 @@ function LoginForm(props) {
 
 
   return (
-  <div className="login-subsection-forms">
-    <h3>Sign In</h3>
+  <div className='login-subsection-forms'>
 
-    <form className="login-form-input" onSubmit={onSubmitSignInFunc}>
-      <input
-        required
-        autoComplete="off"
-        type="text"
-        placeholder="UserName"
-        name="userName"
-        onChange={(event) => setUsername(event.target.value)}
-      />
-      <input
-        required
-        autoComplete="off"
-        type="password"
-        placeholder="Password"
-        name="password"
-        onChange={(event) => setPassword(event.target.value)}
-      />
-      <p className="error">
-        {error ? error : <></>}
-      </p>
-      <button className="submit-button" type="submit">
-        Sign In
-      </button>
-    </form>
+    <div className ='login-title'> 
+      <h3>Welcome Back!</h3>
+    </div>
+    
+    <div className ='login-form'>
+        <form onSubmit={onSubmitSignInFunc}>
+            <input
+              required
+              autoComplete="off"
+              type="text"
+              placeholder="UserName"
+              name="userName"
+              onChange={(event) => setUsername(event.target.value)}
+            />
+            <input
+              required
+              autoComplete="off"
+              type="password"
+              placeholder="  Password"
+              name="password"
+              onChange={(event) => setPassword(event.target.value)}
+            />
+
+          <p className="error">
+            {error ? error : <></>}
+          </p>
+
+          <div  className="login-form-submit">
+            <button className="submit-button-login" type="submit">
+              Sign In
+            </button>
+            <p  className='para-link' onClick={()=> {props.setNavForm('register')}}>Don't have an account?</p>
+          </div>
+
+        </form>
+    </div>
+
   </div>
   );
 }

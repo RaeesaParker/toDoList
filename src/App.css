@@ -15,7 +15,7 @@
 :root{
 
   /* Colour palettes */
-  --primary: #2E86AB; 
+  --primary: #275DAD; 
   --secondary:#f4f4f4;
   --tertiary:#fcfcfc;
   --black :  #222222; 
@@ -26,7 +26,7 @@
   --grey-dark: #333333;
   --grey-medium: #888888;
   --grey-light: #cccccc;
-  --grey-extra-light: #eeeeee;
+  --grey-extra-light: #E2E2E2;
 
   --white: #fff;
   --white-dark: #f5f5f5;
@@ -49,10 +49,8 @@ html {
 }
 
 body {
-  background: var(--secondary);
-  background-image: url("https://www.transparenttextures.com/patterns/cubes.png");
+  background: var(--grey-extra-light);
   font-family: var(--fontSans);
-  padding: 0 16px;
   margin: 0 0 0 0;
   min-height: 100vh;
 }
@@ -75,6 +73,7 @@ h2{
   }
 
 h3{
+  color: var(--white-dark);
   font-size: 1.5rem;
   font-weight: 500;
   line-height: 2rem;
@@ -103,17 +102,18 @@ a{
 }
 
 form{
+  margin: 0;
   width: 100%;
 }
 
+p{
+  margin: 0;
+}
 
 input[type=text], input[type=password] ,  input[type=email] {
   background: none;
   border: none;
-  border-bottom: 1px solid var(--primary);
-  display: block;
   font-size: 1.0rem;
-  margin: 2% 0 5% 0;
   width: 100%;
 }
 
@@ -132,51 +132,13 @@ hr{
   background: transparent;
   border: none;
   display: flex;
-  margin: 1% auto 1% auto;
+  margin: 0 auto 0 auto;
 }
 
 .submit-button:hover{
   color: var(--primary);
   cursor: pointer;
 }
-
-
-
-/* ----------------- HEADER ------------------ */
-.navbar-customise{
-  background-color: var(--primary);
-  border-radius: 1px;
-  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
-  height: 10vh;
-  margin: auto -16px;
-}
-
-.navbar-brand{
-  color: var(--black);
-  font-family: var(--fontSerif);
-  font-size: 2.0rem;
-  margin: 1% 0 1% 0;
-}
-
-.navbar-brand:hover{
-  color: var(--black);
-  cursor: default;
-}
-
-#project-name{
-  color: var(--secondary);
-}
-
-#new-project{
-  font-size: 1.25rem;
-  text-decoration: none;
-}
-
-#new-project:hover{
-  color: var(--secondary);
-  cursor: pointer;
-}
-
 
 
 
