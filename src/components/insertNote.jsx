@@ -1,6 +1,5 @@
 import React from 'react';
 import NewNoteInput from './insertNoteInputs.jsx';
-import CreateNote from './createNote.jsx';
 import Zoom from '@mui/material/Zoom';
 
 
@@ -19,7 +18,7 @@ function InsertNote(props){
   const [note, setNote] = React.useState({
     noteTitle: '',
     noteContent: ''
-  });
+    });
 
   // Set state to expand input on click
   const [expanded, setExpanded] = React.useState(false);

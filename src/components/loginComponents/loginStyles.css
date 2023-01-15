@@ -1,0 +1,157 @@
+/* ----------------- LOGIN PAGE ------------------ */
+
+
+.section-login{
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: flex-start;
+}
+
+.login-subsection-navbar{
+  display: flex;
+  height: 25vh;
+  justify-content: center;
+  margin: 1% 0 2% 0;
+  text-align: center;
+  width: 100%;
+}
+
+.navbar-customise{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  margin-right: 5%;
+  width: 100%;
+}
+
+.navbar-item{
+  margin: 0 3%;
+}
+
+.navbar-brand{
+  background: transparent;
+  border: 3px solid var(--grey-nav);
+  border-radius: 10px;
+  font-family: var(--fontSerif);
+  font-size: 14px;
+  font-weight: 600;
+  margin: 0;
+  padding: 0.5rem 1.0rem;
+}
+
+.navbar-brand:hover{
+  background-color: var(--grey-nav);
+  color: var(--grey-extra-light);
+  cursor: pointer;
+}
+
+.button-signup{
+  background-color: var(--white-dark);
+}
+
+
+.login-subsection-logo{
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 75vw;
+}
+
+
+.login-subsection-welcome{
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-bottom: 5%;
+  text-align: center;
+  width: 75vw;
+}
+
+.login-subsection-login{
+  border-radius: 10px;
+  display: flex;
+  background-color: var(--grey-nav);
+  justify-content: space-around;
+  width: 95%;
+
+}
+
+.login-subsection-forms{
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+}
+
+.login-title{
+  margin: 0 0 0 5% ;
+}
+
+.login-form{
+  display: flex;
+  flex-grow: 2;
+  flex-direction: column;
+  margin: 0 5% 0 5% ;
+}
+
+.login-form-submit{
+  display: flex;
+  color: var(--grey-extra-light);
+  flex-direction: row;
+  justify-content: center;
+  margin: 2% 0 0 0 ;
+}
+
+.submit-button-login{
+  background-color: var(--grey-extra-light);
+  border: 3px solid var(--grey-nav);
+  border-radius: 10px;
+  font-weight: 600;
+  margin: 0 5% 0 0;
+  padding: 0.5%;
+  text-align: center;
+  width:20%
+}
+
+.submit-button-login:hover{
+  background-color: var(--grey-medium);
+  color: var(--white-dark);
+  cursor: pointer;
+}
+
+.para-link{
+  color: var(--grey-medium);
+  padding: 0.5%;
+}
+
+.para-link:hover{
+  color: var(--white-dark);
+  cursor: pointer;
+}
+
+
+.login-subsection-forms input[type=text], input[type=password], input[type=email] {
+  background-color: var(--grey-extra-light);
+  border-radius: 10px;
+  margin: 0 2% 0 0;
+  padding: 0.5%;
+  text-align: center;
+  width:31%
+}
+
+.error{
+  color: var(--red);
+  margin: 2% 0 ;
+  text-align: center;
+}
+
+
+
+#logo-homepage{
+  width: 25%;
+}

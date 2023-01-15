@@ -1,7 +1,7 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
-
-function Heading(){
+function Heading(props){
 
 
   // ----------------------------------------------------------------- //
@@ -14,7 +14,11 @@ function Heading(){
     <div>
       <nav className="navbar navbar-expand-lg  navbar-customise">
         <div className="container-fluid">
-          <a className="navbar-brand" href="#">To Do List</a>
+          <p className="navbar-brand" >{props.userName}'s Workspace</p>
+          <p className="navbar-brand" id="project-name">{props.projectName}</p>
+          <Link to="/projects">
+            <p className="navbar-brand" id="new-project"><i className="fa-solid fa-house-user"></i></p>
+          </Link>
         </div>
       </nav>
     </div>

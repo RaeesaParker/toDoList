@@ -4,19 +4,36 @@
 /* --------------------------------------------------------- */
 /* VARIABLES                                                 */
 /* --------------------------------------------------------- */
+
+/* 
+  blue: #275DAD;
+  green: #28965A;
+  red: #C20114;
+  yellow: #EDAE49; 
+*/
+
 :root{
 
   /* Colour palettes */
-  --primary: #2E86AB; 
+  --primary: #275DAD; 
   --secondary:#f4f4f4;
   --tertiary:#fcfcfc;
   --black :  #222222; 
   --white: #F5f5f5;
-  --red : #F24236; 
+  --red : #C20114; 
+
+  --grey-nav: #111111;
+  --grey-dark: #333333;
+  --grey-medium: #888888;
+  --grey-light: #cccccc;
+  --grey-extra-light: #E2E2E2;
+
+  --white: #fff;
+  --white-dark: #f5f5f5;
 
   /* Font Families */
-  --fontSerif: 'Crimson Text', serif;
-  --fontSans: 'Roboto', sans-serif; 
+  --fontSerif: 'Noto Sans', sans-serif;
+  --fontSans: 'Noto Sans', sans-serif; 
 }
 
 
@@ -32,88 +49,131 @@ html {
 }
 
 body {
-  background: var(--secondary);
-  background-image: url("https://www.transparenttextures.com/patterns/cubes.png");
+  background: var(--grey-extra-light);
   font-family: var(--fontSans);
-  padding: 0 16px;
   margin: 0 0 0 0;
   min-height: 100vh;
 }
 
-h3{
-  font-size: 1.25rem;
-  margin-top: 0;
-  padding-top: 3%;
+h1{
+  color: var(--primary);
+  font-size: 3rem;
+  font-family: var(--fontSerif);
   text-align: center;
+  margin: 2% 0 0 0;
+
+}
+
+h2{
+  color: var(--primary);
+  font-family: var(--fontSerif);
+  font-size: 2.5rem;
+  font-weight: 500;
+  line-height: 2rem;
+  text-align: center;
+  word-spacing: 0.25rem;
+  }
+
+h3{
+  color: var(--white-dark);
+  font-size: 1.5rem;
+  font-weight: 500;
+  line-height: 2rem;
+  text-align: center;
+  word-spacing: 0.25rem;
+}
+
+h4{
+  font-size: 1.2rem;
+  font-weight: 500;
+  line-height: 2rem;
+  text-align: center;
+  word-spacing: 0.25rem;
+  margin: 2% 0 0 0;
 }
 
 div{
   margin:0;
 }
 
+a{
+  text-decoration: none;
+}
+
 .container{
   text-align: center;
 }
 
+form{
+  margin: 0;
+  width: 100%;
+}
 
+p{
+  margin: 0;
+}
 
+input[type=text], input[type=password] ,  input[type=email] {
+  background: none;
+  border: none;
+  font-size: 1.0rem;
+  width: 100%;
+}
+
+hr{
+  border: 1px solid var(--primary);
+  opacity: 1;
+  margin: 2% 0 0 0;
+  width: 100%;
+}
 
 /* --------------------------------------------------------- */
 /* COMPONENT CLASSES                                         */
 /* --------------------------------------------------------- */
 
-
-/* ----------------- HEADER ------------------ */
-.navbar-customise{
-  background-color: var(--primary);
-  border-radius: 1px;
-  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
-  height: 10vh;
-  margin: auto -16px;
+.submit-button{
+  background: transparent;
+  border: none;
+  display: flex;
+  margin: 0 auto 0 auto;
 }
 
-.navbar-brand{
-  color: var(--black);
-  font-family: var(--fontSerif);
-  font-size: 2.5rem;
-  margin-left:2rem;
+.submit-button:hover{
+  color: var(--primary);
+  cursor: pointer;
 }
 
-.navbar-brand{
-  color: var(--black);
-  font-family: var(--fontSerif);
-  font-size: 2.5rem;
-  margin-left:2rem;
-}
+
+
+
 
 /* ----------------- SECTIONS ------------------ */
 
 .section-main-container{
-  /* background-color: green; */
   display: flex;
   min-height: 85vh;
 }
 
 .section-insert{
-  /* background-color: var(--blue); */
-  width: 50%;
+  border-right: 1px solid var(--primary);
+  width: 60%;
 }
 
 .section-storage-container{
   min-height: 85vh;
-  min-width: 50vw;
+  width: 40%;
 }
 
 .section-archive{
-  border-left: 1px solid var(--black);
   min-height: 42.5vh;
+  overflow: auto;
 }
 
 .section-doing{
-  border-left: 1px solid var(--black);
-  border-bottom: 1px solid var(--black);
+  border-bottom: 1px solid var(--primary);
   min-height: 42.5vh;
   margin: 0;
+  overflow: auto;
 }
 
 
@@ -123,24 +183,16 @@ div{
 background-color: var(--tertiary);
 border-radius: 7px;
 box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2);
-height: 50px;
+height: 60px;
 margin: 15px auto 15px auto;
 padding: 10px;
 width: 60%;
 }
 
 .insert-note-expanded{
-  height: 75px;
+  height: 100px;
 }
 
-
-input[type=text] {
-  display: block;
-  margin-top: 7px;
-  border-style: none;
-  font-size: 0.75rem;
-  width: 100%;
-}
 
 .submit-note-button{
   align-items: center;
@@ -155,6 +207,7 @@ input[type=text] {
   padding: 0 1px 2px 2px ;
   position: relative;
   right:-90%;
+  bottom: 0.8rem;
   width: 2.0rem;
  }
 

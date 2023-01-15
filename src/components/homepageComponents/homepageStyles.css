@@ -1,0 +1,132 @@
+
+
+/* ----------------- HOMEPAGE ------------------ */
+
+.section-homescreen{
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+.section-homescreen select{
+  background: none;
+  border: none;
+  border-bottom: 1px solid var(--primary);
+  margin: 5% 0 2% 5%;
+}
+
+.home-subsection input[type=text]{
+  display: inline-block;
+  margin: 2% 0 2% 5%;
+  width: 20%;
+}
+
+.home-subsection-projects-select input[type=text]{
+  display: inline-block;
+  margin: 2% 0 2% 5%;
+  width: 60%;
+}
+
+.home-subsection{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 2% 0 0 0;
+  width: 100%;
+}
+
+#home-welome-title{
+  flex-grow: 4;
+}
+
+#home-subsection-projects{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin: 2% 0 0 0;
+  width: 100%;
+}
+
+
+/* PROJECTS SECTION */
+
+.home-subsection-projects-select{
+  padding: 2% 0;
+  width: 50%;
+}
+
+.field-flex{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.colour-card{
+  display: flex;
+  flex-direction: column;
+  padding: 5% 5% 2% 5%;
+  width: 50%;
+}
+
+.colour-card-div{
+  display: inline-block;
+  border: 1px solid var(--black);
+  border-radius: 15px;
+  margin-bottom: 3%;
+  min-width: 10vw;
+  min-height: 5vh;
+}
+
+#palette-green{
+  background: linear-gradient(to right, #fcfcfc 33%, #e9e9e9 33%, #e9e9e9 66%, #4e705d 66% );
+}
+#palette-red{
+  background: linear-gradient(to right, #fffbfb 33%, #f3f1ef 33%, #f3f1ef 66%, #b01307 66% );
+}
+#palette-blue{
+  background: linear-gradient(to right, #f8f9fb 33%, #e7ecef 33%, #e7ecef 66%, #2E86AB 66% );
+}
+#palette-yellow{
+  background: linear-gradient(to right, #ffffff 33%, #f4f4f4 33%, #f4f4f4 66%, #eec302 66% );
+}
+
+
+.home-project-name{
+  display: inline-block;
+  margin: 2% 5% 2% 0;
+}
+
+.home-project-name:hover{
+  color: var(--primary);
+  cursor: pointer;
+}
+
+
+.button-delete-project{
+  color: var(--primary);
+  padding: 0;
+}
+
+.button-delete-project:hover{
+  color: var(--red);
+  cursor: pointer;
+}
+
+/*  USER UPDATE SECTION */
+
+#submit-button-update{
+  display: inline;
+  margin: 0 0 0 2%;
+}
+
+.submit-button-delete{
+  color: var(--red);
+  display: inline;
+  width: 20%;
+}
+
+#update-field{
+  margin: 0 2% 0 2%;
+}
