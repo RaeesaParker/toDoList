@@ -39,7 +39,7 @@ function LoginForm(props) {
     <div className='login-subsection-forms'>
 
       <div className ='login-title'> 
-        <h3>Welcome Back!</h3>
+        <h2>Welcome Back!</h2>
       </div>
     
       <div className ='login-form'>

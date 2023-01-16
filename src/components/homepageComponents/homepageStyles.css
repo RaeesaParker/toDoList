@@ -5,17 +5,27 @@
 .section-homescreen{
   align-items: center;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
   text-align: center;
+  min-height: 100vh;
 }
 
-.section-homescreen select{
-  background: none;
-  border: none;
-  border-bottom: 1px solid var(--primary);
-  margin: 5% 0 2% 5%;
+.home-subsection-projects-container{
+  background-color: yellow;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 100vh;
+  width: 100%;
 }
+
+.home-subsection-user{
+  margin: 0 1% 0 1%;
+}
+
+
+
 
 .home-subsection input[type=text]{
   display: inline-block;
@@ -29,17 +39,6 @@
   width: 60%;
 }
 
-.home-subsection{
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  margin: 2% 0 0 0;
-  width: 100%;
-}
-
-#home-welome-title{
-  flex-grow: 4;
-}
 
 #home-subsection-projects{
   display: flex;
@@ -50,12 +49,7 @@
 }
 
 
-/* PROJECTS SECTION */
-
-.home-subsection-projects-select{
-  padding: 2% 0;
-  width: 50%;
-}
+/* ----------------- PROJECTS ------------------ */
 
 .field-flex{
   display: flex;
@@ -114,19 +108,114 @@
   cursor: pointer;
 }
 
-/*  USER UPDATE SECTION */
 
-#submit-button-update{
-  display: inline;
-  margin: 0 0 0 2%;
+
+/* ----------------- USER PANEL ------------------ */
+
+.home-subsection-user-panel{
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: space-around;
+  margin: 0 5% 0 0;
+  width: 20vw;
 }
 
-.submit-button-delete{
-  color: var(--red);
-  display: inline;
-  width: 20%;
+
+.user-container{
+  align-items: center;
+  background-color: var(--white-dark);
+  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  padding: 2% 0;
+  width: 90%;
+} 
+
+#user-title{
+  background-color: var(--grey-nav);
+  color: var(--white);
+  font-size: 1.0rem;
+}
+
+#submit-button-logout{
+  background-color: var(--grey-dark);
+  border: 1px solid var(--grey-nav);
+  border-radius: 10px;
+  color: var(--white);
+  font-weight: 600;
+  text-align: center;
+  width:60%
+}
+
+#submit-button-logout:hover, #submit-button-update:hover, #submit-button-delete:hover  {
+  cursor: pointer;
+}
+
+
+#user-details{
+  background-color: var(--grey-medium);
+  color: var(--white);
+}
+
+#submit-button-update{
+  background-color: var(--grey-dark);
+  border: 1px solid var(--grey-dark);
+  border-radius: 10px;
+  color: var(--white);
+  font-size: 0.75rem;
+  font-weight: 600;
+  margin: 5% 0;
+  padding: 3% 0 ; 
+  width:90%
+}
+
+.section-homescreen select{
+  background: none;
+  border: none;
+  border-bottom: 1px solid var(--primary);
+  margin: 5% 0 2% 5%;
+}
+
+#submit-button-delete{
+  background-color: var(--grey-light);
+  border: 1px solid var(--grey-light);
+  border-radius: 10px;
+  color: var(--grey-nav);
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 3% 0 ; 
+  width:60%
 }
 
 #update-field{
   margin: 0 2% 0 2%;
+}
+
+
+
+
+/* ----------------- QUOTE ------------------ */
+
+
+
+
+
+/* ----------------- FOOTER ------------------ */
+
+.footer {
+  font-size: 0.6rem;
+  font-weight: 600;
+  height: 5vh;
+}
+
+.footer a {
+  color:var(--grey-nav);
+  margin: 0;
+  text-decoration: none;
+}
+
+.footer a:hover{
+  color: var(--grey-medium);
 }

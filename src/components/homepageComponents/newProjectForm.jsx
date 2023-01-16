@@ -78,7 +78,7 @@ function NewProjectForm({ user_id, setProject } ){
 
 
   return (
-    <div className="home-subsection-projects-select">
+    <div>
 
       <form onSubmit={onSubmitFormFunc}>
         
