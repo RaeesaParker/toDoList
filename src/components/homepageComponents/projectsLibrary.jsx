@@ -38,7 +38,7 @@ function ProjectsLibrary({user_id, setProject}){
 
 
   return(
-    <div className="home-subsection-projects-select">
+    <div >
       <h3>Your Projects...</h3>
 
       {projects.map( ( project ) => {

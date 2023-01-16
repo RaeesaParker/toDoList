@@ -69,8 +69,8 @@ function App() {
           path="/projects"
           element={
             <Homepage
-              username={userDetails.userName}
-              user_id={userDetails.user_id}
+              userDetails={userDetails}
+              setUserDetails={setUserDetails}
               setProject={onSubmitProject}
             ></Homepage>
           }

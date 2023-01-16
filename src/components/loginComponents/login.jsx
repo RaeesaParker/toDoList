@@ -57,13 +57,13 @@ function Login(props) {
         </div>
 
         <div className="login-subsection-welcome">
-          <h4>
+          <h3>
             A flexible work management tool to ideate plans and
             track your progress in a visual, productive, and rewarding way.
-          </h4>
-          <h4>
+          </h3>
+          <h3>
             Login, or sign up, now to begin!
-          </h4>
+          </h3>
         </div>
       </div>
     </div>

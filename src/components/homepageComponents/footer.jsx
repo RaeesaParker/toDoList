@@ -23,12 +23,10 @@ function Footer(){
 
   return (
     <div>
-    <footer className="footer mt-auto py-3 ">
-      <div className="container">
+      <footer>
         <a href={hrefAddress} target="__blank">&copy; {authorName} {currentYear}</a>
-      </div>
-    </footer>
-      </div>
+      </footer>
+    </div>
    )
 }
 
