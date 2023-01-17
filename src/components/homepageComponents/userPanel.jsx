@@ -16,7 +16,7 @@ function UserPanel(props) {
     <div className="home-subsection-user-panel">
 
       <div className="user-container" id='user-title'>
-        <h3>Hello Raeesa!</h3>
+        <h3>Hello {props.userDetails.userName}!</h3>
       </div>
 
       <div  className="user-container" id='submit-button-logout' onClick={onLogOut}>

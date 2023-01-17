@@ -92,7 +92,7 @@ h4{
   margin: 0 0 0 0;
 }
 
-p, label{
+p{
   font-size: 0.9rem;
   margin: 0;
 }
@@ -124,10 +124,10 @@ input[type=text], input[type=password] ,  input[type=email] {
 }
 
 hr{
-  border: 1px solid var(--primary);
+  border: 0.5px solid var(--grey-medium);
   opacity: 1;
   margin: 2% 0 0 0;
-  width: 100%;
+  width: 90%;
 }
 
 /* --------------------------------------------------------- */
