@@ -17,7 +17,7 @@ export const registerUser = async (username, email, password, setUserDetails) =>
     });
     const data = await response.json();
     if (data.userName){
-        setUserDetails({userName:data.userName, user_id:data.id})
+        setUserDetails({userName:data.userName, user_id:data.id, email:data.email})
         writeCookie("jwt_token", data.token, 7)
         return data
     }else{
@@ -42,7 +42,7 @@ export const loginUser = async (username, password, setUserDetails) => {
         })
         const data = await response.json();
         if (data.userName){
-          setUserDetails({userName:data.userName, user_id:data.id})
+          setUserDetails({userName:data.userName, user_id:data.id, email:data.email})
           writeCookie("jwt_token", data.token, 7)
           return data
         }else{
@@ -67,7 +67,7 @@ export const findUser = async (cookieValue, setUserDetails) => {
         })
         const data = await response.json()
         if (data.userName){
-          setUserDetails({userName:data.userName, user_id:data.id})
+          setUserDetails({userName:data.userName, user_id:data.id, email:data.email})
           return data
         }else{
             return data.error;

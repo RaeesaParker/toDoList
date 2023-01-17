@@ -83,7 +83,7 @@ function UserDetailsForm({user_id, setUserDetails, userDetails}){
 
 
   return(
-    <div className="home-subsection" >
+    <div>
       <form  onSubmit={onUpdateDetail}>
         
         <div>

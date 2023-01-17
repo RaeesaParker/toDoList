@@ -19,6 +19,7 @@ function App() {
   const [userDetails, setUserDetails] = useState({
     userName:"",
     user_id: "",
+    email:""
   });
 
   // Function to take in the user details submited on homepage
@@ -26,6 +27,7 @@ function App() {
     setUserDetails({
       userName: userDetails.userName,
       user_id: userDetails.user_id,
+      email:userDetails.email
     });
   }
 
