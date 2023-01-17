@@ -17,7 +17,7 @@ export const registerUser = async (username, email, password, setUserDetails) =>
     });
     const data = await response.json();
     if (data.userName){
-        setUserDetails({userName:data.userName, user_id:data.id})
+        setUserDetails({userName:data.userName, user_id:data.id, email:data.email})
         writeCookie("jwt_token", data.token, 7)
         return data
     }else{
@@ -42,7 +42,7 @@ export const loginUser = async (username, password, setUserDetails) => {
         })
         const data = await response.json();
         if (data.userName){
-          setUserDetails({userName:data.userName, user_id:data.id})
+          setUserDetails({userName:data.userName, user_id:data.id, email:data.email})
           writeCookie("jwt_token", data.token, 7)
           return data
         }else{
@@ -67,7 +67,7 @@ export const findUser = async (cookieValue, setUserDetails) => {
         })
         const data = await response.json()
         if (data.userName){
-          setUserDetails({userName:data.userName, user_id:data.id})
+          setUserDetails({userName:data.userName, user_id:data.id, email:data.email})
           return data
         }else{
             return data.error;
@@ -80,20 +80,24 @@ export const findUser = async (cookieValue, setUserDetails) => {
 
 
 // Update a user's details
-export const updateUser = async(user_id, keyField, value) => {
+export const updateUser = async(user_id, reducedObject, setUserDetails) => {
     try {
+        console.log("Updaying the user")
         const response = await fetch(`${API_URL}/users/${user_id}`, {
             method: "PUT",
             headers: {
                 "Content-type": "application/json", 
                 Authorization:"Bearer " + getCookie("jwt_token")
             },
-            body: JSON.stringify({
-                [keyField]: value
-            })
+           body: JSON.stringify(reducedObject),
         })
         const data = await response.json()
-        return data
+        if (data.userName){
+          setUserDetails({userName:data.userName, user_id:data.id, email:data.email})
+          return data
+        }else{
+            return data.error;
+        }
     } catch (error) {
         console.log(error)
     }

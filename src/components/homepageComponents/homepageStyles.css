@@ -21,7 +21,7 @@
 }
 
 .home-subsection-user{
-  margin: 0 1% 0 1%;
+  margin: 0 1% 0 2%;
 }
 
 
@@ -126,11 +126,11 @@
 .user-container{
   align-items: center;
   background-color: var(--white-dark);
-  border-radius: 15px;
+  border-radius: 10px;
   display: flex;
   justify-content: center;
   padding: 2% 0;
-  width: 90%;
+  width: 100%;
 } 
 
 #user-title{
@@ -149,33 +149,24 @@
   width:60%
 }
 
-#submit-button-logout:hover, #submit-button-update:hover, #submit-button-delete:hover  {
-  cursor: pointer;
-}
-
 
 #user-details{
   background-color: var(--grey-medium);
   color: var(--white);
+  font-weight: 600;
 }
+
 
 #submit-button-update{
   background-color: var(--grey-dark);
   border: 1px solid var(--grey-dark);
   border-radius: 10px;
   color: var(--white);
-  font-size: 0.75rem;
+  font-size: 0.65rem;
   font-weight: 600;
   margin: 5% 0;
   padding: 3% 0 ; 
   width:90%
-}
-
-.section-homescreen select{
-  background: none;
-  border: none;
-  border-bottom: 1px solid var(--primary);
-  margin: 5% 0 2% 5%;
 }
 
 #submit-button-delete{
@@ -183,24 +174,55 @@
   border: 1px solid var(--grey-light);
   border-radius: 10px;
   color: var(--grey-nav);
-  font-size: 0.75rem;
+  font-size: 0.65rem;
   font-weight: 600;
   padding: 3% 0 ; 
   width:60%
 }
 
-#update-field{
-  margin: 0 2% 0 2%;
+#submit-button-logout:hover, #submit-button-update:hover, #submit-button-delete:hover  {
+  background-color: var(--grey-medium);
+  color: var(--white-dark);
+  cursor: pointer;
 }
 
 
+.user-form-input{
+  font-size: 0.75rem;
+  padding: 0 5% 0 5%;
+  text-align: left;
+  width: 100%;
+}
 
+
+.user-form-input label{
+  padding: 7% 0 0 2%;
+  text-align: left;
+}
+
+
+.user-form-input input{
+  background: transparent;
+  border: none;
+  font-size: 0.75rem;
+  padding: 2%;
+  width: 90%;
+}
 
 /* ----------------- QUOTE ------------------ */
 
+.daily-quote{
+  padding: 3% 10%;
+  width: 100%;
+}
 
+#quote{
+  margin: 5% 0
+}
 
-
+#author{
+  color: var(--grey-medium);
+}
 
 /* ----------------- FOOTER ------------------ */
 

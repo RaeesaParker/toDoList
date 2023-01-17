@@ -19,7 +19,7 @@ function UserDetailsForm({user_id, setUserDetails, userDetails}){
 
 
   //  Function to update the user parameters
-  const updateValues = async (event) => {
+  const onUpdateDetail = async (event) => {
 
     event.preventDefault();
 
@@ -34,17 +34,9 @@ function UserDetailsForm({user_id, setUserDetails, userDetails}){
     const reducedData = await reduceObject(updatedObj);
 
     // Send the reduced data to the update request
-    const updatedUserDetails = await updateUser(user_id, reducedData)
-
-    // Get the updated data and rest the current details
-    if (updatedUserDetails) {
-      const newObj = {
-        user_id: updatedUserDetails.id,
-        userName: updatedUserDetails.user_name,
-        email: updatedUserDetails.email,
-      };
-      setUserDetails(newObj);
-    }
+    const updatedUserDetails = await updateUser(user_id, reducedData, setUserDetails)
+    // Refresh the form after submitting
+    window.location.reload()
   };
 
   // Reduce the object to only the updated fields
@@ -65,15 +57,7 @@ function UserDetailsForm({user_id, setUserDetails, userDetails}){
 
 
 
-  // Update the updated detail field
-  async function onUpdateDetail(event) {
-    event.preventDefault();
-    let updateKey = event.target.updateKey.value;
-    let updateValue = event.target.updateValue.value
-    await updateUser(user_id, updateKey, updateValue)
-  }
 
-  
   // Function to delete a user 
   async function onDeleteAccountFunc(event){
     event.preventDefault();
@@ -83,11 +67,11 @@ function UserDetailsForm({user_id, setUserDetails, userDetails}){
 
 
   return(
-    <div className="home-subsection" >
+    <div>
       <form  onSubmit={onUpdateDetail}>
         
-        <div>
-          <label> <p>Username</p></label>
+        <div className="user-form-input">
+          <label> Username</label>
           <input 
             placeholder={userDetails.userName} 
             onChange={(e) =>setUsername(e.target.value)}
@@ -95,8 +79,8 @@ function UserDetailsForm({user_id, setUserDetails, userDetails}){
           <hr />
         </div>
 
-        <div>
-          <label> <p>email</p></label>
+        <div className="user-form-input">
+          <label> email</label>
           <input 
             placeholder={userDetails.email} 
             onChange={(e) =>setEmail(e.target.value)}
@@ -104,10 +88,10 @@ function UserDetailsForm({user_id, setUserDetails, userDetails}){
           <hr />
         </div>
 
-        <div>
-          <label> <p>Password</p></label>
+        <div className="user-form-input">
+          <label>Password</label>
           <input 
-            placeholder="**************"
+            placeholder="*********"
             onChange={(e) =>setPassword(e.target.value)}
           ></input>
           <hr />

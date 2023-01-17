@@ -75,7 +75,7 @@ h2{
   }
 
 h3{
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   font-weight: 500;
   line-height: 2rem;
   margin: 0;
@@ -84,7 +84,7 @@ h3{
 }
 
 h4{
-  font-size: 1.0rem;
+  font-size: 0.9rem;
   font-weight: 600;
   line-height: 2rem;
   text-align: center;
@@ -92,8 +92,8 @@ h4{
   margin: 0 0 0 0;
 }
 
-p, label{
-  font-size: 0.9rem;
+p{
+  font-size: 0.75rem;
   margin: 0;
 }
 
@@ -124,9 +124,9 @@ input[type=text], input[type=password] ,  input[type=email] {
 }
 
 hr{
-  border: 1px solid var(--primary);
+  border: 0.5px solid var(--grey-medium);
   opacity: 1;
-  margin: 2% 0 0 0;
+  margin: 2% auto 0 auto;
   width: 100%;
 }
 
