@@ -6,20 +6,16 @@
 /* --------------------------------------------------------- */
 
 /* 
-  blue: #275DAD;
-  green: #28965A;
-  red: #C20114;
-  yellow: #EDAE49; 
+  blue: #275DAD   rgba(39, 93, 173, 1)
+  green: #28965A  rgba(40, 150, 90, 1)
+  red: #C20114    rgba(194, 1, 20, 1)
+  yellow: #EDAE49 rgba(237, 174, 73, 1)
 */
 
 :root{
 
   /* Colour palettes */
-  --primary: #275DAD; 
-  --secondary:#f4f4f4;
-  --tertiary:#fcfcfc;
-  --black :  #222222; 
-  --white: #F5f5f5;
+  --primary: 39, 93, 173;  
   --red : #C20114; 
 
   --grey-nav: #111111;
@@ -130,25 +126,6 @@ hr{
   width: 100%;
 }
 
-/* --------------------------------------------------------- */
-/* COMPONENT CLASSES                                         */
-/* --------------------------------------------------------- */
-
-.submit-button{
-  background: transparent;
-  border: none;
-  display: flex;
-  margin: 0 auto 0 auto;
-}
-
-.submit-button:hover{
-  color: var(--primary);
-  cursor: pointer;
-}
-
-
-
-
 
 /* ----------------- SECTIONS ------------------ */
 
@@ -257,7 +234,6 @@ float: left;
   border: none;
   cursor: pointer;
   font-weight: 600;
-  margin-top: 1%;
   outline: none;
 }
 
@@ -279,16 +255,16 @@ float: left;
   }
 
   .hovertext:before {
-    background-color: var(--black);
+    background-color: var(--grey-extra-light);
     border-radius: 5px;
-    color: var(--white);
+    color: var(--grey-nav);
     content: attr(data-hover);
     left: -100%;
     opacity: 0.5;
     padding: 5px 0;
     position: absolute;
     text-align: center;
-    top: 200%;
+    top: 150%;
     visibility: hidden;
     width: 75px;
     z-index: 1;

@@ -20,7 +20,7 @@ function Homepage(props) {
   return (
     <div className="section-homescreen">
 
-      <div className="home-subsection-projects-container">
+      <div className="home-subsection-projects">
         <ProjectsForm setProject={props.setProject} user_id={props.userDetails.user_id} />
       </div>
 

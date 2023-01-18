@@ -20,7 +20,7 @@ function UserPanel(props) {
         <h4>Hello {props.userDetails.userName}!</h4>
       </div>
 
-      <div  className="user-container" id='submit-button-logout' onClick={onLogOut}>
+      <div  className="user-container submit-button" onClick={onLogOut}>
         <p> <i className="fa-solid fa-arrow-right-from-bracket"></i> &nbsp; Logout</p>
       </div>
   

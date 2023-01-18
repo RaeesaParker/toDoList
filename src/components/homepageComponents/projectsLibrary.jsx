@@ -38,21 +38,33 @@ function ProjectsLibrary({user_id, setProject}){
 
 
   return(
-    <div >
-      <h3>Your Projects...</h3>
+    <div className='home-subsection-projects-container' id="home-saved-project">
 
-      {projects.map( ( project ) => {
-        return (
-          <div key={project.id}>   
-            <p className="home-project-name" onClick={() => onSelectProject(project.id)} > {project.projectName} </p>
-            <button
-              className='button button-delete-project'
-              onClick={() => onDeleteProject(project.id)}> 
-              <span className="hovertext" data-hover="Delete"> <DeleteIcon />  </span>   
-            </button>
-          </div> 
-        )
-      })}
+      <div>
+        <h2 className="home-project-title" > Your Projects</h2>
+      </div>
+      
+      <div id="home-project-library">
+        {projects.map( ( project ) => {
+          return (
+            <div key={project.id} className="home-project-card">
+
+              <div className="home-project-name">        
+                <p  onClick={() => onSelectProject(project.id)} > {project.projectName} </p>
+              </div>
+
+              <div> 
+                <button
+                  className='button button-delete-project'
+                  onClick={() => onDeleteProject(project.id)}> 
+                  <span className="hovertext" data-hover="Delete"> <DeleteIcon />  </span>   
+                </button>
+              </div>
+              
+            </div> 
+          )
+        })}
+      </div>
     </div>
   )
 }
