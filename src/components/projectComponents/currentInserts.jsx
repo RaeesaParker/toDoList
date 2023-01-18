@@ -1,7 +1,7 @@
 import React from 'react';
 import InsertNote from './insertNote.jsx';
 import CreateNote from './createNote.jsx';
-import {createNote, deleteNote, updateNote} from '../utils/notes/index'
+import {createNote, deleteNote, updateNote} from '../../utils/notes/index'
 
 function CurrentInserts({noteList, archiveNoteList, doingNoteList, userId, projectId, readNotesFunc}){
 

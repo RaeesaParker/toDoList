@@ -4,8 +4,7 @@ import Heading from "./heading";
 import CurrentInserts from "./currentInserts";
 import Archive from "./archive";
 import Doing from "./doing";
-import Footer from "./homepageComponents/footer";
-import { readNotes } from "../utils/notes";
+import { readNotes } from "../../utils/notes";
 
 function CurrentProject(props) {
 
@@ -79,7 +78,6 @@ function CurrentProject(props) {
           ></Archive>
         </div>
       </div>
-      <Footer></Footer>
     </div>
   );
 }

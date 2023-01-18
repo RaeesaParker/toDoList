@@ -3,7 +3,7 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import PlayCircleOutlinedIcon from '@mui/icons-material/PlayCircleOutlined';
 import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
 import PushPinOutlinedIcon from '@mui/icons-material/PushPinOutlined';
-import {updateNote} from '../utils/notes/index'
+import {updateNote} from '../../utils/notes/index'
 
 
 function CreateNote(props){

@@ -1,6 +1,6 @@
 import React from "react";
 import CreateNote from "./createNote.jsx";
-import {deleteNote, updateNote} from '../utils/notes/index'
+import {deleteNote, updateNote} from '../../utils/notes/index'
 
 
 function Doing(props) {
