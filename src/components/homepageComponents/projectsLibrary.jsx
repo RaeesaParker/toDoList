@@ -5,7 +5,7 @@ import { readProjects, selectProject, deleteProject} from "../../utils/projects/
 import DeleteIcon from '@mui/icons-material/Delete';
 
 
-function ProjectsLibrary({user_id, setProject}){
+function ProjectsLibrary({user_id, setProject, setPrimaryColour}){
 
   // Navigation for redirect
   const navigate = useNavigate();
@@ -26,8 +26,9 @@ function ProjectsLibrary({user_id, setProject}){
 
   // Function to load the project data of the project selected
   async function onSelectProject(project_id){
-    await selectProject(project_id, setProject)
-     navigate("/currentproject");   
+    let projectSelected = await selectProject(project_id, setProject)
+    setPrimaryColour(projectSelected.themeName)
+    navigate("/currentproject");   
   }
 
   // Function to delete project when button is clicked 
@@ -38,21 +39,38 @@ function ProjectsLibrary({user_id, setProject}){
 
 
   return(
-    <div className="home-subsection-projects-select">
-      <h3>Your Projects...</h3>
+    <div className='home-subsection-projects-container' id="home-saved-project">
 
-      {projects.map( ( project ) => {
-        return (
-          <div key={project.id}>   
-            <p className="home-project-name" onClick={() => onSelectProject(project.id)} > {project.projectName} </p>
-            <button
-              className='button button-delete-project'
-              onClick={() => onDeleteProject(project.id)}> 
-              <span className="hovertext" data-hover="Delete"> <DeleteIcon />  </span>   
-            </button>
-          </div> 
-        )
-      })}
+      <div>
+        <h2 className="home-project-title" > Your Projects</h2>
+      </div>
+      
+      <div id="home-project-library">
+        {projects.map( ( project ) => {
+          return (
+            <div key={project.id} 
+              className={"home-project-card " + (project.themeName == "blue" ? "home-project-card-blue" 
+                : ( project.themeName == "red" ? "home-project-card-red" 
+                : (project.themeName =="yellow" ? "home-project-card-yellow" 
+                : "home-project-card-green" 
+              )))} >
+
+              <div className="home-project-name">        
+                <p  onClick={() => onSelectProject(project.id)} > {project.projectName} </p>
+              </div>
+
+              <div> 
+                <button
+                  className='button button-delete-project'
+                  onClick={() => onDeleteProject(project.id)}> 
+                  <span className="hovertext" data-hover="Delete"> <DeleteIcon />  </span>   
+                </button>
+              </div>
+              
+            </div> 
+          )
+        })}
+      </div>
     </div>
   )
 }

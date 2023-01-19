@@ -43,7 +43,7 @@ function RegisterForm(props) {
     <div className='login-subsection-forms'>
 
     <div className ='login-title'> 
-      <h3>Register Now!</h3>
+      <h2>Register Now!</h2>
     </div>
     
     <div className ='login-form'>

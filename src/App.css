@@ -6,20 +6,16 @@
 /* --------------------------------------------------------- */
 
 /* 
-  blue: #275DAD;
-  green: #28965A;
-  red: #C20114;
-  yellow: #EDAE49; 
+  blue: #275DAD   rgba(39, 93, 173, 1)
+  green: #28965A  rgba(40, 150, 90, 1)
+  red: #C20114    rgba(194, 1, 20, 1)
+  yellow: #EDAE49 rgba(237, 174, 73, 1)
 */
 
 :root{
 
   /* Colour palettes */
-  --primary: #275DAD; 
-  --secondary:#f4f4f4;
-  --tertiary:#fcfcfc;
-  --black :  #222222; 
-  --white: #F5f5f5;
+  --primary: 39, 93, 173;  
   --red : #C20114; 
 
   --grey-nav: #111111;
@@ -49,7 +45,7 @@ html {
 }
 
 body {
-  background: var(--grey-extra-light);
+  background: var(--white);
   font-family: var(--fontSans);
   margin: 0 0 0 0;
   min-height: 100vh;
@@ -65,9 +61,9 @@ h1{
 }
 
 h2{
-  color: var(--primary);
+  color: var(--white-dark);
   font-family: var(--fontSerif);
-  font-size: 2.5rem;
+  font-size: 1.5rem;
   font-weight: 500;
   line-height: 2rem;
   text-align: center;
@@ -75,21 +71,26 @@ h2{
   }
 
 h3{
-  color: var(--white-dark);
-  font-size: 1.5rem;
-  font-weight: 500;
+  font-size: 1.1rem;
+  font-weight: 700;
   line-height: 2rem;
+  margin: 0;
   text-align: center;
   word-spacing: 0.25rem;
 }
 
 h4{
-  font-size: 1.2rem;
-  font-weight: 500;
+  font-size: 0.9rem;
+  font-weight: 600;
   line-height: 2rem;
   text-align: center;
   word-spacing: 0.25rem;
-  margin: 2% 0 0 0;
+  margin: 0 0 0 0;
+}
+
+p{
+  font-size: 0.75rem;
+  margin: 0;
 }
 
 div{
@@ -109,9 +110,7 @@ form{
   width: 100%;
 }
 
-p{
-  margin: 0;
-}
+
 
 input[type=text], input[type=password] ,  input[type=email] {
   background: none;
@@ -121,123 +120,10 @@ input[type=text], input[type=password] ,  input[type=email] {
 }
 
 hr{
-  border: 1px solid var(--primary);
+  border: 0.5px solid var(--grey-medium);
   opacity: 1;
-  margin: 2% 0 0 0;
+  margin: 2% auto 0 auto;
   width: 100%;
-}
-
-/* --------------------------------------------------------- */
-/* COMPONENT CLASSES                                         */
-/* --------------------------------------------------------- */
-
-.submit-button{
-  background: transparent;
-  border: none;
-  display: flex;
-  margin: 0 auto 0 auto;
-}
-
-.submit-button:hover{
-  color: var(--primary);
-  cursor: pointer;
-}
-
-
-
-
-
-/* ----------------- SECTIONS ------------------ */
-
-.section-main-container{
-  display: flex;
-  min-height: 85vh;
-}
-
-.section-insert{
-  border-right: 1px solid var(--primary);
-  width: 60%;
-}
-
-.section-storage-container{
-  min-height: 85vh;
-  width: 40%;
-}
-
-.section-archive{
-  min-height: 42.5vh;
-  overflow: auto;
-}
-
-.section-doing{
-  border-bottom: 1px solid var(--primary);
-  min-height: 42.5vh;
-  margin: 0;
-  overflow: auto;
-}
-
-
-/* ----------------- Insert Note ------------------ */
-
-.insert-note {
-background-color: var(--tertiary);
-border-radius: 7px;
-box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2);
-height: 60px;
-margin: 15px auto 15px auto;
-padding: 10px;
-width: 60%;
-}
-
-.insert-note-expanded{
-  height: 100px;
-}
-
-
-.submit-note-button{
-  align-items: center;
-  background-color: var(--primary);
-  border-radius: 50%;
-  border-style: none;
-  color: var(--secondary);
-  display: flex;
-  font-size: 1.0rem;
-  font-weight: 600;
-  justify-content: center;
-  padding: 0 1px 2px 2px ;
-  position: relative;
-  right:-90%;
-  bottom: 0.8rem;
-  width: 2.0rem;
- }
-
-
-
-/* ----------------- Note ------------------ */
-
-.note {
-background-color: var(--tertiary);
-border-radius: 7px;
-box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2);
-margin: 0.5rem;
-width: 200px;
-padding: 10px;
-float: left;
-}
-
-.note h1{
-  color: var(--primary);
-  font-size: 1.0rem;
-  font-weight: 600;
-  margin-bottom: 5%;
-  text-align: center;
-}
-
-.note p{
-    font-size: 0.8rem;
-    margin-bottom: 10%;
-    white-space: normal;
-    word-wrap: break-word;
 }
 
 
@@ -254,20 +140,17 @@ float: left;
   border: none;
   cursor: pointer;
   font-weight: 600;
-  margin-top: 1%;
   outline: none;
 }
 
-.doing-button{
-  color: var(--primary);
-}
-
-.archive-button{
-  color: var(--black);
-}
-
-.delete-button{
-  color: var(--red);
+.submit-button{
+  background-color: var(--grey-dark);
+  border: 1px solid var(--grey-nav);
+  border-radius: 10px;
+  color: var(--white);
+  font-weight: 600;
+  text-align: center;
+  width:60%
 }
 
 .hovertext {
@@ -276,16 +159,16 @@ float: left;
   }
 
   .hovertext:before {
-    background-color: var(--black);
+    background-color: var(--grey-extra-light);
     border-radius: 5px;
-    color: var(--white);
+    color: var(--grey-nav);
     content: attr(data-hover);
     left: -100%;
     opacity: 0.5;
     padding: 5px 0;
     position: absolute;
     text-align: center;
-    top: 200%;
+    top: 150%;
     visibility: hidden;
     width: 75px;
     z-index: 1;
@@ -300,26 +183,3 @@ float: left;
 
 
 
-
-/* ----------------- FOOTER ------------------ */
-.footer {
-  align-items: center;
-  background-color: var(--primary);
-  color:black;
-  display: flex;
-  font-size: 0.75rem;
-  height: 5vh;
-  justify-content: center;
-  margin-left: -20px;
-  width: 100vw;
-}
-
-.footer a {
-  color: var(--secondary);
-  margin: 0;
-  text-decoration: none;
-}
-
-.footer a:hover{
-  color: var(--black);
-}

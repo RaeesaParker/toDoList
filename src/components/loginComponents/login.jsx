@@ -28,11 +28,16 @@ function Login(props) {
       <div className='login-subsection-navbar'> 
         {navForm === 'buttons' ? (
           <nav className="navbar navbar-expand-lg  navbar-customise">
+            <div className="navbar-buttons">
+              <h1> PinBoard!</h1>
+            </div>
+            <div className="navbar-buttons">
             <div className="navbar-item"> 
               <button className="navbar-brand" onClick={() => {setNavForm('login')}} >Login</button>
             </div>
             <div className="navbar-item">
               <button className="navbar-brand button-signup" onClick={() => {setNavForm('register')}}>Sign Up</button>
+            </div>
             </div>
           </nav>
         ) : navForm === 'register' ? (
@@ -50,12 +55,15 @@ function Login(props) {
         <div className="login-subsection-logo">
           <img alt="logo" id="logo-homepage" src={Logo}></img>
         </div>
+
         <div className="login-subsection-welcome">
-          <h1> PinBoard!</h1>
-          <h4>
+          <h3>
             A flexible work management tool to ideate plans and
             track your progress in a visual, productive, and rewarding way.
-          </h4>
+          </h3>
+          <h3>
+            Login, or sign up, now to begin!
+          </h3>
         </div>
       </div>
     </div>
