@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { createProject } from "../../utils/projects/index"
 
-function NewProjectForm({ user_id, setProject } ){
+function NewProjectForm({ user_id, setProject , setPrimaryColour} ){
 
   // Navigation for redirect
   const navigate = useNavigate();
@@ -34,21 +34,23 @@ function NewProjectForm({ user_id, setProject } ){
 
     const colourChosen = document.querySelector('input[name="themeName"]:checked').value;
 
-    // Set the colour palette depending on which palette was chosen => default is yellow
-    switch (colourChosen) {
-      case "green":
-        document.documentElement.style.setProperty("--primary", "40, 150, 90");
-        break;
-      case "red":
-        document.documentElement.style.setProperty("--primary", "194, 1, 20");
-        break;
-      case "blue":
-        document.documentElement.style.setProperty("--primary", "39, 93, 173");
-        break;
-      default:
-        document.documentElement.style.setProperty("--primary", "237, 174, 73");
-        break;
-    }
+    // // Set the colour palette depending on which palette was chosen => default is yellow
+    // switch (colourChosen) {
+    //   case "green":
+    //     document.documentElement.style.setProperty("--primary", "40, 150, 90");
+    //     break;
+    //   case "red":
+    //     document.documentElement.style.setProperty("--primary", "194, 1, 20");
+    //     break;
+    //   case "blue":
+    //     document.documentElement.style.setProperty("--primary", "39, 93, 173");
+    //     break;
+    //   default:
+    //     document.documentElement.style.setProperty("--primary", "237, 174, 73");
+    //     break;
+    // }
+
+    setPrimaryColour(colourChosen)
 
     // Create a new project on the DB
     await createProject(user_id, projectDetails.projectName, projectDetails.themeName, setProject)
