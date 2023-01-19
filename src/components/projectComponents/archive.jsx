@@ -1,8 +1,11 @@
 import React from 'react';
+import { useNavigate } from "react-router-dom";
 import CreateNote from './createNote.jsx';
 import {deleteNote, updateNote} from '../../utils/notes/index'
 
 function Archive(props){
+  // Navigation for redirect
+  const navigate = useNavigate();
 
   // Function to delete note 
   async function deleteArchiveNoteFunc(note_id){
@@ -10,6 +13,14 @@ function Archive(props){
     props.readNotesFunc()
   }
 
+
+  function onLogOut() {
+    navigate("/");
+  }
+
+  function onGoHome() {
+    navigate("../projects");
+  }
 
   //  -------------------- FUNCTIONS FOR DRAGABILITY  ------------------------//
 
@@ -42,8 +53,17 @@ function Archive(props){
   return(
     <div className="section-list-div" id="section-archive"  onDrop={drop} onDragOver={allowDrop}>
 
-      <div className="project-title-div project-section-colour">
-        <h3>Raeesa</h3>
+      <div className="project-title-div project-section-colour" id="section-archive-menu">
+        <h4>Raeesa</h4>
+
+        <div  className="submit-button" onClick={onGoHome}>
+          <p> <i className="fa-solid fa-house-user"></i> &nbsp; Home</p>
+        </div>
+
+        <div  className="submit-button" onClick={onLogOut}>
+          <p> <i className="fa-solid fa-arrow-right-from-bracket"></i> &nbsp; Logout</p>
+        </div>
+
       </div>
 
       <div className="project-section-colour project-section-doing "  >

@@ -139,7 +139,6 @@ float: left;
   color: var(--white-dark);
 }
 
-
 .project-section-doing{
   border-radius: 10px;
   min-height: 88vh;
@@ -147,4 +146,20 @@ float: left;
 
 .project-section-doing hr {
   width: 90%;
+}
+
+
+ /* ----------------- ARCHIVE SECTION ------------------ */
+
+ #section-archive-menu{
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+ }
+
+#section-archive .submit-button {
+  border-radius: 10px;
+  padding: 1% 0;
+  width: 30%;
 }
