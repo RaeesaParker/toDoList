@@ -21,6 +21,7 @@ function ProjectsLibrary({user_id, setProject, setPrimaryColour}){
   const readProjectsFunc = async () => {
     let projectsList = await readProjects(user_id)
     setProjects(projectsList)
+    console.log(projectsList)
   }
 
 
@@ -42,21 +43,22 @@ function ProjectsLibrary({user_id, setProject, setPrimaryColour}){
     <div className='home-subsection-projects-container' id="home-saved-project">
 
       <div>
-        <h2 className="home-project-title" > Your Projects</h2>
+        <h2 > Your Projects</h2>
       </div>
       
       <div id="home-project-library">
         {projects.map( ( project ) => {
           return (
-            <div key={project.id} 
+            <div key={project.id} onClick={() => onSelectProject(project.id)} 
               className={"home-project-card " + (project.themeName == "blue" ? "home-project-card-blue" 
                 : ( project.themeName == "red" ? "home-project-card-red" 
                 : (project.themeName =="yellow" ? "home-project-card-yellow" 
+                :(project.themeName =="green" ? "home-project-card-green" 
                 : "home-project-card-green" 
-              )))} >
+              ))))} >
 
               <div className="home-project-name">        
-                <p  onClick={() => onSelectProject(project.id)} > {project.projectName} </p>
+                <p  > {project.projectName} </p>
               </div>
 
               <div> 

@@ -10,10 +10,13 @@
 }
 
 .login-subsection-navbar{
+  background-color: var(--white);
+  border-bottom: 0.5px solid var(--grey-light);
   display: flex;
-  height: 25vh;
+  height: 15vh;
   justify-content: center;
-  margin: 1% 0 2% 0;
+  margin: 0 0 2% 0;
+  position: fixed;
   text-align: center;
   width: 100%;
 }
@@ -56,13 +59,34 @@
   background-color: var(--grey-light);
 }
 
+#button-about{
+  background: transparent;
+  border: none;
+  border-bottom: 3px solid var(--grey-nav);
+  font-family: var(--fontSerif);
+  font-size: 14px;
+  font-weight: 600;
+  margin: 0;
+  padding: 0.5rem 1.0rem;
+}
+
+#button-about:hover{
+  color: var(--grey-medium);
+}
+
+/* --------------- MAIN LOGO PAGE ------------------ */
 
 .login-subsection-logo{
   align-items: center;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  margin-top: 30vh;
   width: 100vw;
+}
+
+#page-about{
+  margin-top: 20vh;
 }
 
 #logo-homepage{
@@ -79,11 +103,24 @@
   width: 100vw;
 }
 
+.screenshot-img{
+  border: 1px solid var(--grey-nav);
+  margin: 1% 0 1% 0;
+  width: 60%;
+}
+
+
+
+
+/* --------------- LOGIN FORMS ------------------ */
+
+
 .login-subsection-login{
   border-radius: 10px;
   display: flex;
   background-color: var(--grey-nav);
   justify-content: space-around;
+  padding: 5% 0 5% 0;
   width: 95%;
 
 }
@@ -97,13 +134,20 @@
 }
 
 .login-title{
+  color: var(--grey-light);
   margin: 0 0 0 5% ;
+}
+
+
+.login-title h2{
+  color: var(--white-dark);
 }
 
 .login-form{
   display: flex;
   flex-grow: 2;
   flex-direction: column;
+  padding: 2% 0 2% 0;
   margin: 0 5% 0 5% ;
 }
 

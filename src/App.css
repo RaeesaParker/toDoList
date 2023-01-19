@@ -61,10 +61,10 @@ h1{
 }
 
 h2{
-  color: var(--white-dark);
+  color: var(--grey-nav);
   font-family: var(--fontSerif);
   font-size: 1.5rem;
-  font-weight: 500;
+  font-weight: 700;
   line-height: 2rem;
   text-align: center;
   word-spacing: 0.25rem;
