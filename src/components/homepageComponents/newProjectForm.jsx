@@ -53,7 +53,7 @@ function NewProjectForm({ user_id, setProject , setPrimaryColour} ){
 
   return (
     <div className='home-subsection-projects-container' id="home-new-project">
-      <h2 className="home-project-title" > Start a new project</h2>
+      <h2 > Start a new project</h2>
       
       <form onSubmit={onSubmitFormFunc}>
         

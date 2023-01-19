@@ -43,7 +43,7 @@ function ProjectsLibrary({user_id, setProject, setPrimaryColour}){
     <div className='home-subsection-projects-container' id="home-saved-project">
 
       <div>
-        <h2 className="home-project-title" > Your Projects</h2>
+        <h2 > Your Projects</h2>
       </div>
       
       <div id="home-project-library">
