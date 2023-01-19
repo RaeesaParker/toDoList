@@ -7,7 +7,7 @@ import { findUser } from "./utils/users";
 // Components
 import Login from "./components/loginComponents/login";
 import Homepage from "./components/homepageComponents/homepage";
-import CurrentProject from "./components/currentProject";
+import CurrentProject from "./components/projectComponents/currentProject";
 
 
 function App() {

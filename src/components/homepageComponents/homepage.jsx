@@ -10,11 +10,11 @@ function Homepage(props) {
   const navigate = useNavigate();
 
   // Check if there is a user logged in => if not => route to the login page
-  // useEffect(() => {
-  //   if (!props.username) {
-  //     navigate("/");
-  //   }
-  // }, []);
+  useEffect(() => {
+    if (!props.userDetails.userName) {
+      navigate("/");
+    }
+  }, []);
 
 
   return (
