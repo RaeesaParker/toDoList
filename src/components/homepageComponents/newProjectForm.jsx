@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { createProject } from "../../utils/projects/index"
 
-function NewProjectForm({ user_id, setProject } ){
+function NewProjectForm({ user_id, setProject , setPrimaryColour} ){
 
   // Navigation for redirect
   const navigate = useNavigate();
@@ -34,34 +34,23 @@ function NewProjectForm({ user_id, setProject } ){
 
     const colourChosen = document.querySelector('input[name="themeName"]:checked').value;
 
-    // Set the colour palette depending on which palette was chosen
-    switch (colourChosen) {
-      case "green":
-        document.documentElement.style.setProperty("--primary", "#4e705d");
-        document.documentElement.style.setProperty("--secondary", "#e9e9e9");
-        document.documentElement.style.setProperty("--tertiary", "#fcfcfc");
-        break;
-      case "red":
-        document.documentElement.style.setProperty("--primary", "#b01307");
-        document.documentElement.style.setProperty("--secondary", "#f3f1ef");
-        document.documentElement.style.setProperty("--tertiary", "#fffbfb");
-        break;
-      case "blue":
-        document.documentElement.style.setProperty("--primary", "#2E86AB");
-        document.documentElement.style.setProperty("--secondary", "#e7ecef");
-        document.documentElement.style.setProperty("--tertiary", "#f8f9fb");
-        break;
-      case "yellow":
-        document.documentElement.style.setProperty("--primary", "#eec302");
-        document.documentElement.style.setProperty("--secondary", "#f4f4f4");
-        document.documentElement.style.setProperty("--tertiary", "#ffffff");
-        break;
-      default:
-        document.documentElement.style.setProperty("--primary", "#eec302");
-        document.documentElement.style.setProperty("--secondary", "#f4f4f4");
-        document.documentElement.style.setProperty("--tertiary", "#ffffff");
-        break;
-    }
+    // // Set the colour palette depending on which palette was chosen => default is yellow
+    // switch (colourChosen) {
+    //   case "green":
+    //     document.documentElement.style.setProperty("--primary", "40, 150, 90");
+    //     break;
+    //   case "red":
+    //     document.documentElement.style.setProperty("--primary", "194, 1, 20");
+    //     break;
+    //   case "blue":
+    //     document.documentElement.style.setProperty("--primary", "39, 93, 173");
+    //     break;
+    //   default:
+    //     document.documentElement.style.setProperty("--primary", "237, 174, 73");
+    //     break;
+    // }
+
+    setPrimaryColour(colourChosen)
 
     // Create a new project on the DB
     await createProject(user_id, projectDetails.projectName, projectDetails.themeName, setProject)
@@ -78,8 +67,9 @@ function NewProjectForm({ user_id, setProject } ){
 
 
   return (
-    <div className="home-subsection-projects-select">
-
+    <div className='home-subsection-projects-container' id="home-new-project">
+      <h2 className="home-project-title" > Start a new project</h2>
+      
       <form onSubmit={onSubmitFormFunc}>
         
         <fieldset>
@@ -87,7 +77,7 @@ function NewProjectForm({ user_id, setProject } ){
             required
             autoComplete="off"
             type="text"
-            placeholder="New Project Name"
+            placeholder="Project Name"
             name="projectName"
             value={projectDetails.projectName}
             onChange={changeDetails}
@@ -149,7 +139,7 @@ function NewProjectForm({ user_id, setProject } ){
           </div>
         </fieldset>
 
-        <button className="submit-button" type="submit">Get Started...</button>
+        <button className="submit-button" id="submit-button-project" type="submit">Start Now ...</button>
 
       </form>
     </div>

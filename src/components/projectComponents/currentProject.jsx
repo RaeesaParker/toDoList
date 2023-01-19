@@ -1,11 +1,11 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import Heading from "./heading";
 import CurrentInserts from "./currentInserts";
 import Archive from "./archive";
 import Doing from "./doing";
-import Footer from "./footer";
-import { readNotes } from "../utils/notes";
+import { readNotes } from "../../utils/notes";
+import './projectStyles.css'
+
 
 function CurrentProject(props) {
 
@@ -47,13 +47,9 @@ function CurrentProject(props) {
 
 
   return (
-    <div>
-      <Heading
-        userName={props.userDetails.userName}
-        projectName={props.projectDetails.projectName}
-      ></Heading>
+    <div id="project-main-container">
 
-      <div className="section-main-container">
+      <div className="project-section-container project-section-colour">
         <CurrentInserts
           userId={props.userDetails.user_id}
           projectId={props.projectDetails.project_id}
@@ -62,14 +58,20 @@ function CurrentProject(props) {
           doingNoteList={doingNoteList}
           readNotesFunc={readNotesFunc}
         ></CurrentInserts>
-        <div className="section-storage-container">
+      </div>
+
+        <div className="project-section-container">
           <Doing
             noteList={noteList}
             doingNoteList={doingNoteList}
             archiveNoteList={archiveNoteList}
             readNotesFunc={readNotesFunc}
             projectId={props.projectDetails.project_id}
+            projectDetails={props.projectDetails}
           ></Doing>
+        </div> 
+
+        <div className="project-section-container">
           <Archive
             noteList={noteList}
             doingNoteList={doingNoteList}
@@ -78,8 +80,6 @@ function CurrentProject(props) {
             projectId={props.projectDetails.project_id}
           ></Archive>
         </div>
-      </div>
-      <Footer></Footer>
     </div>
   );
 }

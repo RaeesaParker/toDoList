@@ -40,42 +40,53 @@ function RegisterForm(props) {
 
 
   return (
-    <div className="login-subsection-forms">
-      <h3>Register</h3>
+    <div className='login-subsection-forms'>
 
-      <form className="login-form-input" onSubmit={onSubmitRegisterFunc}>
-        <input
-          required
-          autoComplete="off"
-          type="text"
-          placeholder="Username"
-          name="userName"
-          onChange={(event) => setUsername(event.target.value)}
-        />
-        <input
-          required
-          autoComplete="off"
-          type="email"
-          placeholder="E-mail"
-          name="email"
-          onChange={(event) => setEmail(event.target.value)}
-        />
-        <input
-          required
-          autoComplete="off"
-          type="password"
-          placeholder="Password"
-          name="password"
-          onChange={(event) => setPassword(event.target.value)}
-        />
-        <p className="error">
-          {error ? error : <></>}
-        </p>
-        <button className="submit-button" type="submit">
-          Register
-        </button>
-      </form>
-    </div>   
+    <div className ='login-title'> 
+      <h2>Register Now!</h2>
+    </div>
+    
+    <div className ='login-form'>
+        <form onSubmit={onSubmitRegisterFunc}>
+            <input
+              required
+              autoComplete="off"
+              type="text"
+              placeholder="UserName"
+              name="userName"
+              onChange={(event) => setUsername(event.target.value)}
+            />
+            <input
+              required
+              autoComplete="off"
+              type="email"
+              placeholder="E-mail"
+              name="email"
+              onChange={(event) => setEmail(event.target.value)}
+            />
+            <input
+              required
+              autoComplete="off"
+              type="password"
+              placeholder="  Password"
+              name="password"
+              onChange={(event) => setPassword(event.target.value)}
+            />
+
+          <p className="error">
+            {error ? error : <></>}
+          </p>
+
+          <div  className="login-form-submit">
+            <button className="submit-button-login" type="submit">
+              Sign In
+            </button>
+            <p  className='para-link' onClick={()=> {props.setNavForm('login')}}>Already have an account?</p>
+          </div>
+
+        </form>
+    </div>
+  </div>
   );
 }
 

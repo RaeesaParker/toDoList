@@ -3,7 +3,7 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import PlayCircleOutlinedIcon from '@mui/icons-material/PlayCircleOutlined';
 import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
 import PushPinOutlinedIcon from '@mui/icons-material/PushPinOutlined';
-import {updateNote} from '../utils/notes/index'
+import {updateNote} from '../../utils/notes/index'
 
 
 function CreateNote(props){
@@ -35,13 +35,16 @@ function CreateNote(props){
 
   return(
     <div className='note'  draggable="true" onDragStart={drag}>
-      <h1> {props.note.noteTitle} </h1>
+      <h4> {props.note.noteTitle} </h4>
+
+      <hr/>
+
       <p> {props.note.noteContent}  </p>
 
       <div className='div-buttons'>
 
         {props.toDo !== false &&
-          <button className='button doing-button'onClick={() => addToToDo()}> 
+          <button className='button doing-button' onClick={() => addToToDo()}> 
             <span className="hovertext" data-hover="To Do"> <PushPinOutlinedIcon /> </span> 
           </button>
         }

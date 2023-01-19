@@ -5,107 +5,185 @@
 .section-homescreen{
   align-items: center;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
   text-align: center;
+  min-height: 100vh;
 }
 
-.section-homescreen select{
-  background: none;
-  border: none;
-  border-bottom: 1px solid var(--primary);
-  margin: 5% 0 2% 5%;
-}
-
-.home-subsection input[type=text]{
-  display: inline-block;
-  margin: 2% 0 2% 5%;
-  width: 20%;
-}
-
-.home-subsection-projects-select input[type=text]{
-  display: inline-block;
-  margin: 2% 0 2% 5%;
-  width: 60%;
-}
-
-.home-subsection{
+.home-subsection-projects{
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
-  margin: 2% 0 0 0;
+  margin: 0 1% 0 1%;
+  min-height: 100vh;
   width: 100%;
 }
 
-#home-welome-title{
-  flex-grow: 4;
+.home-subsection-user{
+  margin: 0 1% 0 2%;
 }
 
-#home-subsection-projects{
+
+.user-container{
+  align-items: center;
+  background-color: var(--white-dark);
+  border-radius: 10px;
   display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  margin: 2% 0 0 0;
+  justify-content: center;
+  padding: 2% 0;
   width: 100%;
+} 
+
+
+.home-project-title{
+  color: var(--grey-nav);
+  font-weight: 700;
 }
 
 
-/* PROJECTS SECTION */
 
-.home-subsection-projects-select{
-  padding: 2% 0;
-  width: 50%;
+/* ----------------- PROJECTS ------------------ */
+
+.home-subsection-projects-container{
+  align-items: center;
+  background-color: var(--white-dark);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 2% 2%;
+}
+
+#home-new-project{
+  margin: 0 0 2% 0;
+  min-height: 20vh;
+}
+
+#home-saved-project{
+  display: flex;
+  justify-content: flex-start;
+  min-height: 45vh;
+}
+
+#submit-button-project{
+  font-size: 0.8rem;
+  padding: 0.5% 0;
+  width: 15%;
+}
+
+#home-new-project input[type="text"]{
+  background-color: var(--grey-light);
+  border-radius: 10px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  margin: 1% 0 2% 0;
+  padding: 1% 0 ;
+  text-align: center;
+  width: 35%;
 }
 
 .field-flex{
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  margin: 1% 0 2% 0;
 }
 
 .colour-card{
   display: flex;
   flex-direction: column;
-  padding: 5% 5% 2% 5%;
   width: 50%;
 }
 
 .colour-card-div{
   display: inline-block;
-  border: 1px solid var(--black);
-  border-radius: 15px;
+  border: 1px solid var(--grey-extra-light);
+  border-radius: 10px;
   margin-bottom: 3%;
   min-width: 10vw;
   min-height: 5vh;
 }
 
+#palette-blue{
+  background: linear-gradient(to right, rgba(39, 93, 173, 0.75) 25%, rgba(39, 93, 173, 0.4) 25%, rgba(39, 93, 173, 0.4) 50%, rgba(39, 93, 173, 0.25) 50%, rgba(39, 93, 173, 0.25) 75%, rgba(39, 93, 173, 0.1) 75%);
+}
 #palette-green{
-  background: linear-gradient(to right, #fcfcfc 33%, #e9e9e9 33%, #e9e9e9 66%, #4e705d 66% );
+  background: linear-gradient(to right, rgba(40, 150, 90, 0.75) 25%, rgba(40, 150, 90, 0.4) 25%, rgba(40, 150, 90, 0.4) 50%, rgba(40, 150, 90, 0.25) 50%, rgba(40, 150, 90, 0.25) 75%, rgba(40, 150, 90, 0.1) 75%);
 }
 #palette-red{
-  background: linear-gradient(to right, #fffbfb 33%, #f3f1ef 33%, #f3f1ef 66%, #b01307 66% );
-}
-#palette-blue{
-  background: linear-gradient(to right, #f8f9fb 33%, #e7ecef 33%, #e7ecef 66%, #2E86AB 66% );
+  background: linear-gradient(to right, rgba(194, 1, 20, 0.75) 25%, rgba(194, 1, 20, 0.4) 25%, rgba(194, 1, 20, 0.4) 50%, rgba(194, 1, 20, 0.25) 50%, rgba(194, 1, 20, 0.25) 75%, rgba(194, 1, 20, 0.1) 75%);
 }
 #palette-yellow{
-  background: linear-gradient(to right, #ffffff 33%, #f4f4f4 33%, #f4f4f4 66%, #eec302 66% );
+  background: linear-gradient(to right, rgba(237, 174, 73, 0.75) 25%, rgba(237, 174, 73, 0.4) 25%, rgba(237, 174, 73, 0.4) 50%, rgba(237, 174, 73, 0.25) 50%, rgba(237, 174, 73, 0.25) 75%, rgba(237, 174, 73, 0.1) 75%);
 }
 
 
-.home-project-name{
-  display: inline-block;
-  margin: 2% 5% 2% 0;
+/* ----------------- PROJECTS LIBRARY------------------ */
+
+#home-project-library{
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
 }
 
-.home-project-name:hover{
-  color: var(--primary);
+.home-project-card{
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  margin: 2% 2%;
+  padding: 1% 2%;
+  width: 20%;
+}
+
+
+.home-project-card-blue{
+  background-color: rgba(39, 93, 173, 0.75);
+}
+
+.home-project-card-blue:hover{
+  background-color: rgba(39, 93, 173, 0.4);
+  cursor: pointer;
+}
+
+.home-project-card-red{
+  background-color: rgba(194, 1, 20, 0.75);
+}
+
+.home-project-card-red:hover{
+  background-color: rgba(194, 1, 20, 0.4);
+  cursor: pointer;
+}
+
+.home-project-card-green{
+  background-color:  rgba(40, 150, 90, 0.75);
+}
+
+.home-project-card-green:hover{
+  background-color:  rgba(40, 150, 90, 0.4);
+  cursor: pointer;
+}
+
+.home-project-card-yellow{
+  background-color:  rgba(237, 174, 73, 0.75);
+}
+
+.home-project-card-yellow:hover{
+  background-color:  rgba(237, 174, 73, 0.4);
   cursor: pointer;
 }
 
 
+
+.home-project-name{
+  display: inline-block;
+  font-weight: 700;
+  flex-grow: 2;
+  margin: 2% 5% 2% 0;
+}
+
 .button-delete-project{
   color: var(--primary);
+  display: flex;
+  justify-content: flex-start;
   padding: 0;
 }
 
@@ -114,19 +192,126 @@
   cursor: pointer;
 }
 
-/*  USER UPDATE SECTION */
+
+
+
+
+
+/* ----------------- USER PANEL ------------------ */
+
+.home-subsection-user-panel{
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: space-around;
+  margin: 0 5% 0 0;
+  width: 20vw;
+}
+
+
+#user-title{
+  background-color: var(--grey-nav);
+  color: var(--white);
+  font-size: 1.0rem;
+}
+
+
+.home-subsection-user-panel .submit-button {
+  border-radius: 10px;
+  padding: 2% 0;
+}
+
+#user-details{
+  background-color: var(--grey-medium);
+  color: var(--white);
+  font-weight: 600;
+}
+
 
 #submit-button-update{
-  display: inline;
-  margin: 0 0 0 2%;
+  background-color: var(--grey-dark);
+  border: 1px solid var(--grey-dark);
+  border-radius: 10px;
+  color: var(--white);
+  font-size: 0.65rem;
+  font-weight: 600;
+  margin: 5% 0;
+  padding: 3% 0 ; 
+  width:90%
 }
 
-.submit-button-delete{
-  color: var(--red);
-  display: inline;
-  width: 20%;
+#submit-button-delete{
+  background-color: var(--grey-light);
+  border: 1px solid var(--grey-light);
+  border-radius: 10px;
+  color: var(--grey-nav);
+  font-size: 0.65rem;
+  font-weight: 600;
+  padding: 3% 0 ; 
+  width:60%
 }
 
-#update-field{
-  margin: 0 2% 0 2%;
+.submit-button:hover, #submit-button-update:hover, #submit-button-delete:hover  {
+  background-color: var(--grey-medium);
+  color: var(--white-dark);
+  cursor: pointer;
+}
+
+
+.user-form-input{
+  font-size: 0.75rem;
+  padding: 0 5% 0 5%;
+  text-align: left;
+  width: 100%;
+}
+
+
+.user-form-input label{
+  padding: 7% 0 0 2%;
+  text-align: left;
+}
+
+
+.user-form-input input{
+  background: transparent;
+  border: none;
+  font-size: 0.75rem;
+  padding: 2%;
+  width: 90%;
+}
+
+/* ----------------- QUOTE ------------------ */
+
+.daily-quote{
+  padding: 3% 5%;
+  width: 100%;
+}
+
+#quote{
+  margin: 5% 0
+}
+
+#author{
+  color: var(--grey-medium);
+}
+
+
+
+/* ----------------- FOOTER ------------------ */
+
+.footer {
+  font-size: 0.6rem;
+  font-weight: 600;
+  height: 5vh;
+}
+
+.footer a {
+  color:var(--grey-nav);
+  margin: 0;
+  text-decoration: none;
+}
+
+.footer a:hover{
+  color: var(--grey-medium);
 }

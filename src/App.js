@@ -7,7 +7,7 @@ import { findUser } from "./utils/users";
 // Components
 import Login from "./components/loginComponents/login";
 import Homepage from "./components/homepageComponents/homepage";
-import CurrentProject from "./components/currentProject";
+import CurrentProject from "./components/projectComponents/currentProject";
 
 
 function App() {
@@ -19,6 +19,7 @@ function App() {
   const [userDetails, setUserDetails] = useState({
     userName:"",
     user_id: "",
+    email:""
   });
 
   // Function to take in the user details submited on homepage
@@ -26,6 +27,7 @@ function App() {
     setUserDetails({
       userName: userDetails.userName,
       user_id: userDetails.user_id,
+      email:userDetails.email
     });
   }
 
@@ -69,8 +71,8 @@ function App() {
           path="/projects"
           element={
             <Homepage
-              username={userDetails.userName}
-              user_id={userDetails.user_id}
+              userDetails={userDetails}
+              setUserDetails={setUserDetails}
               setProject={onSubmitProject}
             ></Homepage>
           }

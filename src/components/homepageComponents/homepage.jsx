@@ -2,7 +2,7 @@ import React from "react";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import ProjectsForm from "./projectsForm";
-import UserDetailsForm from "./userDetailsForm";
+import UserPanel from "./userPanel";
 import "./homepageStyles.css";
 
 function Homepage(props) {
@@ -11,33 +11,23 @@ function Homepage(props) {
 
   // Check if there is a user logged in => if not => route to the login page
   useEffect(() => {
-    if (!props.username) {
+    if (!props.userDetails.userName) {
       navigate("/");
     }
   }, []);
 
-  function onLogOut() {
-    navigate("/");
-  }
 
   return (
     <div className="section-homescreen">
-      <div className="home-subsection">
-        <div id="home-welome-title">
-          <h2>Welcome {props.username}</h2>
-        </div>
-        <div>
-          <button className="submit-button" onClick={onLogOut}>
-            Logout
-          </button>
-        </div>
+
+      <div className="home-subsection-projects">
+        <ProjectsForm setProject={props.setProject} user_id={props.userDetails.user_id} />
       </div>
 
-      <hr />
-      <ProjectsForm setProject={props.setProject} user_id={props.user_id} />
+      <div className='home-subsection-user' >
+        <UserPanel userDetails={props.userDetails} setUserDetails={props.setUserDetails}/>
+      </div>
 
-      <hr />
-      <UserDetailsForm user_id={props.user_id} />
     </div>
   );
 }
