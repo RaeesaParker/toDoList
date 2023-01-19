@@ -35,13 +35,16 @@ function CreateNote(props){
 
   return(
     <div className='note'  draggable="true" onDragStart={drag}>
-      <h1> {props.note.noteTitle} </h1>
+      <h4> {props.note.noteTitle} </h4>
+
+      <hr/>
+
       <p> {props.note.noteContent}  </p>
 
       <div className='div-buttons'>
 
         {props.toDo !== false &&
-          <button className='button doing-button'onClick={() => addToToDo()}> 
+          <button className='button doing-button' onClick={() => addToToDo()}> 
             <span className="hovertext" data-hover="To Do"> <PushPinOutlinedIcon /> </span> 
           </button>
         }

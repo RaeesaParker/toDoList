@@ -58,45 +58,49 @@ function InsertNote(props){
   /////////////////// RETURN /////////////////
 
   return (
-    <div>
-      <h3>Create Task</h3>
+    <div id="insert-note-container">
+
       <div className={expanded ? 'insert-note-expanded insert-note' : 'insert-note '}>
-        <form>
-          {/* Note title => only shows when expanded */}
-          {expanded === true && (<NewNoteInput
+        <form >
+
+          {expanded === true && (
+            <NewNoteInput
             type='text'
             name='noteTitle'
-            placeholder='Task Name'
+            placeholder='New Task Name'
             value = {note.noteTitle}
             onChange = {addNewNote}
-          />)}
+            /> )
+          }
 
-          {/* Content section of note => Shows up before expanding  */}
+          {expanded === true && ( <hr /> ) }
+          
           <NewNoteInput
             type='text'
             name='noteContent'
-            placeholder='Task Details'
+            placeholder='New Task Details'
             value = {note.noteContent}
             onChange = {addNewNote}
             onClick={expandArea}
           />
-
-        {/* Add button when expanded*/}
-        {expanded === true &&(  <Zoom in={true}>
-            <button
-              className='submit-note-button'
-              type='submit'
-              onClick={submitNote}
-              >
-              +
-            </button>
-          </Zoom> )}
-          
         </form>
       </div>
-    </div>
-    )
-  };
+
+      <div id = "button-add-task-div">
+        {expanded === true &&(  
+          <button
+            className='submit-button'
+            id = "button-add-task"
+            type='submit'
+            onClick={submitNote} >
+            Add Task
+          </button>
+        )}
+      </div>
+
+    </div> 
+  )
+};
 
 
 export default InsertNote;

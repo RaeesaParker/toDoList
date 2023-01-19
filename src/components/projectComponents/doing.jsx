@@ -37,9 +37,15 @@ function Doing(props) {
   
 
   return (
-    <div className="section-doing" onDrop={drop} onDragOver={allowDrop}>
-      <h3>Doing</h3>
-      {/* Map over list items to create them => attaches note underneath */}
+    <div className="section-list-div" id="section-doing" onDrop={drop} onDragOver={allowDrop}>
+
+      <div className="project-title-div">
+        <h3>{props.projectDetails.projectName}</h3>
+      </div>
+
+      <div className="project-section-colour project-section-doing " > 
+      <h4> In progress</h4>
+      <hr />
       {props.doingNoteList.map((noteItem, noteItemIndex) => {
         return (
           <CreateNote
@@ -52,6 +58,7 @@ function Doing(props) {
           />
         );
       })}
+      </div>
     </div>
   );
 }

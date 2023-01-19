@@ -40,18 +40,26 @@ function Archive(props){
 
   
   return(
-    <div className='section-archive' onDrop={drop} onDragOver={allowDrop}>
-      <h3>Done</h3>
-      {/* Map over list items to create them => attaches note underneath */}
-      {props.archiveNoteList.map((noteItem, noteItemIndex) => {
-        return <CreateNote
-          key={noteItemIndex}
-          archived={true}
-          note={noteItem}
-          onDelete={deleteArchiveNoteFunc}
-          readNotesFunc={props.readNotesFunc}
-        />
-      })}
+    <div className="section-list-div" id="section-archive"  onDrop={drop} onDragOver={allowDrop}>
+
+      <div className="project-title-div project-section-colour">
+        <h3>Raeesa</h3>
+      </div>
+
+      <div className="project-section-colour project-section-doing "  >
+        <h4> Done</h4>
+        <hr />
+
+        {props.archiveNoteList.map((noteItem, noteItemIndex) => {
+          return <CreateNote
+            key={noteItemIndex}
+            archived={true}
+            note={noteItem}
+            onDelete={deleteArchiveNoteFunc}
+            readNotesFunc={props.readNotesFunc}
+          />
+        })}
+      </div>
     </div>
   )
 }

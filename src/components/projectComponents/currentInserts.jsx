@@ -42,22 +42,26 @@ function CurrentInserts({noteList, archiveNoteList, doingNoteList, userId, proje
 
 
   return(
-    <div className='section-insert' onDrop={drop} onDragOver={allowDrop}>
-      <InsertNote
-        onAdd={addNote}
-      />
+    <div className='section-list-div' id="section-to-do"  onDrop={drop} onDragOver={allowDrop}>
 
-      {/* Map over list items to create them => attaches note underneath */}
-      {noteList.map((noteItem, noteItemIndex) => {
-        return <CreateNote
-          key={noteItemIndex}
-          projectId={noteItem.ProjectId}
-          note={noteItem}
-          onDelete={deleteNoteFunc}
-          readNotesFunc={readNotesFunc}
-          toDo={false}
-        />
-      })}
+      <div>
+        <InsertNote onAdd={addNote} />
+      </div>
+      
+      <div>
+        {/* Map over list items to create them => attaches note underneath */}
+        {noteList.map((noteItem, noteItemIndex) => {
+          return <CreateNote
+            key={noteItemIndex}
+            projectId={noteItem.ProjectId}
+            note={noteItem}
+            onDelete={deleteNoteFunc}
+            readNotesFunc={readNotesFunc}
+            toDo={false}
+          />
+        })}
+      </div>
+      
     </div>
   )
 }
