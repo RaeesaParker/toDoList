@@ -11,7 +11,7 @@ function NewProjectForm({ user_id, setProject , setPrimaryColour} ){
   // Create state to store the current project details
   const [projectDetails, setProjectDetails] = useState({
     projectName: "",
-    themeName: "",
+    themeName: "green",
   });
 
 
@@ -34,23 +34,8 @@ function NewProjectForm({ user_id, setProject , setPrimaryColour} ){
 
     const colourChosen = document.querySelector('input[name="themeName"]:checked').value;
 
-    // // Set the colour palette depending on which palette was chosen => default is yellow
-    // switch (colourChosen) {
-    //   case "green":
-    //     document.documentElement.style.setProperty("--primary", "40, 150, 90");
-    //     break;
-    //   case "red":
-    //     document.documentElement.style.setProperty("--primary", "194, 1, 20");
-    //     break;
-    //   case "blue":
-    //     document.documentElement.style.setProperty("--primary", "39, 93, 173");
-    //     break;
-    //   default:
-    //     document.documentElement.style.setProperty("--primary", "237, 174, 73");
-    //     break;
-    // }
-
     setPrimaryColour(colourChosen)
+    console.log("Theme name is ", projectDetails.themeName)
 
     // Create a new project on the DB
     await createProject(user_id, projectDetails.projectName, projectDetails.themeName, setProject)
@@ -58,7 +43,7 @@ function NewProjectForm({ user_id, setProject , setPrimaryColour} ){
     // Clear the form fields => reset the user details
     setProjectDetails({
       projectName: "",
-      themeName: "",
+      themeName: "green",
     });
 
     // Navigate the the current project page
