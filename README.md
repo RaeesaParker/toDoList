@@ -20,9 +20,22 @@ The app is hosted at [raeesaparker.github.io/toDoList/](https://raeesaparker.git
 
 ## Screenshots
 Below are a selection of screenshots of the app.
-
-<img src="./src/assets/screenshots/1.png" width="700" /> <img src="./src/assets/screenshots/2.png" width="700"  />
-<img src="./src/assets/screenshots/3.png" width="700"  /> <img src="./src/assets/screenshots/4.png" width="700"  />
+<br/>
+<hr/>
+<br/>
+<img src="./src/assets/screenshots/1.png" width="700" /> 
+<br/>
+<hr/>
+<br/>
+<img src="./src/assets/screenshots/2.png" width="700"  />
+<br/>
+<hr/>
+<br/>
+<img src="./src/assets/screenshots/3.png" width="700"  /> 
+<br/>
+<hr/>
+<br/>
+<img src="./src/assets/screenshots/4.png" width="700"  />
 
 
 <br> 
