@@ -78,6 +78,7 @@ function CurrentProject(props) {
             archiveNoteList={archiveNoteList}
             readNotesFunc={readNotesFunc}
             projectId={props.projectDetails.project_id}
+            userDetails={props.userDetails}
           ></Archive>
         </div>
     </div>
