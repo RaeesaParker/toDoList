@@ -54,7 +54,7 @@ function Archive(props){
     <div className="section-list-div" id="section-archive"  onDrop={drop} onDragOver={allowDrop}>
 
       <div className="project-title-div project-section-colour" id="section-archive-menu">
-        <h4>Raeesa</h4>
+        <h4>{props.userDetails.userName}</h4>
 
         <div  className="submit-button" onClick={onGoHome}>
           <p> <i className="fa-solid fa-house-user"></i> &nbsp; Home</p>
