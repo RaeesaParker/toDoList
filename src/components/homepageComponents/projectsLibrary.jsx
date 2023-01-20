@@ -49,7 +49,7 @@ function ProjectsLibrary({user_id, setProject, setPrimaryColour}){
       <div id="home-project-library">
         {projects.map( ( project ) => {
           return (
-            <div key={project.id} onClick={() => onSelectProject(project.id)} 
+            <div key={project.id} 
               className={"home-project-card " + (project.themeName == "blue" ? "home-project-card-blue" 
                 : ( project.themeName == "red" ? "home-project-card-red" 
                 : (project.themeName =="yellow" ? "home-project-card-yellow" 
@@ -57,14 +57,12 @@ function ProjectsLibrary({user_id, setProject, setPrimaryColour}){
                 : "home-project-card-green" 
               ))))} >
 
-              <div className="home-project-name">        
+              <div onClick={() => onSelectProject(project.id)} className="home-project-name">        
                 <p  > {project.projectName} </p>
               </div>
 
-              <div> 
-                <button
-                  className='button button-delete-project'
-                  onClick={() => onDeleteProject(project.id)}> 
+              <div onClick={() => onDeleteProject(project.id)}> 
+                <button className='button button-delete-project'> 
                   <span className="hovertext" data-hover="Delete"> <DeleteIcon />  </span>   
                 </button>
               </div>

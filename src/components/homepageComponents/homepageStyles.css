@@ -120,11 +120,12 @@
 }
 
 .home-project-card{
+  align-items: center;
   border-radius: 10px;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   margin: 2% 2%;
-  padding: 1% 2%;
+  padding: 0 2% 0 0;
   width: 20%;
 }
 
@@ -171,7 +172,7 @@
   display: inline-block;
   font-weight: 700;
   flex-grow: 2;
-  margin: 2% 5% 2% 0;
+  padding: 7% 0 7% 0;
 }
 
 .button-delete-project{
