@@ -37,7 +37,7 @@ function Login(props) {
 
           <nav className="navbar navbar-expand-lg  navbar-customise">
             <div className="navbar-buttons">
-              <h1> PinBoard!</h1>
+              <h1> PinIt!</h1>
             </div>
             <div className="navbar-buttons">
             <div className="navbar-item"> 
