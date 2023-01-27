@@ -83,6 +83,10 @@ padding: 3% ;
 float: left;
 }
 
+.note:hover{
+  cursor: pointer;
+}
+
 #section-to-do .note{
   background-color: rgba(var(--primary), 0.7);
 }
@@ -112,7 +116,8 @@ float: left;
 }
 
 .doing-button:hover, .archive-button:hover{
-  cursor: pointer;
+  
+  sor: pointer;
   color: var(--grey-medium);
 }
 
