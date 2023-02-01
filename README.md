@@ -5,7 +5,15 @@ PinIt! is a kanban-style work management tool that can be used to ideate plans a
 
 This repository ([RaeesaParker/toDoList](https://github.com/RaeesaParker/toDoList)) holds the front-end code for the project, whilst the back-end code can be found at [RaeesaParker/toDoList-API](https://github.com/RaeesaParker/toDoList-API) . 
 
-The app is currently hosted at [pinitboard.netlify.app/](https://pinitboard.netlify.app/) . 
+## Usage
+The app is hosted at [https://pinitboard.netlify.app/](https://pinitboard.netlify.app/). 
+To use this app, create an account using a username, e-mail, and password. 
+
+**To test the app without creating an account, please do one of the following -** 
+
+- Click on the "Demo" button
+- Login using the following details: &nbsp; **Username:**   *testuser*    &nbsp; **password:** *testuser*
+
 
 ## Technologies
 
@@ -17,15 +25,6 @@ The app is currently hosted at [pinitboard.netlify.app/](https://pinitboard.netl
 - Express 4.18.2
 - MySQL 
 
-## Usage
-The app is hosted at [https://pinitboard.netlify.app/](https://pinitboard.netlify.app/). 
-To use this app, create an account using a username, e-mail, and password. For more information, including screenhots of the app, see below or please visit the About page. 
-
-**To test the app without creating an account, please use the following details:** 
-
-**Username:**   *testuser* 
-
-**password:** *testuser*
 
 ## Screenshots
 Below are a selection of screenshots of the app.
