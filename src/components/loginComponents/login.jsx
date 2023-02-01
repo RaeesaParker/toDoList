@@ -1,6 +1,8 @@
 import React from "react";
 import './loginStyles.css'
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { loginUser } from "../../utils/users";
 import RegisterForm from "./registerForm";
 import LoginForm from "./loginForm";
 import Logo from '../../assets/logo_blue.png'
@@ -12,11 +14,19 @@ import Screenshot4 from "../../assets/screenshots/4.png"
 
 function Login(props) {
   
+  // Navigation for redirect
+  const navigate = useNavigate();
+
   // State to store which nav form should open
   const [navForm, setNavForm] = useState('buttons')
   
   // State to store homepage or about page
   const [aboutPage, setAboutPage] = useState(false)
+
+  // Set state for login error
+  const [error, setError] = useState("");
+  // temp use of setError
+  if (1 == 2) {setError("")}
 
   const handleOverlayClick = (event) => {
   if (event.target.localName == "div") {
@@ -28,6 +38,12 @@ function Login(props) {
   };
 
 
+  // Handle demo button being clicked
+  async function onSubmitSignInFunc() {
+    let registeredUser = await loginUser("testuser", "testuser", props.setUserDetails)
+    if (registeredUser.userName){navigate("/projects")}
+    else{setError(registeredUser);}  
+  }
 
   return (
     <div className="section-login" >
@@ -46,6 +62,11 @@ function Login(props) {
             <div className="navbar-item">
               <button className="navbar-brand button-signup" onClick={() => {setNavForm('register')}}>Sign Up</button>
             </div>
+
+            <div className="navbar-item">
+              <button className="navbar-brand" id="button-demo" onClick={() => onSubmitSignInFunc()}>Demo</button>
+            </div>
+
             <div className="navbar-item">
               <button  id="button-about" onClick={() => {setAboutPage(true)}}>About</button>
             </div>
