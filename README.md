@@ -16,7 +16,14 @@ The current deployment only holds the front-end. The back-end is currently in de
 - MySQL 
 
 ## Usage
-The app is hosted at [raeesaparker.github.io/toDoList/](https://raeesaparker.github.io/toDoList/). 
+The app is hosted at [https://pinitboard.netlify.app/](https://pinitboard.netlify.app/). 
+To use this app, create an account using a username, e-mail, and password. For more information, including screenhots of the app, please visit the About page. 
+
+**To test the app without creating an account, please use the following details:** 
+
+**Username:**  testuser
+
+**password:** testuser
 
 ## Screenshots
 Below are a selection of screenshots of the app.

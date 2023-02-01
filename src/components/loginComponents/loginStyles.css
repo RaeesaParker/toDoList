@@ -38,6 +38,7 @@
   margin: 0 3%;
 }
 
+
 .navbar-brand{
   background: transparent;
   border: 3px solid var(--grey-nav);
@@ -49,15 +50,22 @@
   padding: 0.5rem 1.0rem;
 }
 
-.navbar-brand:hover{
+
+.navbar-brand:hover, #button-demo:hover{
   background-color: var(--grey-nav);
   color: var(--grey-extra-light);
   cursor: pointer;
 }
 
-.button-signup{
+#button-demo{
   background-color: var(--grey-light);
 }
+
+
+.button-signup{
+  background-color: var(--grey-extra-light);
+}
+
 
 #button-about{
   background: transparent;
