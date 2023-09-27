@@ -1,5 +1,7 @@
 import { getCookie } from "../../common";
-const API_URL = process.env.REACT_APP_BASE_URL;
+//const API_URL = process.env.REACT_APP_BASE_URL;
+ const API_URL = "http://localhost:5001"
+
 
 // Read / Get all the notes of a user from one project
 export const readNotes = async (project_id) =>{
