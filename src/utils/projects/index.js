@@ -1,5 +1,6 @@
 import { getCookie } from "../../common";
-const API_URL = process.env.REACT_APP_BASE_URL;
+//const API_URL = process.env.REACT_APP_BASE_URL;
+const API_URL = "http://localhost:5001"
 
 
 // Read / Get all the projects of a user 
