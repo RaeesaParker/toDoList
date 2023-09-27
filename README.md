@@ -21,7 +21,7 @@ To use this project locally, clone down the repo, install the packages using
 To run - 
 ```npm start```
 
-This project will run on ```http://localhost:5001```
+This project will run on ```http://localhost:3000```
 
 **This project needs to be run alongside [RaeesaParker/toDoList-API](https://github.com/RaeesaParker/toDoList-API) in order to be run locally**
 
