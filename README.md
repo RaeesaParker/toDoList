@@ -14,6 +14,14 @@ To use this app, create an account using a username, e-mail, and password.
 - Click on the "Demo" button
 - Login using the following details: &nbsp; **Username:**   *testuser*    &nbsp; **password:** *testuser*
 
+## Local Usage
+To use this project locally, clone down the repo, install the packages using 
+```npm install```
+
+To run - 
+```npm start```
+
+This project will run on *localhost:5000*
 
 ## Technologies
 
