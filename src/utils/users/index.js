@@ -1,6 +1,6 @@
 import { writeCookie, getCookie } from "../../common/index"
-const API_URL = process.env.REACT_APP_BASE_URL;
-// const API_URL = "http://localhost:5001"
+//const API_URL = process.env.REACT_APP_BASE_URL;
+ const API_URL = "http://localhost:5001"
 
 
 // Register a user => Used to create user
